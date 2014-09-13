@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+
+<VirtualEnvironment xmlns="http://acrl.cis.fiu.edu/vescheduler/ws/vetypes"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="ve_types.xsd">
+
+	<VEName>K2_2</VEName>
+	<VENumPorts>5</VENumPorts>
+	<VENumMacs>6</VENumMacs>
+
+	<VENodeList>
+
+		<VENode>
+			<VirtualAppliance count="1">
+				<name>Domain Controller (dc)</name>
+				<guestOS>Microsoft Windows Server 2003</guestOS>
+				<networkInterface id="0" mode="DYNAMIC" />
+				<cpuCount>1</cpuCount>
+				<memorySize>512</memorySize>
+				<diskSize>5000</diskSize>
+				<role>dc.mr.fiu.edu</role>
+				<domain>FIU</domain>
+				<dir>w2k3-1</dir>
+				<users>
+					<user>
+						<username>Student</username>
+						<password></password>
+						<firstname></firstname>
+						<lastname></lastname>
+					</user>
+				</users>
+			</VirtualAppliance>
+		</VENode>
+
+		<VENode>
+			<VirtualAppliance count="2">
+				<name>Workstation 1 (ws1)</name>
+				<guestOS>Microsoft Windows XP</guestOS>
+				<networkInterface id="0" mode="DYNAMIC" />
+				<cpuCount>1</cpuCount>
+				<memorySize>512</memorySize>
+				<diskSize>5000</diskSize>
+				<role>ws1.scis.fiu.edu</role>
+				<domain>ws1.scis.fiu.edu</domain>
+				<dir>xp-1</dir>
+				<users>
+					<user>
+						<username>Student</username>
+						<password></password>
+						<firstname></firstname>
+						<lastname></lastname>
+					</user>
+				</users>
+			</VirtualAppliance>
+		</VENode>
+
+		<VENode>
+			<VirtualAppliance count="3">
+				<name>Guest 1 (guest1)</name>
+				<guestOS>Microsoft Windows XP</guestOS>
+				<networkInterface id="0" mode="DYNAMIC" />
+				<cpuCount>1</cpuCount>
+				<memorySize>512</memorySize>
+				<diskSize>5000</diskSize>
+				<role>guest1.gl.fiu.edu</role>
+				<domain>FIU</domain>
+				<dir>xp-2</dir>
+				<users>
+					<user>
+						<username>Student</username>
+						<password></password>
+						<firstname></firstname>
+						<lastname></lastname>
+					</user>
+				</users>
+			</VirtualAppliance>
+		</VENode>
+
+		<VENode>
+			<VirtualAppliance count="4">
+				<name>PC 1 (pc1)</name>
+				<guestOS>Microsoft Windows XP</guestOS>
+				<networkInterface id="0" mode="DYNAMIC" />
+				<cpuCount>1</cpuCount>
+				<memorySize>512</memorySize>
+				<diskSize>5000</diskSize>
+				<role>pc1.cec.fiu.edu</role>
+				<domain></domain>
+				<dir>xp-3</dir>
+				<users>
+					<user>
+						<username>Student</username>
+						<password></password>
+						<firstname></firstname>
+						<lastname></lastname>
+					</user>
+				</users>
+			</VirtualAppliance>
+		</VENode>
+
+		<VENode>
+			<VirtualAppliance count="5">
+				<name>Laptop 1 (laptop1)</name>
+				<guestOS>Microsoft Windows XP</guestOS>
+				<networkInterface id="0" mode="DYNAMIC" />
+				<cpuCount>1</cpuCount>
+				<memorySize>512</memorySize>
+				<diskSize>5000</diskSize>
+				<role>laptop1.cec.fiu.edu</role>
+				<domain></domain>
+				<dir>xp-4</dir>
+				<users>
+					<user>
+						<username>Student</username>
+						<password></password>
+						<firstname></firstname>
+						<lastname></lastname>
+					</user>
+				</users>
+			</VirtualAppliance>
+		</VENode>
+
+	</VENodeList>
+
+	<VENodeRelationList>
+
+		<VENodeRelation>
+			<node1Name>XP_Workstation</node1Name>
+			<node1Interface>0</node1Interface>
+			<node2Name>SW1></node2Name>
+			<node2Interface>0</node2Interface>
+		</VENodeRelation>
+
+
+	</VENodeRelationList>
+
+</VirtualEnvironment>

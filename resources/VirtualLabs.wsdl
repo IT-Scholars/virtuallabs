@@ -1,0 +1,2404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="VirtualLabs" targetNamespace="http://acrl.cis.fiu.edu/virtuallabs/ws" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://acrl.cis.fiu.edu/virtuallabs/ws" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+
+	<xsd:complexType name="Course">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="shortname" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="fullname" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="promoCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="vmInsStatusType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NOT_PROVISIONED"/>
+			<xsd:enumeration value="PROVISIONING_AND_STARTING"/>
+			<xsd:enumeration value="RUNNING"/>
+			<xsd:enumeration value="PAUSING"/>
+			<xsd:enumeration value="PAUSED"/>
+			<xsd:enumeration value="STARTING"/>
+			<xsd:enumeration value="DESTROYED"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="VMInfo">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="veInsId" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="username" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="password" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="domain" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="os" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="internalAddress" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="accessAddress" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="accessPort" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="macAddress" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="status" type="tns:vmInsStatusType"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="lastCheckin" type="xsd:dateTime"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="appName" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="appDir" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Action">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="type" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="content" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Appointment">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="id" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="userName" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="start" type="xsd:dateTime"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="end" type="xsd:dateTime"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="resourceType" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="course" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="affiliationId" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="availabilityStatus" type="xsd:string"/>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="action" type="tns:Action"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Host">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="sshPort" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="username" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="password" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="veNumCap" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="veFirstFreePort" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="vePortNum" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="active" type="xsd:boolean"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="newAssignment" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="KServer">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="httpPort" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="username" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="password" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="totalCap" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="activeCap" type="xsd:int"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="active" type="xsd:boolean"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="newAssignment" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="UserCredential">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="password" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="TodoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CHANGE_CHECKIN_INTERVAL"/>
+			<xsd:enumeration value="SYNC_USER_CREDENTIALS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- Deva -->
+
+	<xsd:element name="InvalidDataError" type="xsd:string"/>
+
+	<xsd:element name="DuplicateCourseError" type="xsd:string"/>
+
+	<xsd:element name="CourseNotFoundError" type="xsd:string"/>
+
+	<xsd:element name="AddCourseRequest" type="tns:Course"/>
+
+	<xsd:element name="ModifyCourseRequest" type="tns:Course"/>
+
+	<xsd:element name="DeleteCourseRequest" type="xsd:int"/>
+
+	<xsd:element name="AddInitialTasks4NewVMsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="devaInsId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="AddInitialTasks4NewVMsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RefreshVMRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="devaInsId" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="vmName" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RefreshVMResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RunVMCmdRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="devaInsId" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="vmName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="cmdParam1" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="cmdParam2" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RunVMCmdResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="returnValue" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IsRDPReadyRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="hostName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="hostport" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IsRDPReadyResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="ready" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="DestroyDevaInsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="devaInsId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="DestroyDevaInsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetDevaInsInfoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="username" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="course" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="resourceType" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetDevaInsInfoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="kserver" type="tns:KServer"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="vmInfo" type="tns:VMInfo"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserCurAppIdRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="username" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="course" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="resourceType" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserCurAppIdResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="appId" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetEndDate4CurrentDevaInsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="devaInsId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetEndDate4CurrentDevaInsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+			    <xsd:element maxOccurs="1" minOccurs="0" name="veInsSchId" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="curDate" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="endDate" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="resourceType" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetVMInsInfoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetVMInsInfoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="vmInfo" type="tns:VMInfo"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- -->
+
+	<!-- Services to Quota System -->
+
+	<xsd:element name="IsResourceAvailableRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="course" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="resourceType" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="start" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="end" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="quota" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IsResourceAvailableResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ReserveResourceRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="course" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="resourceType" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="start" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="end" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="quota" type="xsd:int"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="cancel" type="xsd:boolean"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ReserveResourceResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetResourceTypesRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userRole" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetResourceTypesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="resourceType" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- -->
+
+	<!-- Agent -->
+
+	<xsd:element name="CheckinRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="macAddress" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CheckinResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="todo" type="tns:TodoType"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetCheckinIntervalRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="macAddress" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetCheckinIntervalResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="checkinInterval" type="xsd:int"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserCredentialsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="macAddress" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserCredentialsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="userCredential" type="tns:UserCredential"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- -->
+
+	<!-- User -->
+
+	<xsd:element name="GetUserAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="start" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="end" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="appointments" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleUserAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleUserAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleCourseAppointmentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="course" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="resourceType" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="start" type="xsd:dateTime"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="end" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleCourseAppointmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelUserAppointmentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelUserAppointmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelAllUserAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="affiliationId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelAllUserAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ModifyUserAppointmentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="id" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="start" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="end" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ModifyUserAppointmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- Mentor -->
+
+	<xsd:element name="GetMentorAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="start" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="end" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetMentorAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="appointments" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleMentorAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleMentorAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelMentorAppointmentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelMentorAppointmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelAllMentorAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="affiliationId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelAllMentorAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ModifyMentorAppointmentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="id" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="start" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="end" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ModifyMentorAppointmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- Host -->
+
+	<xsd:element name="GetHostAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="start" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="end" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetHostAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="appointments" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleHostAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleHostAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelHostAppointmentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelHostAppointmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelAllHostAppointmentsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="affiliationId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelAllHostAppointmentsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ModifyHostAppointmentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="id" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="start" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="end" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ModifyHostAppointmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- -->
+
+	<xsd:element name="GetUserResourceTypesRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserResourceTypesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="resource" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- TimeZone -->
+
+	<xsd:element name="GetAvailableTimeZoneIdsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="timeZoneId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="SetUserDefaultTimeZoneIdRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="timeZoneId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="SetUserDefaultTimeZoneIdResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="GetUserDefaultTimeZoneIdRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="GetUserDefaultTimeZoneIdResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="timeZoneId" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserCurrentTimeRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserCurrentTimeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="time" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserProfileByUsernameRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserProfileByUsernameResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="password" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="firstName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="lastName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="userRole" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="timeZone" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="contactInfo" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserProfileByEmailRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="emailAddress" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetUserProfileByEmailResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="password" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="firstName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="lastName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="userRole" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="timeZone" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="contactInfo" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- -->
+
+	<xsd:element name="GetAvailableActionsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetAvailableActionsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="actions" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CreateUserProfileRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="password" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="firstName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="lastName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userRole" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="timeZone" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="contactInfo" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CreateUserProfileResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="EditUserProfileRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="password" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="firstName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="lastName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="userRole" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="timeZone" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="contactInfo" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="EditUserProfileResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="DelUserProfileRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="DelUserProfileResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="EnrollUserInCourseRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="courseName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="flag" type="xsd:boolean"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="EnrollUserInCourseResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="SuspendUserVLabRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="courseName" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="SuspendUserVLabResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="GetConfigurationRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetConfigurationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userStartTime" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userEndTime" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="adminStartTime" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="adminEndTime" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="SetConfigurationRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userStartTime" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userEndTime" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="adminStartTime" type="xsd:dateTime"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="adminEndTime" type="xsd:dateTime"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="SetConfigurationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<xsd:element name="GetHostRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetHostResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="host" type="tns:Host"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetHostListRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="active" type="xsd:boolean"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="GetHostListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" name="host" type="tns:Host"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="SetHostRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="host" type="tns:Host"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="SetHostResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="DelHostRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="DelHostResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="AddHostRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="host" type="tns:Host"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="AddHostResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="0" name="id" type="xsd:int"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="message" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+		</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAvailableActionsRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetAvailableActionsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetHostListResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetHostListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableTimeZoneIdsRequestMsg">
+  </wsdl:message>
+  <wsdl:message name="AddCourseResponseMsg">
+  </wsdl:message>
+  <wsdl:message name="DelUserProfileRequestMsg">
+    <wsdl:part name="parameters" element="tns:DelUserProfileRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IsResourceAvailableResponseMsg">
+    <wsdl:part name="parameters" element="tns:IsResourceAvailableResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModifyMentorAppointmentResponseMsg">
+    <wsdl:part name="parameters" element="tns:ModifyMentorAppointmentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserCurAppIdRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserCurAppIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelAllMentorAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:CancelAllMentorAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddInitialTasks4NewVMsResponseMsg">
+    <wsdl:part name="parameters" element="tns:AddInitialTasks4NewVMsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RunVMCmdResponseMsg">
+    <wsdl:part name="parameters" element="tns:RunVMCmdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleMentorAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleMentorAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelAllUserAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:CancelAllUserAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModifyHostAppointmentRequestMsg">
+    <wsdl:part name="parameters" element="tns:ModifyHostAppointmentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserCredentialsRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserCredentialsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetResourceTypesResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetResourceTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetDevaInsInfoRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetDevaInsInfoRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RefreshVMResponseMsg">
+    <wsdl:part name="parameters" element="tns:RefreshVMResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCourseResponseMsg">
+  </wsdl:message>
+  <wsdl:message name="SetConfigurationRequestMsg">
+    <wsdl:part name="parameters" element="tns:SetConfigurationRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserProfileByEmailRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserProfileByEmailRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetHostResponseMsg">
+    <wsdl:part name="parameters" element="tns:SetHostResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IsResourceAvailableRequestMsg">
+    <wsdl:part name="parameters" element="tns:IsResourceAvailableRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetConfigurationRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetConfigurationRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CheckinRequestMsg">
+    <wsdl:part name="parameters" element="tns:CheckinRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CourseNotFoundFault">
+    <wsdl:part name="parameters" element="tns:CourseNotFoundError">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetVMInsInfoRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetVMInsInfoRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetMentorAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetMentorAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DelHostRequestMsg">
+    <wsdl:part name="parameters" element="tns:DelHostRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CheckinResponseMsg">
+    <wsdl:part name="parameters" element="tns:CheckinResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DelHostResponseMsg">
+    <wsdl:part name="parameters" element="tns:DelHostResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModifyCourseResponseMsg">
+  </wsdl:message>
+  <wsdl:message name="GetUserCurAppIdResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetUserCurAppIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IsRDPReadyRequestMsg">
+    <wsdl:part name="parameters" element="tns:IsRDPReadyRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModifyCourseRequestMsg">
+    <wsdl:part name="parameters" element="tns:ModifyCourseRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelHostAppointmentResponseMsg">
+    <wsdl:part name="parameters" element="tns:CancelHostAppointmentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleHostAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleHostAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserCurrentTimeRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserCurrentTimeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserDefaultTimeZoneIdRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserDefaultTimeZoneIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetUserDefaultTimeZoneIdResponseMsg">
+    <wsdl:part name="parameters" element="tns:SetUserDefaultTimeZoneIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetVMInsInfoResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetVMInsInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleUserAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModifyMentorAppointmentRequestMsg">
+    <wsdl:part name="parameters" element="tns:ModifyMentorAppointmentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelMentorAppointmentResponseMsg">
+    <wsdl:part name="parameters" element="tns:CancelMentorAppointmentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddInitialTasks4NewVMsRequestMsg">
+    <wsdl:part name="parameters" element="tns:AddInitialTasks4NewVMsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateUserProfileRequestMsg">
+    <wsdl:part name="parameters" element="tns:CreateUserProfileRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EnrollUserInCourseResponseMsg">
+    <wsdl:part name="parameters" element="tns:EnrollUserInCourseResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DuplicateCourseFault">
+    <wsdl:part name="parameters" element="tns:DuplicateCourseError">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelUserAppointmentRequestMsg">
+    <wsdl:part name="parameters" element="tns:CancelUserAppointmentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetHostRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetHostRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserCurrentTimeResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetUserCurrentTimeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleCourseAppointmentResponseMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleCourseAppointmentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelMentorAppointmentRequestMsg">
+    <wsdl:part name="parameters" element="tns:CancelMentorAppointmentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetUserDefaultTimeZoneIdRequestMsg">
+    <wsdl:part name="parameters" element="tns:SetUserDefaultTimeZoneIdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReserveResourceRequestMsg">
+    <wsdl:part name="parameters" element="tns:ReserveResourceRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModifyUserAppointmentRequestMsg">
+    <wsdl:part name="parameters" element="tns:ModifyUserAppointmentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserProfileByUsernameRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserProfileByUsernameRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserProfileByUsernameResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetUserProfileByUsernameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleMentorAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleMentorAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetResourceTypesRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetResourceTypesRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserCredentialsResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetUserCredentialsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModifyHostAppointmentResponseMsg">
+    <wsdl:part name="parameters" element="tns:ModifyHostAppointmentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableActionsResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetAvailableActionsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCourseRequestMsg">
+    <wsdl:part name="parameters" element="tns:DeleteCourseRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetHostAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetHostAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetHostResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetHostResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableTimeZoneIdsResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetAvailableTimeZoneIdsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCheckinIntervalResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetCheckinIntervalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleUserAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SuspendUserVLabRequestMsg">
+    <wsdl:part name="parameters" element="tns:SuspendUserVLabRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReserveResourceResponseMsg">
+    <wsdl:part name="parameters" element="tns:ReserveResourceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserResourceTypesResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetUserResourceTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelUserAppointmentResponseMsg">
+    <wsdl:part name="parameters" element="tns:CancelUserAppointmentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetConfigurationResponseMsg">
+    <wsdl:part name="parameters" element="tns:SetConfigurationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetHostAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetHostAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCheckinIntervalRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetCheckinIntervalRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModifyUserAppointmentResponseMsg">
+    <wsdl:part name="parameters" element="tns:ModifyUserAppointmentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleCourseAppointmentRequestMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleCourseAppointmentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetHostListRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetHostListRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddHostResponseMsg">
+    <wsdl:part name="parameters" element="tns:AddHostResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserProfileByEmailResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetUserProfileByEmailResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RunVMCmdRequestMsg">
+    <wsdl:part name="parameters" element="tns:RunVMCmdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserResourceTypesRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserResourceTypesRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DelUserProfileResponseMsg">
+    <wsdl:part name="parameters" element="tns:DelUserProfileResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetDevaInsInfoResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetDevaInsInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleHostAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleHostAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelAllMentorAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:CancelAllMentorAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DestroyDevaInsRequestMsg">
+    <wsdl:part name="parameters" element="tns:DestroyDevaInsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetEndDate4CurrentDevaInsResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetEndDate4CurrentDevaInsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EditUserProfileResponseMsg">
+    <wsdl:part name="parameters" element="tns:EditUserProfileResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetHostRequestMsg">
+    <wsdl:part name="parameters" element="tns:SetHostRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetConfigurationResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetConfigurationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelAllUserAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:CancelAllUserAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EnrollUserInCourseRequestMsg">
+    <wsdl:part name="parameters" element="tns:EnrollUserInCourseRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RefreshVMRequestMsg">
+    <wsdl:part name="parameters" element="tns:RefreshVMRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddHostRequestMsg">
+    <wsdl:part name="parameters" element="tns:AddHostRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetMentorAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetMentorAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DestroyDevaInsResponseMsg">
+    <wsdl:part name="parameters" element="tns:DestroyDevaInsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetEndDate4CurrentDevaInsRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetEndDate4CurrentDevaInsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetUserAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetUserDefaultTimeZoneIdResponseMsg">
+    <wsdl:part name="parameters" element="tns:GetUserDefaultTimeZoneIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelAllHostAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:CancelAllHostAppointmentsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SuspendUserVLabResponseMsg">
+    <wsdl:part name="parameters" element="tns:SuspendUserVLabResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InvalidDataFault">
+    <wsdl:part name="parameters" element="tns:InvalidDataError">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EditUserProfileRequestMsg">
+    <wsdl:part name="parameters" element="tns:EditUserProfileRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelAllHostAppointmentsResponseMsg">
+    <wsdl:part name="parameters" element="tns:CancelAllHostAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddCourseRequestMsg">
+    <wsdl:part name="parameters" element="tns:AddCourseRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateUserProfileResponseMsg">
+    <wsdl:part name="parameters" element="tns:CreateUserProfileResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IsRDPReadyResponseMsg">
+    <wsdl:part name="parameters" element="tns:IsRDPReadyResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelHostAppointmentRequestMsg">
+    <wsdl:part name="parameters" element="tns:CancelHostAppointmentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="VirtualLabs">
+    <wsdl:operation name="addCourse">
+      <wsdl:input name="AddCourseRequest" message="tns:AddCourseRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="AddCourseResponse" message="tns:AddCourseResponseMsg">
+    </wsdl:output>
+      <wsdl:fault name="DuplicateCourseFault" message="tns:DuplicateCourseFault">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidDataFault" message="tns:InvalidDataFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="modifyCourse">
+      <wsdl:input name="ModifyCourseRequest" message="tns:ModifyCourseRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ModifyCourseResponse" message="tns:ModifyCourseResponseMsg">
+    </wsdl:output>
+      <wsdl:fault name="DuplicateCourseFault" message="tns:DuplicateCourseFault">
+    </wsdl:fault>
+      <wsdl:fault name="CourseNotFoundFault" message="tns:CourseNotFoundFault">
+    </wsdl:fault>
+      <wsdl:fault name="InvalidDataFault" message="tns:InvalidDataFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCourse">
+      <wsdl:input name="DeleteCourseRequest" message="tns:DeleteCourseRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="DeleteCourseResponse" message="tns:DeleteCourseResponseMsg">
+    </wsdl:output>
+      <wsdl:fault name="CourseNotFoundFault" message="tns:CourseNotFoundFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addInitialTasks4NewVMs">
+      <wsdl:input name="AddInitialTasks4NewVMsRequest" message="tns:AddInitialTasks4NewVMsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="AddInitialTasks4NewVMsResponse" message="tns:AddInitialTasks4NewVMsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refreshVM">
+      <wsdl:input name="RefreshVMRequest" message="tns:RefreshVMRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="RefreshVMResponse" message="tns:RefreshVMResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runVMCmd">
+      <wsdl:input name="RunVMCmdRequest" message="tns:RunVMCmdRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="RunVMCmdResponse" message="tns:RunVMCmdResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isRDPReady">
+      <wsdl:input name="IsRDPReadyRequest" message="tns:IsRDPReadyRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="IsRDPReadyResponse" message="tns:IsRDPReadyResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="destroyDevaIns">
+      <wsdl:input name="DestroyDevaInsRequest" message="tns:DestroyDevaInsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="DestroyDevaInsResponse" message="tns:DestroyDevaInsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDevaInsInfo">
+      <wsdl:input name="GetDevaInsInfoRequest" message="tns:GetDevaInsInfoRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetDevaInsInfoResponse" message="tns:GetDevaInsInfoResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCurAppId">
+      <wsdl:input name="GetUserCurAppIdRequest" message="tns:GetUserCurAppIdRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetUserCurAppIdResponse" message="tns:GetUserCurAppIdResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEndDate4CurrentDevaIns">
+      <wsdl:input name="GetEndDate4CurrentDevaInsRequest" message="tns:GetEndDate4CurrentDevaInsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetEndDate4CurrentDevaInsResponse" message="tns:GetEndDate4CurrentDevaInsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVMInsInfo">
+      <wsdl:input name="GetVMInsInfoRequest" message="tns:GetVMInsInfoRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetVMInsInfoResponse" message="tns:GetVMInsInfoResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isResourceAvailable">
+      <wsdl:input name="IsResourceAvailableRequest" message="tns:IsResourceAvailableRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="IsResourceAvailableResponse" message="tns:IsResourceAvailableResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reserveResource">
+      <wsdl:input name="ReserveResourceRequest" message="tns:ReserveResourceRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ReserveResourceResponse" message="tns:ReserveResourceResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceTypes">
+      <wsdl:input name="GetResourceTypesRequest" message="tns:GetResourceTypesRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetResourceTypesResponse" message="tns:GetResourceTypesResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkin">
+      <wsdl:input name="CheckinRequest" message="tns:CheckinRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CheckinResponse" message="tns:CheckinResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCheckinInterval">
+      <wsdl:input name="GetCheckinIntervalRequest" message="tns:GetCheckinIntervalRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetCheckinIntervalResponse" message="tns:GetCheckinIntervalResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCredentials">
+      <wsdl:input name="GetUserCredentialsRequest" message="tns:GetUserCredentialsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetUserCredentialsResponse" message="tns:GetUserCredentialsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserAppointments">
+      <wsdl:input name="GetUserAppointmentsRequest" message="tns:GetUserAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetUserAppointmentsResponse" message="tns:GetUserAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleUserAppointments">
+      <wsdl:input name="ScheduleUserAppointmentsRequest" message="tns:ScheduleUserAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ScheduleUserAppointmentsResponse" message="tns:ScheduleUserAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleCourseAppointment">
+      <wsdl:input name="ScheduleCourseAppointmentRequest" message="tns:ScheduleCourseAppointmentRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ScheduleCourseAppointmentResponse" message="tns:ScheduleCourseAppointmentResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyUserAppointment">
+      <wsdl:input name="ModifyUserAppointmentRequest" message="tns:ModifyUserAppointmentRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ModifyUserAppointmentResponse" message="tns:ModifyUserAppointmentResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelUserAppointment">
+      <wsdl:input name="CancelUserAppointmentRequest" message="tns:CancelUserAppointmentRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CancelUserAppointmentResponse" message="tns:CancelUserAppointmentResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAllUserAppointments">
+      <wsdl:input name="CancelAllUserAppointmentsRequest" message="tns:CancelAllUserAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CancelAllUserAppointmentsResponse" message="tns:CancelAllUserAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMentorAppointments">
+      <wsdl:input name="GetMentorAppointmentsRequest" message="tns:GetMentorAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetMentorAppointmentsResponse" message="tns:GetMentorAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleMentorAppointments">
+      <wsdl:input name="ScheduleMentorAppointmentsRequest" message="tns:ScheduleMentorAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ScheduleMentorAppointmentsResponse" message="tns:ScheduleMentorAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyMentorAppointment">
+      <wsdl:input name="ModifyMentorAppointmentRequest" message="tns:ModifyMentorAppointmentRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ModifyMentorAppointmentResponse" message="tns:ModifyMentorAppointmentResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelMentorAppointment">
+      <wsdl:input name="CancelMentorAppointmentRequest" message="tns:CancelMentorAppointmentRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CancelMentorAppointmentResponse" message="tns:CancelMentorAppointmentResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAllMentorAppointments">
+      <wsdl:input name="CancelAllMentorAppointmentsRequest" message="tns:CancelAllMentorAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CancelAllMentorAppointmentsResponse" message="tns:CancelAllMentorAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHostAppointments">
+      <wsdl:input name="GetHostAppointmentsRequest" message="tns:GetHostAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetHostAppointmentsResponse" message="tns:GetHostAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleHostAppointments">
+      <wsdl:input name="ScheduleHostAppointmentsRequest" message="tns:ScheduleHostAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ScheduleHostAppointmentsResponse" message="tns:ScheduleHostAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyHostAppointment">
+      <wsdl:input name="ModifyHostAppointmentRequest" message="tns:ModifyHostAppointmentRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ModifyHostAppointmentResponse" message="tns:ModifyHostAppointmentResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelHostAppointment">
+      <wsdl:input name="CancelHostAppointmentRequest" message="tns:CancelHostAppointmentRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CancelHostAppointmentResponse" message="tns:CancelHostAppointmentResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAllHostAppointments">
+      <wsdl:input name="CancelAllHostAppointmentsRequest" message="tns:CancelAllHostAppointmentsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CancelAllHostAppointmentsResponse" message="tns:CancelAllHostAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserResourceTypes">
+      <wsdl:input name="GetUserResourceTypesRequest" message="tns:GetUserResourceTypesRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetUserResourceTypesResponse" message="tns:GetUserResourceTypesResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableTimeZoneIds">
+      <wsdl:input name="GetAvailableTimeZoneIdsRequest" message="tns:GetAvailableTimeZoneIdsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetAvailableTimeZoneIdsResponse" message="tns:GetAvailableTimeZoneIdsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserDefaultTimeZoneId">
+      <wsdl:input name="SetUserDefaultTimeZoneIdRequest" message="tns:SetUserDefaultTimeZoneIdRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="SetUserDefaultTimeZoneIdResponse" message="tns:SetUserDefaultTimeZoneIdResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserDefaultTimeZoneId">
+      <wsdl:input name="GetUserDefaultTimeZoneIdRequest" message="tns:GetUserDefaultTimeZoneIdRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetUserDefaultTimeZoneIdResponse" message="tns:GetUserDefaultTimeZoneIdResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCurrentTime">
+      <wsdl:input name="GetUserCurrentTimeRequest" message="tns:GetUserCurrentTimeRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetUserCurrentTimeResponse" message="tns:GetUserCurrentTimeResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserProfileByUsername">
+      <wsdl:input name="GetUserProfileByUsernameRequest" message="tns:GetUserProfileByUsernameRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetUserProfileByUsernameResponse" message="tns:GetUserProfileByUsernameResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserProfileByEmail">
+      <wsdl:input name="GetUserProfileByEmailRequest" message="tns:GetUserProfileByEmailRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetUserProfileByEmailResponse" message="tns:GetUserProfileByEmailResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableActions">
+      <wsdl:input name="GetAvailableActionsRequest" message="tns:GetAvailableActionsRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetAvailableActionsResponse" message="tns:GetAvailableActionsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createUserProfile">
+      <wsdl:input name="CreateUserProfileRequest" message="tns:CreateUserProfileRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CreateUserProfileResponse" message="tns:CreateUserProfileResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editUserProfile">
+      <wsdl:input name="EditUserProfileRequest" message="tns:EditUserProfileRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="EditUserProfileResponse" message="tns:EditUserProfileResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delUserProfile">
+      <wsdl:input name="DelUserProfileRequest" message="tns:DelUserProfileRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="DelUserProfileResponse" message="tns:DelUserProfileResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollUserInCourse">
+      <wsdl:input name="EnrollUserInCourseRequest" message="tns:EnrollUserInCourseRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="EnrollUserInCourseResponse" message="tns:EnrollUserInCourseResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendUserVLab">
+      <wsdl:input name="SuspendUserVLabRequest" message="tns:SuspendUserVLabRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="SuspendUserVLabResponse" message="tns:SuspendUserVLabResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConfiguration">
+      <wsdl:input name="GetConfigurationRequest" message="tns:GetConfigurationRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetConfigurationResponse" message="tns:GetConfigurationResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setConfiguration">
+      <wsdl:input name="SetConfigurationRequest" message="tns:SetConfigurationRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="SetConfigurationResponse" message="tns:SetConfigurationResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHost">
+      <wsdl:input name="GetHostRequest" message="tns:GetHostRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetHostResponse" message="tns:GetHostResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHostList">
+      <wsdl:input name="GetHostListRequest" message="tns:GetHostListRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="GetHostListResponse" message="tns:GetHostListResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setHost">
+      <wsdl:input name="SetHostRequest" message="tns:SetHostRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="SetHostResponse" message="tns:SetHostResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delHost">
+      <wsdl:input name="DelHostRequest" message="tns:DelHostRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="DelHostResponse" message="tns:DelHostResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addHost">
+      <wsdl:input name="AddHostRequest" message="tns:AddHostRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="AddHostResponse" message="tns:AddHostResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VirtualLabsBinding" type="tns:VirtualLabs">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addCourse">
+      <soap:operation soapAction="addCourse"/>
+      <wsdl:input name="AddCourseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddCourseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="DuplicateCourseFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InvalidDataFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="modifyCourse">
+      <soap:operation soapAction="modifyCourse"/>
+      <wsdl:input name="ModifyCourseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ModifyCourseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="DuplicateCourseFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="CourseNotFoundFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="InvalidDataFault">
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCourse">
+      <soap:operation soapAction="deleteCourse"/>
+      <wsdl:input name="DeleteCourseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteCourseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CourseNotFoundFault">
+    <soap:body use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addInitialTasks4NewVMs">
+      <soap:operation soapAction="addInitialTasks4NewVMs"/>
+      <wsdl:input name="AddInitialTasks4NewVMsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddInitialTasks4NewVMsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refreshVM">
+      <soap:operation soapAction="refreshVM"/>
+      <wsdl:input name="RefreshVMRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RefreshVMResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runVMCmd">
+      <soap:operation soapAction="runVMCmd"/>
+      <wsdl:input name="RunVMCmdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RunVMCmdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isRDPReady">
+      <soap:operation soapAction="isRDPReady"/>
+      <wsdl:input name="IsRDPReadyRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="IsRDPReadyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="destroyDevaIns">
+      <soap:operation soapAction="destroyDevaIns"/>
+      <wsdl:input name="DestroyDevaInsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DestroyDevaInsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDevaInsInfo">
+      <soap:operation soapAction="getDevaInsInfo"/>
+      <wsdl:input name="GetDevaInsInfoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetDevaInsInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCurAppId">
+      <soap:operation soapAction="getUserCurAppId"/>
+      <wsdl:input name="GetUserCurAppIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUserCurAppIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEndDate4CurrentDevaIns">
+      <soap:operation soapAction="getEndDate4CurrentDevaIns"/>
+      <wsdl:input name="GetEndDate4CurrentDevaInsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetEndDate4CurrentDevaInsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVMInsInfo">
+      <soap:operation soapAction="getVMInsInfo"/>
+      <wsdl:input name="GetVMInsInfoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetVMInsInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isResourceAvailable">
+      <soap:operation soapAction="isResourceAvailable"/>
+      <wsdl:input name="IsResourceAvailableRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="IsResourceAvailableResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reserveResource">
+      <soap:operation soapAction="reserveResource"/>
+      <wsdl:input name="ReserveResourceRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ReserveResourceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceTypes">
+      <soap:operation soapAction="getResourceTypes"/>
+      <wsdl:input name="GetResourceTypesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetResourceTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkin">
+      <soap:operation soapAction="checkin"/>
+      <wsdl:input name="CheckinRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CheckinResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCheckinInterval">
+      <soap:operation soapAction="getCheckinInterval"/>
+      <wsdl:input name="GetCheckinIntervalRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCheckinIntervalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCredentials">
+      <soap:operation soapAction="getUserCredentials"/>
+      <wsdl:input name="GetUserCredentialsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUserCredentialsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserAppointments">
+      <soap:operation soapAction="getUserAppointments"/>
+      <wsdl:input name="GetUserAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUserAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleUserAppointments">
+      <soap:operation soapAction="scheduleUserAppointments"/>
+      <wsdl:input name="ScheduleUserAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ScheduleUserAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleCourseAppointment">
+      <soap:operation soapAction="scheduleCourseAppointment"/>
+      <wsdl:input name="ScheduleCourseAppointmentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ScheduleCourseAppointmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyUserAppointment">
+      <soap:operation soapAction="modifyUserAppointment"/>
+      <wsdl:input name="ModifyUserAppointmentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ModifyUserAppointmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelUserAppointment">
+      <soap:operation soapAction="cancelUserAppointment"/>
+      <wsdl:input name="CancelUserAppointmentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CancelUserAppointmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAllUserAppointments">
+      <soap:operation soapAction="cancelAllUserAppointments"/>
+      <wsdl:input name="CancelAllUserAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CancelAllUserAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMentorAppointments">
+      <soap:operation soapAction="getMentorAppointments"/>
+      <wsdl:input name="GetMentorAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetMentorAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleMentorAppointments">
+      <soap:operation soapAction="scheduleMentorAppointments"/>
+      <wsdl:input name="ScheduleMentorAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ScheduleMentorAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyMentorAppointment">
+      <soap:operation soapAction="modifyMentorAppointment"/>
+      <wsdl:input name="ModifyMentorAppointmentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ModifyMentorAppointmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelMentorAppointment">
+      <soap:operation soapAction="cancelMentorAppointment"/>
+      <wsdl:input name="CancelMentorAppointmentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CancelMentorAppointmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAllMentorAppointments">
+      <soap:operation soapAction="cancelAllMentorAppointments"/>
+      <wsdl:input name="CancelAllMentorAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CancelAllMentorAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHostAppointments">
+      <soap:operation soapAction="getHostAppointments"/>
+      <wsdl:input name="GetHostAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetHostAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleHostAppointments">
+      <soap:operation soapAction="scheduleHostAppointments"/>
+      <wsdl:input name="ScheduleHostAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ScheduleHostAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyHostAppointment">
+      <soap:operation soapAction="modifyHostAppointment"/>
+      <wsdl:input name="ModifyHostAppointmentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ModifyHostAppointmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelHostAppointment">
+      <soap:operation soapAction="cancelHostAppointment"/>
+      <wsdl:input name="CancelHostAppointmentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CancelHostAppointmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAllHostAppointments">
+      <soap:operation soapAction="cancelAllHostAppointments"/>
+      <wsdl:input name="CancelAllHostAppointmentsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CancelAllHostAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserResourceTypes">
+      <soap:operation soapAction="getUserResourceTypes"/>
+      <wsdl:input name="GetUserResourceTypesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUserResourceTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableTimeZoneIds">
+      <soap:operation soapAction="getAvailableTimeZoneIds"/>
+      <wsdl:input name="GetAvailableTimeZoneIdsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetAvailableTimeZoneIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setUserDefaultTimeZoneId">
+      <soap:operation soapAction="setUserDefaultTimeZoneId"/>
+      <wsdl:input name="SetUserDefaultTimeZoneIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetUserDefaultTimeZoneIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserDefaultTimeZoneId">
+      <soap:operation soapAction="getUserDefaultTimeZoneId"/>
+      <wsdl:input name="GetUserDefaultTimeZoneIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUserDefaultTimeZoneIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCurrentTime">
+      <soap:operation soapAction="getUserCurrentTime"/>
+      <wsdl:input name="GetUserCurrentTimeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUserCurrentTimeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserProfileByUsername">
+      <soap:operation soapAction="getUserProfileByUsername"/>
+      <wsdl:input name="GetUserProfileByUsernameRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUserProfileByUsernameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserProfileByEmail">
+      <soap:operation soapAction="getUserProfileByEmail"/>
+      <wsdl:input name="GetUserProfileByEmailRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetUserProfileByEmailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableActions">
+      <soap:operation soapAction="getAvailableActions"/>
+      <wsdl:input name="GetAvailableActionsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetAvailableActionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createUserProfile">
+      <soap:operation soapAction="createUserProfile"/>
+      <wsdl:input name="CreateUserProfileRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreateUserProfileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editUserProfile">
+      <soap:operation soapAction="editUserProfile"/>
+      <wsdl:input name="EditUserProfileRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="EditUserProfileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delUserProfile">
+      <soap:operation soapAction="delUserProfile"/>
+      <wsdl:input name="DelUserProfileRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DelUserProfileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollUserInCourse">
+      <soap:operation soapAction="enrollUserInCourse"/>
+      <wsdl:input name="EnrollUserInCourseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="EnrollUserInCourseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suspendUserVLab">
+      <soap:operation soapAction="suspendUserVLab"/>
+      <wsdl:input name="SuspendUserVLabRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SuspendUserVLabResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConfiguration">
+      <soap:operation soapAction="getConfiguration"/>
+      <wsdl:input name="GetConfigurationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetConfigurationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setConfiguration">
+      <soap:operation soapAction="setConfiguration"/>
+      <wsdl:input name="SetConfigurationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetConfigurationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHost">
+      <soap:operation soapAction="getHost"/>
+      <wsdl:input name="GetHostRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetHostResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHostList">
+      <soap:operation soapAction="getHostList"/>
+      <wsdl:input name="GetHostListRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetHostListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setHost">
+      <soap:operation soapAction="setHost"/>
+      <wsdl:input name="SetHostRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetHostResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delHost">
+      <soap:operation soapAction="delHost"/>
+      <wsdl:input name="DelHostRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DelHostResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addHost">
+      <soap:operation soapAction="addHost"/>
+      <wsdl:input name="AddHostRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="AddHostResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VirtualLabs">
+    <wsdl:port name="VirtualLabsPort" binding="tns:VirtualLabsBinding">
+      <soap:address location="http://localhost:8080/axis2/services/VirtualLabs"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

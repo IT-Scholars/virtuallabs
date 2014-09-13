@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="QuotaSystem"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+	xmlns:tns="http://acrl.cis.fiu.edu/quotasystem/ws"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	targetNamespace="http://acrl.cis.fiu.edu/quotasystem/ws" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://acrl.cis.fiu.edu/quotasystem/ws"
+			elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+            <!-- This function checks whether the user has any available quota for any of the
+            	course resources at the current moment. -->
+			<xsd:element name="DoesUserHaveAvailableQuotaRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+					<!-- We consider that the username to be unique and cannot be changed after
+						first defined in the system. -->
+					<xsd:element maxOccurs="1" minOccurs="1" name="username"
+						type="xsd:string" />
+					<!-- We consider that the course long name is unique and that should be the
+						one used for this parameter. -->
+					<xsd:element maxOccurs="1" minOccurs="1" name="course"
+						type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- If there is any available quota at the current moment for any of the resources
+				of the course, it will return true; otherwise, false. -->
+			<xsd:element name="DoesUserHaveAvailableQuotaResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="quotaIsAvailable"
+							type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- This data structure includes all the information about one appointment that is
+				of interest to the Quota System -->
+			<xsd:complexType name="Appointment">
+				<xsd:sequence>
+					<!-- This is a GUID that uniquely refers to each specific appointment. The 
+						length is 36 characters. This id should be recorded in the Quota System
+						as it will be referred to when a modification or cancellation request is
+						sent. -->
+					<xsd:element maxOccurs="1" minOccurs="1" name="id"
+						type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="username"
+						type="xsd:string" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="start"
+						type="xsd:dateTime" />
+					<xsd:element maxOccurs="1" minOccurs="1" name="end"
+						type="xsd:dateTime" />
+					<!-- The course's unique long name. -->
+					<xsd:element maxOccurs="1" minOccurs="1" name="course"
+						type="xsd:string" />
+					<!-- It must be one of these three: VIRTUAL LAB, MENTORING, and CERTIFICATE 
+						-->
+					<xsd:element maxOccurs="1" minOccurs="1" name="resourceType"
+						type="xsd:string" />
+					<!-- This is a GUID that uniquely refers to a series of affiliated appointments.
+						The scheduler allows users to schedule recurring appointments. The affiliation
+						id keeps track of such relationship. The length is 36 characters. This id 
+						should be recorded in the Quota System as it will be referred to when a 
+						cancellAll request is sent. -->
+					<xsd:element maxOccurs="1" minOccurs="1" name="affiliationId"
+						type="xsd:string" />
+					<!-- This is more of a return parameter and its values must be ignored when 
+						sent to the Quota System. On return for the scheduleUserAppointment function,
+						the value must be set to true, if there is sufficient quota available and is
+						assigned to this appointment; otherwise, it must be set to false. -->
+					<xsd:element maxOccurs="1" minOccurs="1" name="availabilityStatus" 
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<!-- We allow users to schedule one or more appointments at the same time, as the 
+				scheduler allows recurring appointments. There must be at least one appointment sent
+				by this request. -->
+			<xsd:element name="ScheduleUserAppointmentsRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="unbounded" minOccurs="1"
+							name="appointment" type="tns:Appointment" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- The response is expected to return all the appointments in the request in the same
+				order with all the contents intact, except for the availabilityStatus that must be
+				set true or false according to the availability and assignment of the corresponding
+				quota. -->
+			<xsd:element name="ScheduleUserAppointmentsResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="unbounded" minOccurs="1"
+							name="appointment" type="tns:Appointment" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Sends a request to cancel only one appointment by referring to its unique id. Note
+				that the corresponding assigned quota must be returned to the user. -->
+			<xsd:element name="CancelUserAppointmentRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="id"
+							type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- If not successful, the success must be set as false and the reason must include a
+				descriptive message that explains why the request failed. -->
+			<xsd:element name="CancelUserAppointmentResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="success"
+							type="xsd:boolean" />
+						<xsd:element maxOccurs="1" minOccurs="1" name="reason"
+							type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Sends a request to cancel all the affiliated appointments by referring to their 
+				unique affiliation id. Note that the corresponding assigned quota must be returned 
+				to the user. -->
+			<xsd:element name="CancelAllUserAppointmentsRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="affiliationId"
+							type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- If not successful, the success must be set as false and the reason must include a
+				descriptive message that explains why the request failed. -->
+			<xsd:element name="CancelAllUserAppointmentsResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="success"
+							type="xsd:boolean" />
+						<xsd:element maxOccurs="1" minOccurs="1" name="reason"
+							type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Note that this request sends the unique id of the appointment being modified. We
+				only allow the time of the appointment to be changed and not the other properties.
+				The functions checks whether the quota is available for such modification and will
+				modify the quota assignment accordingly. -->
+			<xsd:element name="ModifyUserAppointmentRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="0" name="id"
+							type="xsd:string" />
+						<xsd:element maxOccurs="1" minOccurs="0" name="start"
+							type="xsd:dateTime" />
+						<xsd:element maxOccurs="1" minOccurs="0" name="end"
+							type="xsd:dateTime" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- If not successful, the success must be set as false and the reason must include a
+				descriptive message that explains why the request failed. -->
+			<xsd:element name="ModifyUserAppointmentResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1" minOccurs="1" name="success"
+							type="xsd:boolean" />
+						<xsd:element maxOccurs="1" minOccurs="1" name="reason"
+							type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+	</wsdl:types>
+
+    <!-- Messages -->
+	
+	<wsdl:message name="DoesUserHaveAvailableQuotaRequestMsg">
+		<wsdl:part name="parameters" element="tns:DoesUserHaveAvailableQuotaRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="DoesUserHaveAvailableQuotaResponseMsg">
+		<wsdl:part name="parameters" element="tns:DoesUserHaveAvailableQuotaResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="ScheduleUserAppointmentsRequestMsg">
+		<wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="ScheduleUserAppointmentsResponseMsg">
+		<wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="CancelUserAppointmentRequestMsg">
+		<wsdl:part name="parameters" element="tns:CancelUserAppointmentRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="CancelUserAppointmentResponseMsg">
+		<wsdl:part name="parameters" element="tns:CancelUserAppointmentResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="CancelAllUserAppointmentsRequestMsg">
+		<wsdl:part name="parameters" element="tns:CancelAllUserAppointmentsRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="CancelAllUserAppointmentsResponseMsg">
+		<wsdl:part name="parameters" element="tns:CancelAllUserAppointmentsResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="ModifyUserAppointmentRequestMsg">
+		<wsdl:part name="parameters" element="tns:ModifyUserAppointmentRequest">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="ModifyUserAppointmentResponseMsg">
+		<wsdl:part name="parameters" element="tns:ModifyUserAppointmentResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="QuotaSystem">
+
+		<wsdl:operation name="doesUserHaveAvailableQuota">
+			<wsdl:input name="DoesUserHaveAvailableQuotaRequest" message="tns:DoesUserHaveAvailableQuotaRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="DoesUserHaveAvailableQuotaResponse" message="tns:DoesUserHaveAvailableQuotaResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="scheduleUserAppointments">
+			<wsdl:input name="ScheduleUserAppointmentsRequest" message="tns:ScheduleUserAppointmentsRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="ScheduleUserAppointmentsResponse" message="tns:ScheduleUserAppointmentsResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="cancelUserAppointment">
+			<wsdl:input name="CancelUserAppointmentRequest" message="tns:CancelUserAppointmentRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="CancelUserAppointmentResponse" message="tns:CancelUserAppointmentResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="cancelAllUserAppointments">
+			<wsdl:input name="CancelAllUserAppointmentsRequest" message="tns:CancelAllUserAppointmentsRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="CancelAllUserAppointmentsResponse"
+				message="tns:CancelAllUserAppointmentsResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="modifyUserAppointment">
+			<wsdl:input name="ModifyUserAppointmentRequest" message="tns:ModifyUserAppointmentRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="ModifyUserAppointmentResponse" message="tns:ModifyUserAppointmentResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<wsdl:binding name="QuotaSystemBinding" type="tns:QuotaSystem">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		
+		<wsdl:operation name="doesUserHaveAvailableQuota">
+			<soap:operation soapAction="doesUserHaveAvailableQuota" />
+			<wsdl:input name="DoesUserHaveAvailableQuotaRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="DoesUserHaveAvailableQuotaResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="scheduleUserAppointments">
+			<soap:operation soapAction="scheduleUserAppointments" />
+			<wsdl:input name="ScheduleUserAppointmentsRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ScheduleUserAppointmentsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="cancelUserAppointment">
+			<soap:operation soapAction="cancelUserAppointment" />
+			<wsdl:input name="CancelUserAppointmentRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CancelUserAppointmentResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="cancelAllUserAppointments">
+			<soap:operation soapAction="cancelAllUserAppointments" />
+			<wsdl:input name="CancelAllUserAppointmentsRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="CancelAllUserAppointmentsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="modifyUserAppointment">
+			<soap:operation soapAction="modifyUserAppointment" />
+			<wsdl:input name="ModifyUserAppointmentRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ModifyUserAppointmentResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<wsdl:service name="QuotaSystem">
+		<wsdl:port name="QuotaSystemPort" binding="tns:QuotaSystemBinding">
+			<soap:address location="http://localhost:8080/axis2/services/QuotaSystem" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

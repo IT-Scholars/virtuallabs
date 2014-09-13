@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/axis"/>
+	<classpathentry kind="lib" path="/vescheduler/lib/VEScheduler.jar"/>
+	<classpathentry kind="lib" path="/mentorscheduler/lib/mentorclient.jar"/>
+	<classpathentry kind="lib" path="/mentorscheduler/lib/MentorScheduler.jar"/>
+	<classpathentry kind="src" path="/vescheduler"/>
+	<classpathentry kind="lib" path="/QuotaSystem-svn/lib/QuotaSystem.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
