@@ -4049,6 +4049,71 @@ public class VirtualLabs {
 */
 	/**
 	 * 
+	 * @param extendUserAppointmentRequest
+	 * @return
+	 */
+	public ExtendUserAppointmentResponse extendUserAppointment(
+			ExtendUserAppointmentRequest extendUserAppointmentRequest) {
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - extendUserAppointment] Inside!");
+		
+		ExtendUserAppointmentResponse resp = new ExtendUserAppointmentResponse();
+		resp.setSuccess(true);
+		resp.setReason("Successful!");
+
+		try {
+			// First, check if the modified appointment is valid.
+			DbAppointment app = 
+				virtualLabsDB.getAppointment(extendUserAppointmentRequest.getId());
+			GetVEInsScheduleBySchIdRequest veReq = 
+					new GetVEInsScheduleBySchIdRequest();
+			veReq.setVeInsSchId(app.getSchId());
+			GetVEInsScheduleBySchIdResponse veResp = 
+					veStub.getVEInsScheduleBySchId(veReq);
+			if (!veResp.getSuccess()) {
+				resp.setSuccess(false);
+				resp.setReason("The schedule id cannot be found in the scheduling records!");
+				return resp;				
+			}
+
+			ModifyUserAppointmentRequest modifyReq = new ModifyUserAppointmentRequest();
+			modifyReq.setRequestingUser(extendUserAppointmentRequest.getRequestingUser());
+			modifyReq.setId(extendUserAppointmentRequest.getId());
+			Calendar startTime = veResp.getSchedule().getTimePeriod().getStartTime();
+			modifyReq.setStart(startTime);
+			Calendar endTime = veResp.getSchedule().getTimePeriod().getEndTime();
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - extendUserAppointment] "
+					+ "Original startTime is " + startTime.getTime()
+					+ " and original endTime is " + endTime.getTime());			
+			endTime.add(Calendar.MINUTE, extendUserAppointmentRequest.getMinutes());
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - extendUserAppointment] "
+					+ "Original startTime is " + startTime.getTime()
+					+ " and extended endTime is " + endTime.getTime());
+			modifyReq.setEnd(endTime);
+			
+			ModifyUserAppointmentResponse modifyResp = modifyUserAppointment(modifyReq);
+			if (!modifyResp.getSuccess()) {
+				resp.setSuccess(false);
+				resp.setReason("The extension cannot be reflected!");
+				return resp;				
+			}
+			
+		} catch (Error e) {
+			e.printStackTrace();
+			resp.setSuccess(false);
+			resp.setReason("Error:"+e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp.setSuccess(false);
+			resp.setReason("Exception:"+e.getMessage());
+		}
+
+		
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - extendUserAppointment] Ready to get out!");
+		return resp;
+	}
+	
+	/**
+	 * 
 	 * @param modifyUserAppointmentRequest
 	 * @return
 	 */
@@ -4056,6 +4121,16 @@ public class VirtualLabs {
 			ModifyUserAppointmentRequest modifyUserAppointmentRequest) {
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - modifyUserAppointment] Inside!");
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - modifyUserAppointment] "
+				+ "==========================================================");
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - modifyUserAppointment] ");
+		DebugTools.println(DEBUG_LEVEL, "	modifyUserAppointmentRequest: ");
+		if (modifyUserAppointmentRequest.getStart() != null)
+			DebugTools.println(DEBUG_LEVEL, "		start: " + modifyUserAppointmentRequest.getStart().getTime());
+		if (modifyUserAppointmentRequest.getEnd() != null)
+			DebugTools.println(DEBUG_LEVEL, "		end: " + modifyUserAppointmentRequest.getEnd().getTime());
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - modifyUserAppointment] "
+				+ "==========================================================");
 
 		ModifyUserAppointmentResponse resp = new ModifyUserAppointmentResponse();
 		resp.setSuccess(true);

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.5.1  Built on : Oct 19, 2009 (10:59:00 EDT) -->
+<serviceGroup>
+    <service name="VirtualLabs">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getHostMaintenanceSchedule" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getHostMaintenanceSchedule</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetHostMaintenanceScheduleResponse</outputActionMapping>
+        </operation>
+        <operation name="setConfiguration" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>setConfiguration</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/SetConfigurationResponse</outputActionMapping>
+        </operation>
+        <operation name="getHost" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getHost</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetHostResponse</outputActionMapping>
+        </operation>
+        <operation name="setHost" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>setHost</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/SetHostResponse</outputActionMapping>
+        </operation>
+        <operation name="cancelScheduledHostMaintenance" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>cancelScheduledHostMaintenance</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/CancelScheduledHostMaintenanceResponse</outputActionMapping>
+        </operation>
+        <operation name="delHost" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>delHost</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/DelHostResponse</outputActionMapping>
+        </operation>
+        <operation name="scheduleAppointments" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>scheduleAppointments</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/ScheduleAppointmentsResponse</outputActionMapping>
+        </operation>
+        <operation name="getAvailableTimeZoneIds" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getAvailableTimeZoneIds</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetAvailableTimeZoneIdsResponse</outputActionMapping>
+        </operation>
+        <operation name="getHostMaintenanceUnavailability" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getHostMaintenanceUnavailability</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetHostMaintenanceUnavailabilityResponse</outputActionMapping>
+        </operation>
+        <operation name="scheduleHostMaintenance" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>scheduleHostMaintenance</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/ScheduleHostMaintenanceResponse</outputActionMapping>
+        </operation>
+        <operation name="getHostList" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getHostList</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetHostListResponse</outputActionMapping>
+        </operation>
+        <operation name="getHostMaintenanceAvailability" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getHostMaintenanceAvailability</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetHostMaintenanceAvailabilityResponse</outputActionMapping>
+        </operation>
+        <operation name="cancelAllAppointments" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>cancelAllAppointments</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/CancelAllAppointmentsResponse</outputActionMapping>
+        </operation>
+        <operation name="enrollUserInCourse" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>enrollUserInCourse</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/EnrollUserInCourseResponse</outputActionMapping>
+        </operation>
+        <operation name="cancelAppointment" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>cancelAppointment</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/CancelAppointmentResponse</outputActionMapping>
+        </operation>
+        <operation name="getConfiguration" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getConfiguration</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetConfigurationResponse</outputActionMapping>
+        </operation>
+        <operation name="getAvailableActions" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getAvailableActions</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetAvailableActionsResponse</outputActionMapping>
+        </operation>
+        <operation name="addHost" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>addHost</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/AddHostResponse</outputActionMapping>
+        </operation>
+        <operation name="createUserProfile" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>createUserProfile</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/CreateUserProfileResponse</outputActionMapping>
+        </operation>
+        <operation name="getUserAppointments" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getUserAppointments</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetUserAppointmentsResponse</outputActionMapping>
+        </operation>
+        <operation name="modifyScheduledHostMaintenance" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>modifyScheduledHostMaintenance</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/ModifyScheduledHostMaintenanceResponse</outputActionMapping>
+        </operation>
+        <operation name="editUserProfile" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>editUserProfile</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/EditUserProfileResponse</outputActionMapping>
+        </operation>
+        <operation name="getUserResourceTypes" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>getUserResourceTypes</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/GetUserResourceTypesResponse</outputActionMapping>
+        </operation>
+        <operation name="modifyAppointment" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://acrl.cis.fiu.edu/virtuallabs/ws">
+            <actionMapping>modifyAppointment</actionMapping>
+            <outputActionMapping>http://acrl.cis.fiu.edu/virtuallabs/ws/VirtualLabs/ModifyAppointmentResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

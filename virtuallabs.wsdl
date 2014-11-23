@@ -694,6 +694,30 @@
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="ExtendUserAppointmentRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser"
+					type="xsd:string" />
+				<xsd:element maxOccurs="1" minOccurs="1" name="id"
+					type="xsd:string" />
+				<xsd:element maxOccurs="1" minOccurs="1" name="minutes"
+					type="xsd:int" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ExtendUserAppointmentResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success"
+					type="xsd:boolean" />
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason"
+					type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
 	<!-- Mentor -->
 
 	<xsd:element name="GetMentorAppointmentsRequest">
@@ -1661,6 +1685,16 @@
 		</wsdl:part>
 	</wsdl:message>
 
+	<wsdl:message name="ExtendUserAppointmentResponseMsg">
+		<wsdl:part name="parameters" element="tns:ExtendUserAppointmentResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="ExtendUserAppointmentRequestMsg">
+		<wsdl:part name="parameters" element="tns:ExtendUserAppointmentRequest">
+		</wsdl:part>
+	</wsdl:message>
+
 	<wsdl:message name="ScheduleUserAppointmentsResponseMsg">
 		<wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsResponse">
 		</wsdl:part>
@@ -2116,6 +2150,13 @@
 			<wsdl:input name="ModifyUserAppointmentRequest" message="tns:ModifyUserAppointmentRequestMsg">
 			</wsdl:input>
 			<wsdl:output name="ModifyUserAppointmentResponse" message="tns:ModifyUserAppointmentResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="extendUserAppointment">
+			<wsdl:input name="ExtendUserAppointmentRequest" message="tns:ExtendUserAppointmentRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="ExtendUserAppointmentResponse" message="tns:ExtendUserAppointmentResponseMsg">
 			</wsdl:output>
 		</wsdl:operation>
 
@@ -2603,6 +2644,16 @@
 				<soap:body use="literal" />
 			</wsdl:input>
 			<wsdl:output name="ModifyUserAppointmentResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="extendUserAppointment">
+			<soap:operation soapAction="extendUserAppointment" />
+			<wsdl:input name="ExtendUserAppointmentRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ExtendUserAppointmentResponse">
 				<soap:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>
