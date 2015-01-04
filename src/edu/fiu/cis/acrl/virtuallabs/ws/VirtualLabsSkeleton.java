@@ -28,6 +28,8 @@ import edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentRequest;
 import edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsRequest;
 import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsResponse;
+import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest;
+import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationRequest;
 import edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.SetHostRequest;
@@ -205,6 +207,13 @@ public class VirtualLabsSkeleton implements ServiceLifeCycle {
 			ScheduleUserAppointmentsRequest scheduleUserAppointmentsRequest) {
 	
 		return virtualLabs.scheduleUserAppointments(scheduleUserAppointmentsRequest);
+		
+	}
+
+	public ScheduleUserAppointmentsWithCipherPasswordResponse scheduleUserAppointmentsWithCipherPassword(
+			ScheduleUserAppointmentsWithCipherPasswordRequest scheduleUserAppointmentsWithCipherPasswordRequest) {
+	
+		return virtualLabs.scheduleUserAppointmentsWithCipherPassword(scheduleUserAppointmentsWithCipherPasswordRequest);
 		
 	}
 

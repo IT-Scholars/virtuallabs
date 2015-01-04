@@ -686,328 +686,346 @@
                                         envelope = toEnvelope(getSOAPFactory(msgContext), getConfigurationResponse77, false);
                                     } else 
 
+            if("scheduleUserAppointmentsWithCipherPassword".equals(methodName)){
+                
+                edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse scheduleUserAppointmentsWithCipherPasswordResponse79 = null;
+	                        edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest wrappedParam =
+                                                             (edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               scheduleUserAppointmentsWithCipherPasswordResponse79 =
+                                                   
+                                                   
+                                                         skel.scheduleUserAppointmentsWithCipherPassword(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), scheduleUserAppointmentsWithCipherPasswordResponse79, false);
+                                    } else 
+
             if("getAvailableActions".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsResponse getAvailableActionsResponse79 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsResponse getAvailableActionsResponse81 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getAvailableActionsResponse79 =
+                                               getAvailableActionsResponse81 =
                                                    
                                                    
                                                          skel.getAvailableActions(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getAvailableActionsResponse79, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getAvailableActionsResponse81, false);
                                     } else 
 
             if("getUserCurrentTime".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeResponse getUserCurrentTimeResponse81 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeResponse getUserCurrentTimeResponse83 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getUserCurrentTimeResponse81 =
+                                               getUserCurrentTimeResponse83 =
                                                    
                                                    
                                                          skel.getUserCurrentTime(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getUserCurrentTimeResponse81, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getUserCurrentTimeResponse83, false);
                                     } else 
 
             if("cancelAllUserAppointments".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsResponse cancelAllUserAppointmentsResponse83 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsResponse cancelAllUserAppointmentsResponse85 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               cancelAllUserAppointmentsResponse83 =
+                                               cancelAllUserAppointmentsResponse85 =
                                                    
                                                    
                                                          skel.cancelAllUserAppointments(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), cancelAllUserAppointmentsResponse83, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), cancelAllUserAppointmentsResponse85, false);
                                     } else 
 
             if("suspendUserVLab".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabResponse suspendUserVLabResponse85 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabResponse suspendUserVLabResponse87 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               suspendUserVLabResponse85 =
+                                               suspendUserVLabResponse87 =
                                                    
                                                    
                                                          skel.suspendUserVLab(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), suspendUserVLabResponse85, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), suspendUserVLabResponse87, false);
                                     } else 
 
             if("getEndDate4CurrentDevaIns".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsResponse getEndDate4CurrentDevaInsResponse87 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsResponse getEndDate4CurrentDevaInsResponse89 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getEndDate4CurrentDevaInsResponse87 =
+                                               getEndDate4CurrentDevaInsResponse89 =
                                                    
                                                    
                                                          skel.getEndDate4CurrentDevaIns(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getEndDate4CurrentDevaInsResponse87, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getEndDate4CurrentDevaInsResponse89, false);
                                     } else 
 
             if("getResourceTypes".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesResponse getResourceTypesResponse89 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesResponse getResourceTypesResponse91 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getResourceTypesResponse89 =
+                                               getResourceTypesResponse91 =
                                                    
                                                    
                                                          skel.getResourceTypes(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getResourceTypesResponse89, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getResourceTypesResponse91, false);
                                     } else 
 
             if("refreshVM".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMResponse refreshVMResponse91 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMResponse refreshVMResponse93 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               refreshVMResponse91 =
+                                               refreshVMResponse93 =
                                                    
                                                    
                                                          skel.refreshVM(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), refreshVMResponse91, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), refreshVMResponse93, false);
                                     } else 
 
             if("createUserProfile".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileResponse createUserProfileResponse93 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileResponse createUserProfileResponse95 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               createUserProfileResponse93 =
+                                               createUserProfileResponse95 =
                                                    
                                                    
                                                          skel.createUserProfile(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), createUserProfileResponse93, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), createUserProfileResponse95, false);
                                     } else 
 
             if("isResourceAvailable".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableResponse isResourceAvailableResponse95 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableResponse isResourceAvailableResponse97 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               isResourceAvailableResponse95 =
+                                               isResourceAvailableResponse97 =
                                                    
                                                    
                                                          skel.isResourceAvailable(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), isResourceAvailableResponse95, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), isResourceAvailableResponse97, false);
                                     } else 
 
             if("addHost".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.AddHostResponse addHostResponse97 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.AddHostResponse addHostResponse99 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.AddHostRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.AddHostRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.AddHostRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               addHostResponse97 =
+                                               addHostResponse99 =
                                                    
                                                    
                                                          skel.addHost(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), addHostResponse97, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), addHostResponse99, false);
                                     } else 
 
             if("getMentorAppointments".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsResponse getMentorAppointmentsResponse99 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsResponse getMentorAppointmentsResponse101 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getMentorAppointmentsResponse99 =
+                                               getMentorAppointmentsResponse101 =
                                                    
                                                    
                                                          skel.getMentorAppointments(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getMentorAppointmentsResponse99, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getMentorAppointmentsResponse101, false);
                                     } else 
 
             if("getUserAppointments".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsResponse getUserAppointmentsResponse101 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsResponse getUserAppointmentsResponse103 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getUserAppointmentsResponse101 =
+                                               getUserAppointmentsResponse103 =
                                                    
                                                    
                                                          skel.getUserAppointments(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getUserAppointmentsResponse101, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getUserAppointmentsResponse103, false);
                                     } else 
 
             if("reserveResource".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceResponse reserveResourceResponse103 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceResponse reserveResourceResponse105 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               reserveResourceResponse103 =
+                                               reserveResourceResponse105 =
                                                    
                                                    
                                                          skel.reserveResource(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), reserveResourceResponse103, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), reserveResourceResponse105, false);
                                     } else 
 
             if("getVMInsInfo".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoResponse getVMInsInfoResponse105 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoResponse getVMInsInfoResponse107 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getVMInsInfoResponse105 =
+                                               getVMInsInfoResponse107 =
                                                    
                                                    
                                                          skel.getVMInsInfo(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getVMInsInfoResponse105, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getVMInsInfoResponse107, false);
                                     } else 
 
             if("editUserProfile".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileResponse editUserProfileResponse107 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileResponse editUserProfileResponse109 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               editUserProfileResponse107 =
+                                               editUserProfileResponse109 =
                                                    
                                                    
                                                          skel.editUserProfile(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), editUserProfileResponse107, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), editUserProfileResponse109, false);
                                     } else 
 
             if("checkin".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.CheckinResponse checkinResponse109 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.CheckinResponse checkinResponse111 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.CheckinRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.CheckinRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.CheckinRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               checkinResponse109 =
+                                               checkinResponse111 =
                                                    
                                                    
                                                          skel.checkin(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), checkinResponse109, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), checkinResponse111, false);
                                     } else 
 
             if("cancelAllMentorAppointments".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsResponse cancelAllMentorAppointmentsResponse111 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsResponse cancelAllMentorAppointmentsResponse113 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               cancelAllMentorAppointmentsResponse111 =
+                                               cancelAllMentorAppointmentsResponse113 =
                                                    
                                                    
                                                          skel.cancelAllMentorAppointments(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), cancelAllMentorAppointmentsResponse111, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), cancelAllMentorAppointmentsResponse113, false);
                                     } else 
 
             if("getUserResourceTypes".equals(methodName)){
                 
-                edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesResponse getUserResourceTypesResponse113 = null;
+                edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesResponse getUserResourceTypesResponse115 = null;
 	                        edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesRequest wrappedParam =
                                                              (edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesRequest)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesRequest.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               getUserResourceTypesResponse113 =
+                                               getUserResourceTypesResponse115 =
                                                    
                                                    
                                                          skel.getUserResourceTypes(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getUserResourceTypesResponse113, false);
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getUserResourceTypesResponse115, false);
                                     
             } else {
               throw new java.lang.RuntimeException("method not found");
@@ -2064,6 +2082,34 @@
             
                         try{
                              return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.GetConfigurationResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -3222,6 +3268,25 @@
                                 return wrappedElement;
                          }
                     
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse param, boolean optimizeContent)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse wrapscheduleUserAppointmentsWithCipherPassword(){
+                                edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse wrappedElement = new edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse();
+                                return wrappedElement;
+                         }
+                    
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsResponse param, boolean optimizeContent)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -4109,6 +4174,20 @@
                 if (edu.fiu.cis.acrl.virtuallabs.ws.GetConfigurationResponse.class.equals(type)){
                 
                            return edu.fiu.cis.acrl.virtuallabs.ws.GetConfigurationResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest.class.equals(type)){
+                
+                           return edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse.class.equals(type)){
+                
+                           return edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

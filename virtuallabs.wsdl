@@ -598,6 +598,28 @@
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="ScheduleUserAppointmentsWithCipherPasswordRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser"
+					type="xsd:string" />
+				<xsd:element maxOccurs="unbounded" minOccurs="1"
+					name="appointment" type="tns:Appointment" />
+				<xsd:element maxOccurs="1" minOccurs="1" name="cipherPassword"
+					type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleUserAppointmentsWithCipherPasswordResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1"
+					name="appointment" type="tns:Appointment" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
 	<xsd:element name="ScheduleCourseAppointmentRequest">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -1705,6 +1727,16 @@
 		</wsdl:part>
 	</wsdl:message>
 
+	<wsdl:message name="ScheduleUserAppointmentsWithCipherPasswordResponseMsg">
+		<wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsWithCipherPasswordResponse">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="ScheduleUserAppointmentsWithCipherPasswordRequestMsg">
+		<wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsWithCipherPasswordRequest">
+		</wsdl:part>
+	</wsdl:message>
+
 	<wsdl:message name="ScheduleCourseAppointmentResponseMsg">
 		<wsdl:part name="parameters" element="tns:ScheduleCourseAppointmentResponse">
 		</wsdl:part>
@@ -2136,6 +2168,13 @@
 			<wsdl:input name="ScheduleUserAppointmentsRequest" message="tns:ScheduleUserAppointmentsRequestMsg">
 			</wsdl:input>
 			<wsdl:output name="ScheduleUserAppointmentsResponse" message="tns:ScheduleUserAppointmentsResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="scheduleUserAppointmentsWithCipherPassword">
+			<wsdl:input name="ScheduleUserAppointmentsWithCipherPasswordRequest" message="tns:ScheduleUserAppointmentsWithCipherPasswordRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="ScheduleUserAppointmentsWithCipherPasswordResponse" message="tns:ScheduleUserAppointmentsWithCipherPasswordResponseMsg">
 			</wsdl:output>
 		</wsdl:operation>
 
@@ -2624,6 +2663,16 @@
 				<soap:body use="literal" />
 			</wsdl:input>
 			<wsdl:output name="ScheduleUserAppointmentsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="scheduleUserAppointmentsWithCipherPassword">
+			<soap:operation soapAction="scheduleUserAppointmentsWithCipherPassword" />
+			<wsdl:input name="ScheduleUserAppointmentsWithCipherPasswordRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="ScheduleUserAppointmentsWithCipherPasswordResponse">
 				<soap:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>

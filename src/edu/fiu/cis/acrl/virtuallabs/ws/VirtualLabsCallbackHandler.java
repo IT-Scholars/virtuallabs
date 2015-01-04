@@ -634,6 +634,22 @@
             }
                 
            /**
+            * auto generated Axis2 call back method for scheduleUserAppointmentsWithCipherPassword method
+            * override this method for handling normal response from scheduleUserAppointmentsWithCipherPassword operation
+            */
+           public void receiveResultscheduleUserAppointmentsWithCipherPassword(
+                    edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from scheduleUserAppointmentsWithCipherPassword operation
+           */
+            public void receiveErrorscheduleUserAppointmentsWithCipherPassword(java.lang.Exception e) {
+            }
+                
+           /**
             * auto generated Axis2 call back method for getAvailableActions method
             * override this method for handling normal response from getAvailableActions operation
             */

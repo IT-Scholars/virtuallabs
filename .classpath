@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="/mentorscheduler/lib/MentorScheduler.jar"/>
 	<classpathentry kind="src" path="/vescheduler"/>
 	<classpathentry kind="lib" path="/QuotaSystem-svn/lib/QuotaSystem.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -457,6 +457,24 @@
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="ScheduleUserAppointmentsWithCipherPasswordRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="cipherPassword" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ScheduleUserAppointmentsWithCipherPasswordResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
 	<xsd:element name="ScheduleCourseAppointmentRequest">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -1147,6 +1165,10 @@
   </wsdl:message>
   <wsdl:message name="AddCourseResponseMsg">
   </wsdl:message>
+  <wsdl:message name="ScheduleUserAppointmentsWithCipherPasswordRequestMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsWithCipherPasswordRequest">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="DelUserProfileRequestMsg">
     <wsdl:part name="parameters" element="tns:DelUserProfileRequest">
     </wsdl:part>
@@ -1439,6 +1461,10 @@
     <wsdl:part name="parameters" element="tns:GetHostAppointmentsResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="GetHostListRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetHostListRequest">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="GetCheckinIntervalRequestMsg">
     <wsdl:part name="parameters" element="tns:GetCheckinIntervalRequest">
     </wsdl:part>
@@ -1449,10 +1475,6 @@
   </wsdl:message>
   <wsdl:message name="ScheduleCourseAppointmentRequestMsg">
     <wsdl:part name="parameters" element="tns:ScheduleCourseAppointmentRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="GetHostListRequestMsg">
-    <wsdl:part name="parameters" element="tns:GetHostListRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="AddHostResponseMsg">
@@ -1537,6 +1559,10 @@
   </wsdl:message>
   <wsdl:message name="GetUserAppointmentsResponseMsg">
     <wsdl:part name="parameters" element="tns:GetUserAppointmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleUserAppointmentsWithCipherPasswordResponseMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsWithCipherPasswordResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="GetUserDefaultTimeZoneIdResponseMsg">
@@ -1710,6 +1736,12 @@
       <wsdl:input name="ScheduleUserAppointmentsRequest" message="tns:ScheduleUserAppointmentsRequestMsg">
     </wsdl:input>
       <wsdl:output name="ScheduleUserAppointmentsResponse" message="tns:ScheduleUserAppointmentsResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleUserAppointmentsWithCipherPassword">
+      <wsdl:input name="ScheduleUserAppointmentsWithCipherPasswordRequest" message="tns:ScheduleUserAppointmentsWithCipherPasswordRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="ScheduleUserAppointmentsWithCipherPasswordResponse" message="tns:ScheduleUserAppointmentsWithCipherPasswordResponseMsg">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="scheduleCourseAppointment">
@@ -2119,6 +2151,15 @@
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="ScheduleUserAppointmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scheduleUserAppointmentsWithCipherPassword">
+      <soap:operation soapAction="scheduleUserAppointmentsWithCipherPassword"/>
+      <wsdl:input name="ScheduleUserAppointmentsWithCipherPasswordRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ScheduleUserAppointmentsWithCipherPasswordResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
