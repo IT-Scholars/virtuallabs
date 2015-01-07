@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 
 import edu.fiu.cis.acrl.vescheduler.server.Host;
 import edu.fiu.cis.acrl.virtuallabs.server.*;
+import edu.fiu.cis.acrl.virtuallabs.server.tools.crypt.Crypt;
 import edu.fiu.cis.acrl.virtuallabs.server.tools.debug.DebugTools;
 import edu.fiu.cis.acrl.virtuallabs.ws.TodoType;
 
@@ -594,8 +595,152 @@ public class VirtualLabsDB {
 
 	}
 
+	/**
+	 * Eliminate plain text password from the user profile
+	 */
+	public void eliminatePlaintextPassword(String username) {
 
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - eliminatePlaintextPassword] Inside!");
 
+		try {
+			
+			String sqlStatement = "UPDATE user_profile SET password='' WHERE username=?";
+			PreparedStatement ps = conn.prepareStatement(sqlStatement);
+			ps.setString(1, username);
+
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - eliminatePlaintextPassword] ps:" + ps);
+
+			ps.executeUpdate();
+			ps.close();
+
+		} catch(SQLException e) {
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - eliminatePlaintextPassword] "
+					+ "failed!");
+			e.printStackTrace();
+		} catch(Exception ex) {
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - eliminatePlaintextPassword] "
+					+ "failed!");
+			ex.printStackTrace();
+		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - eliminatePlaintextPassword] Ready to get out!");
+
+	}
+
+	/**
+	 * Set the user's cached password temporarily
+	 * If password is null or empty, it will remove the cached record
+	 * else if a cached record already exists and the password is not the same, it updates the record
+	 * else it will add a cached record
+	 */
+	public void setUserCachedPassword(String userName, String password) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] Inside!");
+
+		if (password != null) {
+			
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] "
+					+ "password: " + password);
+			String encryptedPassword = Crypt.encrypt(password);
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] "
+					+ "encryptedPassword: " + encryptedPassword);
+			String cachedPassword = getUserCachedPassword(userName);
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] "
+					+ "cachedPassword: " + cachedPassword);
+			try {
+				if((password == null) || (password == "")) {
+					// delete the cached record
+					PreparedStatement ps = conn.prepareStatement(
+							"DELETE FROM cached_password " +
+							"	WHERE username=?");				
+					ps.setString(1, userName);
+					DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] ps:" + ps);
+					ps.execute();
+					ps.close();
+
+				} else if (cachedPassword != null) {
+					// else if a record for the user exists, then update the record
+					PreparedStatement ps = conn.prepareStatement(
+							"UPDATE cached_password SET password = ? WHERE username = ?");
+					ps.setString(1, encryptedPassword);
+					ps.setString(2, userName);
+					DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] ps:" + ps);
+					ps.executeUpdate();
+					ps.close();
+				} else {
+					// else add it
+					PreparedStatement ps = conn.prepareStatement(
+							"INSERT INTO " +
+									"	cached_password(username, password) " +
+							"	VALUES(?,?)");
+					ps.setString(1, userName);
+					ps.setString(2, encryptedPassword);
+					DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] ps:" + ps);
+					ps.executeUpdate();
+					ps.close();				
+				}
+			}
+			catch(SQLException e) {
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] "
+						+ "failed!");
+				e.printStackTrace();
+			}
+			catch(Exception ex) {
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] "
+						+ "failed!");
+				ex.printStackTrace();
+			}
+		} else {
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] "
+					+ "password is null!");
+		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - setUserCachedPassword] Ready to get out!");
+
+	}
+
+	public String getUserCachedPassword(String userName) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] Inside!");
+		
+		String password = null;
+
+		try {
+
+			// Try to find the cached password by userName
+			PreparedStatement ps = conn.prepareStatement(
+				"SELECT * FROM cached_password WHERE UPPER(username) = UPPER(?)");
+			ps.setString(1, userName);
+
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] ps:" + ps);
+			
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+
+				String encyptedPassword = rs.getString("password");
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] "
+						+ "encyptedPassword: " + encyptedPassword);
+				password = Crypt.decrypt(encyptedPassword);
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] "
+						+ "password: " + password);
+			}
+
+			rs.close();
+			ps.close();
+
+		}
+		catch(Exception e) {
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] "
+					+ "failed!");
+			e.printStackTrace();
+		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] Ready to get out!");
+		
+		return password;
+
+	}
 
 	/**
 	 * Create a user
@@ -672,6 +817,10 @@ public class VirtualLabsDB {
 				String timeZoneId = rs.getString("time_zone_id");
 				String contactInfo = rs.getString("contact_info");
 
+				String userCashedPassword = getUserCachedPassword(userName);
+				if (userCashedPassword != null)
+					password = userCashedPassword;
+				
 				user = new User(
 						realUserName,
 						password,
@@ -728,6 +877,10 @@ public class VirtualLabsDB {
 				String timeZoneId = rs.getString("time_zone_id");
 				String contactInfo = rs.getString("contact_info");
 
+				String userCashedPassword = getUserCachedPassword(userName);
+				if (userCashedPassword != null)
+					password = userCashedPassword;
+				
 				user = new User(
 						userName,
 						password,
@@ -1795,6 +1948,10 @@ public class VirtualLabsDB {
 				String userRole = rs.getString("user_role");
 				String timeZoneId = rs.getString("time_zone_id");
 				String contactInfo = rs.getString("contact_info");
+				
+				String userCashedPassword = getUserCachedPassword(username);
+				if (userCashedPassword != null)
+					password = userCashedPassword;
 				
 				user = 
 					new User(

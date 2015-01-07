@@ -65,6 +65,13 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
+	<xsd:complexType name="EncryptedCredential">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="encryptedPassword" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
 	<xsd:complexType name="Host">
 		<xsd:sequence>
 			<xsd:element maxOccurs="1" minOccurs="1" name="id" type="xsd:int"/>
@@ -457,17 +464,17 @@
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:element name="ScheduleUserAppointmentsWithCipherPasswordRequest">
+	<xsd:element name="ScheduleUserAppointmentsWithEncryptedPasswordRequest">
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
 				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
-				<xsd:element maxOccurs="1" minOccurs="1" name="cipherPassword" type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" name="encryptedCredential" type="tns:EncryptedCredential"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:element name="ScheduleUserAppointmentsWithCipherPasswordResponse">
+	<xsd:element name="ScheduleUserAppointmentsWithEncryptedPasswordResponse">
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element maxOccurs="unbounded" minOccurs="1" name="appointment" type="tns:Appointment"/>
@@ -935,6 +942,31 @@
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="CreateUserProfileWithEncryptedPasswordRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="encryptedPassword" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="firstName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="lastName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userRole" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="timeZone" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="contactInfo" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CreateUserProfileWithEncryptedPasswordResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
 	<xsd:element name="EditUserProfileRequest">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -952,6 +984,31 @@
 	</xsd:element>
 
 	<xsd:element name="EditUserProfileResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="EditUserProfileWithEncryptedPasswordRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="requestingUser" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="encryptedPassword" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="firstName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="lastName" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="emailAddress" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="userRole" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="timeZone" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="0" name="contactInfo" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="EditUserProfileWithEncryptedPasswordResponse">
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
@@ -1165,10 +1222,6 @@
   </wsdl:message>
   <wsdl:message name="AddCourseResponseMsg">
   </wsdl:message>
-  <wsdl:message name="ScheduleUserAppointmentsWithCipherPasswordRequestMsg">
-    <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsWithCipherPasswordRequest">
-    </wsdl:part>
-  </wsdl:message>
   <wsdl:message name="DelUserProfileRequestMsg">
     <wsdl:part name="parameters" element="tns:DelUserProfileRequest">
     </wsdl:part>
@@ -1215,6 +1268,10 @@
   </wsdl:message>
   <wsdl:message name="GetUserCredentialsRequestMsg">
     <wsdl:part name="parameters" element="tns:GetUserCredentialsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleUserAppointmentsWithEncryptedPasswordResponseMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsWithEncryptedPasswordResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="GetResourceTypesResponseMsg">
@@ -1293,6 +1350,10 @@
     <wsdl:part name="parameters" element="tns:GetUserCurAppIdResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="CreateUserProfileWithEncryptedPasswordRequestMsg">
+    <wsdl:part name="parameters" element="tns:CreateUserProfileWithEncryptedPasswordRequest">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="IsRDPReadyRequestMsg">
     <wsdl:part name="parameters" element="tns:IsRDPReadyRequest">
     </wsdl:part>
@@ -1345,6 +1406,10 @@
     <wsdl:part name="parameters" element="tns:CreateUserProfileRequest">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="EditUserProfileWithEncryptedPasswordResponseMsg">
+    <wsdl:part name="parameters" element="tns:EditUserProfileWithEncryptedPasswordResponse">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="EnrollUserInCourseResponseMsg">
     <wsdl:part name="parameters" element="tns:EnrollUserInCourseResponse">
     </wsdl:part>
@@ -1359,6 +1424,10 @@
   </wsdl:message>
   <wsdl:message name="GetHostRequestMsg">
     <wsdl:part name="parameters" element="tns:GetHostRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ScheduleUserAppointmentsWithEncryptedPasswordRequestMsg">
+    <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsWithEncryptedPasswordRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="GetUserCurrentTimeResponseMsg">
@@ -1429,6 +1498,10 @@
     <wsdl:part name="parameters" element="tns:GetAvailableTimeZoneIdsResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="SuspendUserVLabRequestMsg">
+    <wsdl:part name="parameters" element="tns:SuspendUserVLabRequest">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="GetCheckinIntervalResponseMsg">
     <wsdl:part name="parameters" element="tns:GetCheckinIntervalResponse">
     </wsdl:part>
@@ -1437,12 +1510,16 @@
     <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsRequest">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="SuspendUserVLabRequestMsg">
-    <wsdl:part name="parameters" element="tns:SuspendUserVLabRequest">
+  <wsdl:message name="CreateUserProfileWithEncryptedPasswordResponseMsg">
+    <wsdl:part name="parameters" element="tns:CreateUserProfileWithEncryptedPasswordResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="ReserveResourceResponseMsg">
     <wsdl:part name="parameters" element="tns:ReserveResourceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="EditUserProfileWithEncryptedPasswordRequestMsg">
+    <wsdl:part name="parameters" element="tns:EditUserProfileWithEncryptedPasswordRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="GetUserResourceTypesResponseMsg">
@@ -1481,16 +1558,16 @@
     <wsdl:part name="parameters" element="tns:AddHostResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="GetUserResourceTypesRequestMsg">
+    <wsdl:part name="parameters" element="tns:GetUserResourceTypesRequest">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="GetUserProfileByEmailResponseMsg">
     <wsdl:part name="parameters" element="tns:GetUserProfileByEmailResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="RunVMCmdRequestMsg">
     <wsdl:part name="parameters" element="tns:RunVMCmdRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="GetUserResourceTypesRequestMsg">
-    <wsdl:part name="parameters" element="tns:GetUserResourceTypesRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="DelUserProfileResponseMsg">
@@ -1561,20 +1638,16 @@
     <wsdl:part name="parameters" element="tns:GetUserAppointmentsResponse">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="ScheduleUserAppointmentsWithCipherPasswordResponseMsg">
-    <wsdl:part name="parameters" element="tns:ScheduleUserAppointmentsWithCipherPasswordResponse">
-    </wsdl:part>
-  </wsdl:message>
   <wsdl:message name="GetUserDefaultTimeZoneIdResponseMsg">
     <wsdl:part name="parameters" element="tns:GetUserDefaultTimeZoneIdResponse">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="CancelAllHostAppointmentsRequestMsg">
-    <wsdl:part name="parameters" element="tns:CancelAllHostAppointmentsRequest">
-    </wsdl:part>
-  </wsdl:message>
   <wsdl:message name="SuspendUserVLabResponseMsg">
     <wsdl:part name="parameters" element="tns:SuspendUserVLabResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancelAllHostAppointmentsRequestMsg">
+    <wsdl:part name="parameters" element="tns:CancelAllHostAppointmentsRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="InvalidDataFault">
@@ -1738,10 +1811,10 @@
       <wsdl:output name="ScheduleUserAppointmentsResponse" message="tns:ScheduleUserAppointmentsResponseMsg">
     </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="scheduleUserAppointmentsWithCipherPassword">
-      <wsdl:input name="ScheduleUserAppointmentsWithCipherPasswordRequest" message="tns:ScheduleUserAppointmentsWithCipherPasswordRequestMsg">
+    <wsdl:operation name="scheduleUserAppointmentsWithEncryptedPassword">
+      <wsdl:input name="ScheduleUserAppointmentsWithEncryptedPasswordRequest" message="tns:ScheduleUserAppointmentsWithEncryptedPasswordRequestMsg">
     </wsdl:input>
-      <wsdl:output name="ScheduleUserAppointmentsWithCipherPasswordResponse" message="tns:ScheduleUserAppointmentsWithCipherPasswordResponseMsg">
+      <wsdl:output name="ScheduleUserAppointmentsWithEncryptedPasswordResponse" message="tns:ScheduleUserAppointmentsWithEncryptedPasswordResponseMsg">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="scheduleCourseAppointment">
@@ -1888,10 +1961,22 @@
       <wsdl:output name="CreateUserProfileResponse" message="tns:CreateUserProfileResponseMsg">
     </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="createUserProfileWithEncryptedPassword">
+      <wsdl:input name="CreateUserProfileWithEncryptedPasswordRequest" message="tns:CreateUserProfileWithEncryptedPasswordRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="CreateUserProfileWithEncryptedPasswordResponse" message="tns:CreateUserProfileWithEncryptedPasswordResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="editUserProfile">
       <wsdl:input name="EditUserProfileRequest" message="tns:EditUserProfileRequestMsg">
     </wsdl:input>
       <wsdl:output name="EditUserProfileResponse" message="tns:EditUserProfileResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editUserProfileWithEncryptedPassword">
+      <wsdl:input name="EditUserProfileWithEncryptedPasswordRequest" message="tns:EditUserProfileWithEncryptedPasswordRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="EditUserProfileWithEncryptedPasswordResponse" message="tns:EditUserProfileWithEncryptedPasswordResponseMsg">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="delUserProfile">
@@ -2154,12 +2239,12 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="scheduleUserAppointmentsWithCipherPassword">
-      <soap:operation soapAction="scheduleUserAppointmentsWithCipherPassword"/>
-      <wsdl:input name="ScheduleUserAppointmentsWithCipherPasswordRequest">
+    <wsdl:operation name="scheduleUserAppointmentsWithEncryptedPassword">
+      <soap:operation soapAction="scheduleUserAppointmentsWithEncryptedPassword"/>
+      <wsdl:input name="ScheduleUserAppointmentsWithEncryptedPasswordRequest">
         <soap:body use="literal"/>
       </wsdl:input>
-      <wsdl:output name="ScheduleUserAppointmentsWithCipherPasswordResponse">
+      <wsdl:output name="ScheduleUserAppointmentsWithEncryptedPasswordResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
@@ -2379,12 +2464,30 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="createUserProfileWithEncryptedPassword">
+      <soap:operation soapAction="createUserProfileWithEncryptedPassword"/>
+      <wsdl:input name="CreateUserProfileWithEncryptedPasswordRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreateUserProfileWithEncryptedPasswordResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="editUserProfile">
       <soap:operation soapAction="editUserProfile"/>
       <wsdl:input name="EditUserProfileRequest">
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="EditUserProfileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editUserProfileWithEncryptedPassword">
+      <soap:operation soapAction="editUserProfileWithEncryptedPassword"/>
+      <wsdl:input name="EditUserProfileWithEncryptedPasswordRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="EditUserProfileWithEncryptedPasswordResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>

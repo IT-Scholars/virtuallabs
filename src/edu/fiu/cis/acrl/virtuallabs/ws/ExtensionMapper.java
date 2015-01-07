@@ -90,6 +90,16 @@
               
                   if (
                   "http://acrl.cis.fiu.edu/virtuallabs/ws".equals(namespaceURI) &&
+                  "EncryptedCredential".equals(typeName)){
+                   
+                            return  edu.fiu.cis.acrl.virtuallabs.ws.EncryptedCredential.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://acrl.cis.fiu.edu/virtuallabs/ws".equals(namespaceURI) &&
                   "KServer".equals(typeName)){
                    
                             return  edu.fiu.cis.acrl.virtuallabs.ws.KServer.Factory.parse(reader);

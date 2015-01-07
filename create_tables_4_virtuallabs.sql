@@ -226,5 +226,16 @@ CREATE TRIGGER "trg_set_update_ts" BEFORE INSERT OR UPDATE
 INSERT INTO 
 	htpasswd_host(name,ssh_port,username,password,active) 
 	VALUES('wolf.cis.fiu.edu',22,'sadjadi','lei9864la','TRUE');	
+	
+DROP TABLE IF EXISTS cached_password;
+CREATE TABLE cached_password (
+       username VARCHAR(50) NOT NULL PRIMARY KEY, 
+       password VARCHAR(50),
+       update_ts TIMESTAMP DEFAULT NOW() 
+);
+CREATE TRIGGER "trg_set_update_ts" BEFORE INSERT OR UPDATE
+   ON "cached_password" FOR EACH ROW
+   EXECUTE PROCEDURE "set_update_ts"();
+
 
    

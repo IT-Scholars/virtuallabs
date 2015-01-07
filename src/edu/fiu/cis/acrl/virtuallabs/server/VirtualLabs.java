@@ -56,6 +56,7 @@ import edu.fiu.cis.acrl.mentorscheduler.ws.ScheduleMentoringRequest;
 import edu.fiu.cis.acrl.mentorscheduler.ws.ScheduleMentoringResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.*;
 import edu.fiu.cis.acrl.virtuallabs.server.db.VirtualLabsDB;
+import edu.fiu.cis.acrl.virtuallabs.server.tools.crypt.Crypt;
 import edu.fiu.cis.acrl.virtuallabs.server.tools.debug.DebugTools;
 import edu.fiu.cis.acrl.virtuallabs.server.tools.timezone.TimeZoneTools;
 import edu.fiu.cis.acrl.virtuallabs.server.translators.AppointmentTranslator;
@@ -127,14 +128,6 @@ import edu.fiu.cis.acrl.vescheduler.ws.ScheduleVERequest;
 import edu.fiu.cis.acrl.vescheduler.ws.ScheduleVEResponse;
 
 import java.util.concurrent.*;
-
-import javax.crypto.*;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.StringUtils;
-
 
 public class VirtualLabs { 
 
@@ -2524,298 +2517,39 @@ public class VirtualLabs {
 		return resp;
 	}
 	
-	/*
-	public static String md5(String input) throws NoSuchAlgorithmException {
-	    MessageDigest md = MessageDigest.getInstance("MD5");
-	    byte[] messageDigest = md.digest(input.getBytes());
-	    BigInteger number = new BigInteger(1, messageDigest);
-	    return String.format("%032x", number); //number.toString(16);
-	}
-
-	public String decrypt(String encryptedData) { // , String initialVectorString, String secretKey) {
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] Inside!");
-		
-		String decryptedData = null;
-		String secretKey = "Seyed Masoud Sadjadi @ IT Scholars";
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] secretKey: " + secretKey);
-		String initialVectorString = "1234567890123456";
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] initialVectorString: " + initialVectorString);
-	    try {
-	        SecretKeySpec skeySpec = new SecretKeySpec(md5(secretKey).getBytes(), "AES");
-	        IvParameterSpec initialVector = new IvParameterSpec(initialVectorString.getBytes());
-	        Cipher cipher = Cipher.getInstance("AES/CFB8/NoPadding");
-	        cipher.init(Cipher.DECRYPT_MODE, skeySpec, initialVector);
-	        byte[] encryptedByteArray = (new org.apache.commons.codec.binary.Base64()).decode(encryptedData.getBytes());
-	        byte[] decryptedByteArray = cipher.doFinal(encryptedByteArray);
-	        decryptedData = new String(decryptedByteArray, "UTF8");
-			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] decryptedData: " + decryptedData);
-	    } catch (Exception e) {
-			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] "
-					+ "Problem decrypting the data" + e);
-			e.printStackTrace();
-	    }
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] Ready to get out!");
-
-	    return decryptedData;
-	}
-	*/
-	/*
-	public String decrypt(String encryptedData) { //, String initialVectorString, String secretKey) {
-
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] Inside!");
-		
-		String decryptedData = null;
-		String secretKey = "Seyed Masoud Sadjadi @ IT Scholars";
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] secretKey: " + secretKey);
-		String decodedEnryptedData = StringUtils.newStringUtf8(Base64.decodeBase64(encryptedData));
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] decodedEnryptedData: " + decodedEnryptedData);
-		int ivSize = 16;
-		String initialVectorString = decodedEnryptedData.substring(0, ivSize);
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] initialVectorString: " + initialVectorString);
-		String encryptedDataNoIV = decodedEnryptedData.substring(ivSize);
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] encryptedDataNoIV: " + encryptedDataNoIV);
-	    try {
-	        SecretKeySpec skeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
-	        IvParameterSpec initialVector = new IvParameterSpec(initialVectorString.getBytes());
-	        Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-	        cipher.init(Cipher.DECRYPT_MODE, skeySpec, initialVector);
-	        // byte[] encryptedByteArray = (new org.apache.commons.codec.binary.Base64()).decode(encryptedData.getBytes());
-	        byte[] decryptedByteArray = cipher.doFinal(encryptedDataNoIV.getBytes());
-	        decryptedData = new String(decryptedByteArray, "UTF8");
-			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] decryptedData: " + decryptedData);
-	    } catch (Exception e) {
-			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] "
-					+ "Problem decrypting the data" + e);
-			e.printStackTrace();
-	    }
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - decrypt] Ready to get out!");
-
-	    return decryptedData;
-	}
-	*/
-	
-	public static String encrypt(String input, String key){
-		  byte[] crypted = null;
-		  try{
-		    SecretKeySpec skey = new SecretKeySpec(key.getBytes(), "AES");
-		      Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-		      cipher.init(Cipher.ENCRYPT_MODE, skey);
-		      crypted = cipher.doFinal(input.getBytes());
-		    }catch(Exception e){
-		    	System.out.println(e.toString());
-		    }
-		    return new String(Base64.encodeBase64(crypted));
-		}
-
-		public static String decrypt(String input, String key){
-		    byte[] output = null;
-		    try{
-		      SecretKeySpec skey = new SecretKeySpec(key.getBytes(), "AES");
-		      Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-		      cipher.init(Cipher.DECRYPT_MODE, skey);
-		      output = cipher.doFinal(Base64.decodeBase64(input));
-		    }catch(Exception e){
-		      System.out.println(e.toString());
-		    }
-		    return new String(output);
-		}
-		
 	/**
 	 * 
 	 * @param scheduleUserAppointmentsRequest
 	 * @return
 	 */
-	public ScheduleUserAppointmentsWithCipherPasswordResponse scheduleUserAppointmentsWithCipherPassword(
-			ScheduleUserAppointmentsWithCipherPasswordRequest scheduleUserAppointmentsWithCipherPasswordRequest) {
+	public ScheduleUserAppointmentsWithEncryptedPasswordResponse scheduleUserAppointmentsWithEncryptedPassword(
+			ScheduleUserAppointmentsWithEncryptedPasswordRequest scheduleUserAppointmentsWithEncryptedPasswordRequest) {
 
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] Inside!");
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithEncryptedPassword] Inside!");
 
-		ScheduleUserAppointmentsWithCipherPasswordResponse resp = new ScheduleUserAppointmentsWithCipherPasswordResponse();
+		ScheduleUserAppointmentsWithEncryptedPasswordResponse resp = new ScheduleUserAppointmentsWithEncryptedPasswordResponse();
 
-		String cipherPassword = scheduleUserAppointmentsWithCipherPasswordRequest.getCipherPassword();
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] "
-				+ "cipherPassword: " + cipherPassword);
-		String key = "1234567891234567";
-		String password = decrypt(cipherPassword, key);
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] "
-				+ "password: " + password);
+		EncryptedCredential[] creds = scheduleUserAppointmentsWithEncryptedPasswordRequest.getEncryptedCredential();
+		for (EncryptedCredential cred : creds) {
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithEncryptedPassword] "
+					+ "userName: " + cred.getUserName() 
+					+ " encryptedPassword: " + cred.getEncryptedPassword()
+					+ " password: " + Crypt.decrypt(cred.getEncryptedPassword()));
+			virtualLabsDB.setUserCachedPassword(
+					cred.getUserName(), 
+					Crypt.decrypt(cred.getEncryptedPassword()));
+		}
 
-		//Get the request with the list of appointments
-		Appointment[] apps = scheduleUserAppointmentsWithCipherPasswordRequest.getAppointment();
-
-		if (apps != null) {
+		ScheduleUserAppointmentsRequest wrappedReq = new ScheduleUserAppointmentsRequest();
+		wrappedReq.setRequestingUser(scheduleUserAppointmentsWithEncryptedPasswordRequest.getRequestingUser());
+		wrappedReq.setAppointment(scheduleUserAppointmentsWithEncryptedPasswordRequest.getAppointment());
+		ScheduleUserAppointmentsResponse wrappedResp = scheduleUserAppointments(wrappedReq);
 		
-			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] " +
-					"apps[0].getUserName(): " + apps[0].getUserName());
-
-			if (apps[0].getUserName().equals(ALL_STUDENTS)) {
-			
-				//Create a UUID for this batch of appointments
-				UUID affiliationId = UUID.randomUUID();
-
-				Appointment[] allApps = null;
-				String course = apps[0].getCourse();
-
-				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] " +
-						"Appointment for all students of course " + course +
-						" was requested!");
-
-				ArrayList<String> users = virtualLabsDB.getCourseUsers(course);
-				for (int i=0; i<users.size(); i++) {
-					String user = users.get(i);
-					
-					DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] " +
-							apps.length + " appointments for user " + user + " is being requested!");
-
-					Appointment[] newApps = new Appointment[apps.length];
-					for (int j=0; j<apps.length; j++) {
-						newApps[j] = apps[j];
-						newApps[j].setUserName(user);
-						newApps[j].setAffiliationId(affiliationId.toString());
-					}
-					ScheduleUserAppointmentsWithCipherPasswordRequest newReq = new ScheduleUserAppointmentsWithCipherPasswordRequest();
-					newReq.setAppointment(newApps);
-					newReq.setRequestingUser(scheduleUserAppointmentsWithCipherPasswordRequest.getRequestingUser());
-					ScheduleUserAppointmentsWithCipherPasswordResponse newResp = scheduleUserAppointmentsWithCipherPassword(newReq);
-					Appointment[] retApps = newResp.getAppointment();
-
-					DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] " +
-							retApps.length + " appointments for user " + user + " was scheduled!");
-
-					if (allApps != null) {
-						Appointment[] tempApps = new Appointment[allApps.length+retApps.length];
-						for (int k=0; k<allApps.length; k++) {
-							tempApps[k] = allApps[k];
-						}
-						int allAppLen = allApps.length;
-						for (int k=0; k<retApps.length; k++) {
-							tempApps[allAppLen+k] = retApps[k];
-						}
-						allApps = tempApps;
-					} else {
-						allApps = retApps;
-					}
-				}
-				
-				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] " +
-						allApps.length + " appointments for all user of course " + course + " was scheduled!");
-
-				resp.setAppointment(allApps);
-
-				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] Ready to get out!");
-
-				return resp;
-			}
-		}
+		Appointment[] apps = wrappedResp.getAppointment();
+		for (Appointment app : apps)
+			resp.addAppointment(app);
 		
-		// Fixing the time zone based on the default time zone for the requesting user.
-		apps = addTimeZone(
-				scheduleUserAppointmentsWithCipherPasswordRequest.getRequestingUser(),
-				apps);
-
-		//Create a UUID for this batch of appointments
-		UUID affiliationId = UUID.randomUUID();
-
-		if (apps[0].getAffiliationId() != null) {
-			if (apps[0].getAffiliationId().length() > 0) {
-				affiliationId = UUID.fromString(apps[0].getAffiliationId());
-				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] " +
-						"Affiliation ID was set to " + affiliationId);
-			}
-		}
-
-		try {
-
-			// For every appointments in the request: 
-			// First, check its validity.
-			// Second, check whether there is enough resources.
-			// Third, allocate quota, if available.
-			// Fourth, allocate resources, if available.
-			List<Appointment> appsList = Arrays.asList(apps);
-			Iterator<Appointment> itrApp = appsList.iterator();
-			while (itrApp.hasNext()) {
-				
-				Appointment origApp = itrApp.next();
-				Appointment appointment = duplicateAppointment(origApp);
-
-				appointment.setAffiliationId(affiliationId.toString());
-				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] " +
-						"Appointment: " + "\n" +
-						"\tid: " + appointment.getId() + "\n" +
-						"\taffilication id: " + appointment.getAffiliationId() + "\n" +
-						"\tusername: " + appointment.getUserName() + "\n" +
-						"\tcourse: " + appointment.getCourse() + "\n" +
-						"\tresource type: " + appointment.getResourceType() + "\n" +
-						"\tstart: " + appointment.getStart().getTime() + "\n" +
-						"\tend: " + appointment.getEnd().getTime() + "\n" +
-						"\tappointment.getResourceType(): ");
-
-				
-				// First, check to see whether the appointment is a valid one
-				if (!isAppointmentValid(appointment)) {
-					origApp.setAvailabilityStatus("The appointment is not valid!");
-					resp.addAppointment(origApp);
-					continue;
-				}
-
-				// Second, check if there are available resources for this appointment.
-				if (!isResourceAvailable(appointment)) {
-					origApp.setAvailabilityStatus("The required resources are not available!");
-					resp.addAppointment(origApp);
-					continue;
-				}
-				
-				// Third, try to allocate the quota.
-				UUID quotaId = UUID.randomUUID();
-				
-				if (appointment.getResourceType().toUpperCase().equals("VIRTUAL LAB") ||
-					appointment.getResourceType().toUpperCase().equals("CERTIFICATE") ||
-					appointment.getResourceType().toUpperCase().equals("MENTORING")) {
-					if (!allocateQuota(appointment, quotaId)) {
-						origApp.setAvailabilityStatus("The user does not have enough quota!");
-						resp.addAppointment(origApp);
-						continue;
-					}
-				} else if (appointment.getResourceType().toUpperCase().equals("PHYSICAL")) {			
-					// no need for allocating quota
-				} else {
-					// no need for allocating quota					
-				}
-				
-				String requestingUser = scheduleUserAppointmentsWithCipherPasswordRequest.getRequestingUser();
-				// Fourth, try to allocate the resources.
-				if (!allocateResource(requestingUser, appointment, quotaId)) {
-					// If the resources were not successfully allocated, we will 
-					// cancel the quota allocation.
-					if (appointment.getResourceType().toUpperCase().equals("VIRTUAL LAB") ||
-							appointment.getResourceType().toUpperCase().equals("CERTIFICATE") ||
-							appointment.getResourceType().toUpperCase().equals("MENTORING")) {
-						if (!releaseQuota(quotaId)) {
-							resp.setAppointment(apps);
-							DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] " +
-									"ERROR: Resource could not be scheduled and the attempt to" +
-							"release the quota failed! Please inform the developer!");
-						}
-					} else if (appointment.getResourceType().toUpperCase().equals("PHYSICAL")) {			
-						// no need for releasing quota
-					} else {
-						// no need for releasing quota					
-					}
-					origApp.setAvailabilityStatus("The required resources could not be allocated!");
-					resp.addAppointment(origApp);
-					continue;
-				}
-			
-				// Add the appointment to the response list of appointments
-				appointment.setAvailabilityStatus("SCHEDULED");
-				resp.addAppointment(appointment);
-			} 
-		} catch (Exception ex) {
-			resp.setAppointment(apps);
-			ex.printStackTrace();
-		}
-
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithCipherPassword] Ready to get out!");
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithEncryptedPassword] Ready to get out!");
 
 		return resp;
 	}
@@ -7120,17 +6854,61 @@ public class VirtualLabs {
 			*/
 			
 		} catch (Error e) {
-
 			resp.setSuccess(false);
 			resp.setReason(e.getMessage());
-
+			e.printStackTrace();
 		} catch (Exception ex) {
 			resp.setSuccess(false);
 			resp.setReason(ex.getMessage());
-
+			ex.printStackTrace();
 		}
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - createUserProfile] Ready to get out!");
+
+		return resp;
+	}
+
+	/**
+	 * The assumption is that the username is unique.
+	 * 
+	 * @param createUserProfileWithEncryptedPasswordRequest
+	 * @return
+	 */
+	public CreateUserProfileWithEncryptedPasswordResponse createUserProfileWithEncryptedPassword(
+			CreateUserProfileWithEncryptedPasswordRequest createUserProfileWithEncryptedPasswordRequest) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - createUserProfileWithEncryptedPassword] Inside!");
+
+		CreateUserProfileWithEncryptedPasswordResponse resp = new CreateUserProfileWithEncryptedPasswordResponse();
+
+		String encryptedPassword = createUserProfileWithEncryptedPasswordRequest.getEncryptedPassword();
+		String password = Crypt.decrypt(encryptedPassword);
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - createUserWithEncryptedPasswordProfile] "
+				+ "userName: " + createUserProfileWithEncryptedPasswordRequest.getUserName() 
+				+ " encryptedPassword: " + encryptedPassword
+				+ " password: " + password);
+		virtualLabsDB.setUserCachedPassword(
+				createUserProfileWithEncryptedPasswordRequest.getUserName(), 
+				password);
+		
+		CreateUserProfileRequest wrappedReq = new CreateUserProfileRequest();
+		wrappedReq.setRequestingUser(createUserProfileWithEncryptedPasswordRequest.getRequestingUser());
+		wrappedReq.setUserName(createUserProfileWithEncryptedPasswordRequest.getUserName());
+		wrappedReq.setPassword(password);
+		wrappedReq.setFirstName(createUserProfileWithEncryptedPasswordRequest.getFirstName());
+		wrappedReq.setLastName(createUserProfileWithEncryptedPasswordRequest.getLastName());
+		wrappedReq.setEmailAddress(createUserProfileWithEncryptedPasswordRequest.getEmailAddress());
+		wrappedReq.setUserRole(createUserProfileWithEncryptedPasswordRequest.getUserRole());
+		wrappedReq.setTimeZone(createUserProfileWithEncryptedPasswordRequest.getTimeZone());
+		wrappedReq.setContactInfo(createUserProfileWithEncryptedPasswordRequest.getContactInfo());
+		CreateUserProfileResponse wrappedResp = createUserProfile(wrappedReq);
+		
+		virtualLabsDB.eliminatePlaintextPassword(createUserProfileWithEncryptedPasswordRequest.getUserName());
+		
+		resp.setSuccess(wrappedResp.getSuccess());
+		resp.setReason(wrappedResp.getReason());
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - createUserProfileWithEncryptedPassword] Ready to get out!");
 
 		return resp;
 	}
@@ -7421,6 +7199,51 @@ public class VirtualLabs {
 		}
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserProfile] Ready to get out!");
+
+		return resp;
+
+	}
+
+	/**
+	 * 
+	 * @param editUserProfileWithEncryptedPasswordRequest
+	 * @return
+	 */
+	public EditUserProfileWithEncryptedPasswordResponse editUserProfileWithEncryptedPassword(
+			EditUserProfileWithEncryptedPasswordRequest editUserProfileWithEncryptedPasswordRequest) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserProfileWithEncryptedPassword] Inside!");
+
+		EditUserProfileWithEncryptedPasswordResponse resp = new EditUserProfileWithEncryptedPasswordResponse();
+
+		String encryptedPassword = editUserProfileWithEncryptedPasswordRequest.getEncryptedPassword();
+		String password = Crypt.decrypt(encryptedPassword);
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserWithEncryptedPasswordProfile] "
+				+ "userName: " + editUserProfileWithEncryptedPasswordRequest.getUserName() 
+				+ " encryptedPassword: " + encryptedPassword
+				+ " password: " + password);
+		virtualLabsDB.setUserCachedPassword(
+				editUserProfileWithEncryptedPasswordRequest.getUserName(), 
+				password);
+		
+		EditUserProfileRequest wrappedReq = new EditUserProfileRequest();
+		wrappedReq.setRequestingUser(editUserProfileWithEncryptedPasswordRequest.getRequestingUser());
+		wrappedReq.setUserName(editUserProfileWithEncryptedPasswordRequest.getUserName());
+		wrappedReq.setPassword(password);
+		wrappedReq.setFirstName(editUserProfileWithEncryptedPasswordRequest.getFirstName());
+		wrappedReq.setLastName(editUserProfileWithEncryptedPasswordRequest.getLastName());
+		wrappedReq.setEmailAddress(editUserProfileWithEncryptedPasswordRequest.getEmailAddress());
+		wrappedReq.setUserRole(editUserProfileWithEncryptedPasswordRequest.getUserRole());
+		wrappedReq.setTimeZone(editUserProfileWithEncryptedPasswordRequest.getTimeZone());
+		wrappedReq.setContactInfo(editUserProfileWithEncryptedPasswordRequest.getContactInfo());
+		EditUserProfileResponse wrappedResp = editUserProfile(wrappedReq);
+		
+		virtualLabsDB.eliminatePlaintextPassword(editUserProfileWithEncryptedPasswordRequest.getUserName());
+		
+		resp.setSuccess(wrappedResp.getSuccess());
+		resp.setReason(wrappedResp.getReason());
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserProfileWithEncryptedPassword] Ready to get out!");
 
 		return resp;
 

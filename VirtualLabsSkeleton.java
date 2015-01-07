@@ -28,8 +28,8 @@ import edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentRequest;
 import edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsRequest;
 import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsResponse;
-import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordRequest;
-import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithCipherPasswordResponse;
+import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithEncryptedPasswordRequest;
+import edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithEncryptedPasswordResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationRequest;
 import edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.SetHostRequest;
@@ -210,10 +210,10 @@ public class VirtualLabsSkeleton implements ServiceLifeCycle {
 		
 	}
 
-	public ScheduleUserAppointmentsWithCipherPasswordResponse scheduleUserAppointmentsWithCipherPassword(
-			ScheduleUserAppointmentsWithCipherPasswordRequest scheduleUserAppointmentsWithCipherPasswordRequest) {
+	public ScheduleUserAppointmentsWithEncryptedPasswordResponse scheduleUserAppointmentsWithEncryptedPassword(
+			ScheduleUserAppointmentsWithEncryptedPasswordRequest scheduleUserAppointmentsWithEncryptedPasswordRequest) {
 	
-		return virtualLabs.scheduleUserAppointmentsWithCipherPassword(scheduleUserAppointmentsWithCipherPasswordRequest);
+		return virtualLabs.scheduleUserAppointmentsWithEncryptedPassword(scheduleUserAppointmentsWithEncryptedPasswordRequest);
 		
 	}
 
@@ -329,6 +329,13 @@ public class VirtualLabsSkeleton implements ServiceLifeCycle {
 		
 	}
 	
+	public EditUserProfileWithEncryptedPasswordResponse editUserProfileWithEncryptedPassword(
+			EditUserProfileWithEncryptedPasswordRequest editUserProfileWithEncryptedPasswordRequest) {
+
+		return virtualLabs.editUserProfileWithEncryptedPassword(editUserProfileWithEncryptedPasswordRequest);
+		
+	}
+	
 	public DelUserProfileResponse delUserProfile(
 			DelUserProfileRequest delUserProfileRequest) {
 
@@ -368,6 +375,13 @@ public class VirtualLabsSkeleton implements ServiceLifeCycle {
 			CreateUserProfileRequest createUserProfileRequest) {
 
 		return virtualLabs.createUserProfile(createUserProfileRequest);
+		
+	}
+	
+	public CreateUserProfileWithEncryptedPasswordResponse createUserProfileWithEncryptedPassword(
+			CreateUserProfileWithEncryptedPasswordRequest createUserProfileWithEncryptedPasswordRequest) {
+
+		return virtualLabs.createUserProfileWithEncryptedPassword(createUserProfileWithEncryptedPasswordRequest);
 		
 	}
 	
