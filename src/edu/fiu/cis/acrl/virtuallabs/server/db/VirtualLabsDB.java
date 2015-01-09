@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 
 import edu.fiu.cis.acrl.vescheduler.server.Host;
+import edu.fiu.cis.acrl.vescheduler.server.VMInstance;
 import edu.fiu.cis.acrl.virtuallabs.server.*;
 import edu.fiu.cis.acrl.virtuallabs.server.tools.crypt.Crypt;
 import edu.fiu.cis.acrl.virtuallabs.server.tools.debug.DebugTools;
@@ -709,7 +710,7 @@ public class VirtualLabsDB {
 
 			// Try to find the cached password by userName
 			PreparedStatement ps = conn.prepareStatement(
-				"SELECT * FROM cached_password WHERE UPPER(username) = UPPER(?)");
+				"SELECT * FROM cached_password WHERE username = ?");
 			ps.setString(1, userName);
 
 			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] ps:" + ps);
@@ -722,8 +723,6 @@ public class VirtualLabsDB {
 				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] "
 						+ "encyptedPassword: " + encyptedPassword);
 				password = Crypt.decrypt(encyptedPassword);
-				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] "
-						+ "password: " + password);
 			}
 
 			rs.close();
@@ -736,10 +735,99 @@ public class VirtualLabsDB {
 			e.printStackTrace();
 		}
 
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] "
+				+ "password: " + password);
+
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserCachedPassword] Ready to get out!");
 		
 		return password;
 
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public ArrayList<UserCashedPassword> getUserCachedPassword() {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUsernamesFromUserCachedPassword] Inside!");
+		
+		ArrayList<UserCashedPassword> userCashedPasswords = new ArrayList<UserCashedPassword>();
+		
+		try {
+
+			PreparedStatement ps = conn.prepareStatement(
+				"SELECT * FROM cached_password");
+
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUsernamesFromUserCachedPassword] ps:" + ps);
+			
+			ResultSet rs = ps.executeQuery();
+
+			
+			while (rs.next()) {
+
+				String username = rs.getString("username");
+				String encryptedPassword = rs.getString("password");
+				Timestamp timestamp = rs.getTimestamp("update_ts");
+				Calendar updateTs = Calendar.getInstance();
+				updateTs.setTimeInMillis(timestamp.getTime());
+				
+				UserCashedPassword userCashedPassword = 
+						new UserCashedPassword(
+								username,
+								encryptedPassword,
+								updateTs);
+								
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUsernamesFromUserCachedPassword] "
+						+ "userCashedPassword: " + userCashedPassword);
+				
+				userCashedPasswords.add(userCashedPassword);
+			}
+
+			rs.close();
+			ps.close();
+
+		}
+		catch(Exception e) {
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUsernamesFromUserCachedPassword] "
+					+ "failed!");
+			e.printStackTrace();
+		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUsernamesFromUserCachedPassword] Ready to get out!");
+		
+		return userCashedPasswords;
+
+	}
+
+	/**
+	 * 
+	 * @param username
+	 */
+	public void delUserCachedPassword(String username) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - delUserCachedPassword] Inside!");
+		
+		try {
+
+			PreparedStatement ps = 
+				conn.prepareStatement("DELETE FROM cached_password WHERE username = ?");
+			ps.setString(1, username);
+			
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - delUserCachedPassword] ps: " + ps);
+			
+			ps.execute();
+			ps.close();
+						
+		} catch (SQLException e) {
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - delUserCachedPassword] SQL Exception " 
+				+ e.getMessage());
+			e.printStackTrace();
+			throw new Error(e.getMessage());
+		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - delUserCachedPassword] Ready to get out!");
+		
 	}
 
 	/**
@@ -843,6 +931,9 @@ public class VirtualLabsDB {
 
 		}
 
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUser] "
+				+ "user: " + user);
+		
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUser] Ready to get out!");
 		
 		return user;
@@ -903,6 +994,9 @@ public class VirtualLabsDB {
 
 		}
 
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserByEmail] "
+				+ "user: " + user);
+		
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserByEmail] Ready to get out!");
 		
 		return user;
@@ -1718,7 +1812,7 @@ public class VirtualLabsDB {
 				conn.prepareStatement(
 						"SELECT * FROM vm_ins_task " +
 						"	WHERE mac_address=? and active='t' " +
-						"	ORDER BY execution_time");
+						"	ORDER BY execution_time DESC");
 			
 			ps.setString(1, macAddress);
 			
@@ -1972,6 +2066,9 @@ public class VirtualLabsDB {
 			e.printStackTrace();
 		
 		}
+		
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserUsingVEInsId] "
+				+ "user: " + user);
 		
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - getUserUsingVEInsId] Ready to get out!");
 		
@@ -3026,6 +3123,108 @@ public class VirtualLabsDB {
     	
     	return id;
     }
+
+	public boolean isThereAnyActiveVMInsSyncUserTask(
+			ArrayList<VMInstance> vmInstances) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isThereAnyActiveVMInsSyncUserTask] Inside!");
+		
+		boolean anyActiveVMInsSyncUserTask = false;
+		
+		ArrayList<VMInsTask> vmInsTasks = new ArrayList<VMInsTask>();
+		ArrayList<VMInsSyncUserTask> vmInsSyncUserTasks = new ArrayList<VMInsSyncUserTask>();
+
+		if (!vmInstances.isEmpty()) {
+			
+			try {
+
+				String queryStr = "SELECT * FROM vm_ins_task AS t, vm_ins_sync_user_task AS st "
+						+ "WHERE t.active=\'t\' AND st.active=\'t\' AND t.id=st.task_id "
+						+ "AND t.task=\'" + TodoType.SYNC_USER_CREDENTIALS.toString() + "\'"
+						+ "AND t.mac_address in (";
+				int counter = 0;
+				for (VMInstance vmIns: vmInstances) {
+					if (counter > 0)
+						queryStr += ",";
+					queryStr += "\'" + vmIns.getMacAddress() + "\'";
+					counter++;
+				}
+				queryStr += ") ORDER BY t.execution_time";
+						;
+				PreparedStatement ps = conn.prepareStatement(queryStr);
+
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isThereAnyActiveVMInsSyncUserTask] "
+						+ "ps: " + ps);
+
+				ResultSet rs = ps.executeQuery();
+
+				while (rs.next()) {
+					anyActiveVMInsSyncUserTask = true;
+
+					int id = rs.getInt("id");
+					String retMacAddress = rs.getString("mac_address");
+					TodoType task = null;
+					String taskStr = rs.getString("task");
+					if (taskStr.equals(TodoType.CHANGE_CHECKIN_INTERVAL.toString()))
+						task = TodoType.CHANGE_CHECKIN_INTERVAL;
+					else if (taskStr.equals(TodoType.SYNC_USER_CREDENTIALS.toString()))
+						task = TodoType.SYNC_USER_CREDENTIALS;
+					Timestamp timestamp = rs.getTimestamp("execution_time");
+					Calendar executionTime = Calendar.getInstance();
+					executionTime.setTime(timestamp);
+					boolean active1 = rs.getBoolean("active");
+
+					VMInsTask vmInsTask = 
+							new VMInsTask(
+									id,
+									retMacAddress,
+									task,
+									executionTime,
+									active1);
+
+					DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isThereAnyActiveVMInsSyncUserTask] "
+							+ "vmInsTask.getId() is " + vmInsTask.getId());
+
+					vmInsTasks.add(vmInsTask);
+
+					int retTaskId = rs.getInt("task_id");
+					String username = rs.getString("username");
+					String password = rs.getString("password");
+					boolean active2 = rs.getBoolean("active");
+					
+					VMInsSyncUserTask vmInsSyncUserTask = 
+						new VMInsSyncUserTask(
+							retTaskId,
+							username,
+							password,
+							active2);
+					
+					DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isThereAnyActiveVMInsSyncUserTask] "
+							+ "vmInsSyncUserTask.getTaskId() is " + vmInsSyncUserTask.getTaskId());
+
+					vmInsSyncUserTasks.add(vmInsSyncUserTask);
+				}
+
+				rs.close();
+				ps.close();
+
+			} 
+			catch (SQLException e) {
+
+				e.printStackTrace();
+
+			}
+		}
+		
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isThereAnyActiveVMInsSyncUserTask] "
+				+ "vmInsTasks are " + vmInsTasks);
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isThereAnyActiveVMInsSyncUserTask] "
+				+ "vmInsSyncUserTasks are " + vmInsSyncUserTasks);
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isThereAnyActiveVMInsSyncUserTask] Ready to get out!");
+		
+		return anyActiveVMInsSyncUserTask;
+	}
 
 }
 

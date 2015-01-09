@@ -98,6 +98,13 @@ public class VirtualLabsSkeleton implements ServiceLifeCycle {
 		
 	}
 	
+	public AddInitialTasks4NewVMsWithEncryptedPasswordResponse addInitialTasks4NewVMsWithEncryptedPassword(
+			AddInitialTasks4NewVMsWithEncryptedPasswordRequest addInitialTasks4NewVMsWithEncryptedPasswordRequest) {
+		
+		return virtualLabs.addInitialTasks4NewVMsWithEncryptedPassword(addInitialTasks4NewVMsWithEncryptedPasswordRequest);
+		
+	}
+	
 	public RefreshVMResponse refreshVM(
 			RefreshVMRequest refreshVMRequest) {
 		

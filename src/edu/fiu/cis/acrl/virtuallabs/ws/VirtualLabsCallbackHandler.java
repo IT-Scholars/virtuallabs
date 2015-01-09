@@ -205,6 +205,22 @@
             }
                 
            /**
+            * auto generated Axis2 call back method for addInitialTasks4NewVMsWithEncryptedPassword method
+            * override this method for handling normal response from addInitialTasks4NewVMsWithEncryptedPassword operation
+            */
+           public void receiveResultaddInitialTasks4NewVMsWithEncryptedPassword(
+                    edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsWithEncryptedPasswordResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from addInitialTasks4NewVMsWithEncryptedPassword operation
+           */
+            public void receiveErroraddInitialTasks4NewVMsWithEncryptedPassword(java.lang.Exception e) {
+            }
+                
+           /**
             * auto generated Axis2 call back method for modifyHostAppointment method
             * override this method for handling normal response from modifyHostAppointment operation
             */

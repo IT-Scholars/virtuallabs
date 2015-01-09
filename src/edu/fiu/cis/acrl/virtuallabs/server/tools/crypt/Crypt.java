@@ -5,48 +5,87 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
 
+import edu.fiu.cis.acrl.vescheduler.server.tools.debug.DebugTools;
+
 public class Crypt {
 
+	// Debug level for this class
+	private static int DEBUG_LEVEL = 4;
+	
 	private static String key = "1234567890123456";
 	
-	public static String encrypt(String input){
-		if ((input == null) || (input == ""))
-			return null;
+	public static String encrypt(String input) {
+
+		DebugTools.println(DEBUG_LEVEL, "[Crypt - encrypt] Inside!");
 		
-		byte[] crypted = null;
+		DebugTools.println(DEBUG_LEVEL, "[Crypt - encrypt] "
+				+ "input: " + input);
+		
+		String output = null;
+		
+		if (input == null)
+			return input;
+		if (input.isEmpty())
+			return input;
+		
+		byte[] encrypted = null;
 		try {
 			SecretKeySpec skey = new SecretKeySpec(key.getBytes(), "AES");
 			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
 			cipher.init(Cipher.ENCRYPT_MODE, skey);
-			crypted = cipher.doFinal(input.getBytes());
+			encrypted = cipher.doFinal(input.getBytes());
 		} catch(Exception e){
 			System.out.println(e.toString());
 		}
 		
-		if (crypted == null)
-			return null;
+		if (encrypted == null)
+			output = null;
 		else
-			return new String(Base64.encodeBase64(crypted));
+			output = new String(Base64.encodeBase64(encrypted));
+
+		DebugTools.println(DEBUG_LEVEL, "[Crypt - encrypt] "
+				+ "output: " + output);
+		
+		DebugTools.println(DEBUG_LEVEL, "[Crypt - encrypt] Inside!");
+		
+		return output;
 	}
 
 	public static String decrypt(String input){
-		if ((input == null) || (input == ""))
-			return null;
+
+		DebugTools.println(DEBUG_LEVEL, "[Crypt - decrypt] Inside!");
 		
-		byte[] output = null;
+		DebugTools.println(DEBUG_LEVEL, "[Crypt - decrypt] "
+				+ "input: " + input);
+		
+		String output = null;
+		
+		if (input == null)
+			return input;
+		if (input.isEmpty())
+			return input;
+		
+		byte[] decrypted = null;
 		try{
 			SecretKeySpec skey = new SecretKeySpec(key.getBytes(), "AES");
 			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
 			cipher.init(Cipher.DECRYPT_MODE, skey);
-			output = cipher.doFinal(Base64.decodeBase64(input));
+			decrypted = cipher.doFinal(Base64.decodeBase64(input));
 		}catch(Exception e){
 			System.out.println(e.toString());
 		}
 		
-		if (output == null)
-			return null;
+		if (decrypted == null)
+			output = null;
 		else
-			return new String(output);
+			output = new String(decrypted);
+
+		DebugTools.println(DEBUG_LEVEL, "[Crypt - decrypt] "
+				+ "output: " + output);
+		
+		DebugTools.println(DEBUG_LEVEL, "[Crypt - decrypt] Inside!");
+		
+		return output;
 	}
 
 }

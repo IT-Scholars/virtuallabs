@@ -1,5 +1,6 @@
 package edu.fiu.cis.acrl.virtuallabs.server;
 
+import edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsWithEncryptedPasswordResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceRequest;
 import edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceResponse;
 import edu.fiu.cis.acrl.virtuallabs.ws.GetCheckinIntervalRequest;
@@ -14,6 +15,7 @@ import edu.fiu.cis.acrl.vescheduler.server.VEScheduler;
 import edu.fiu.cis.acrl.vescheduler.server.VMInstance;
 import edu.fiu.cis.acrl.vescheduler.server.VMInstance.VMInsStatusType;
 import edu.fiu.cis.acrl.vescheduler.server.agent.SSHCommand;
+import edu.fiu.cis.acrl.vescheduler.server.agent.SchedulingAgent;
 import edu.fiu.cis.acrl.vescheduler.server.db.VESchedulerDB;
 import edu.fiu.cis.acrl.vescheduler.ws.GetVEMacsRequest;
 import edu.fiu.cis.acrl.vescheduler.ws.GetVEMacsResponse;
@@ -150,6 +152,8 @@ public class VirtualLabs {
     // private KaseyaWSClient kaseyaWSClient;
     // private QuotaSystemStub qsStub;
     private QuotaSystem qsStub;
+    
+    private UnneededPasswordTerminator passTerminator = null;
 	
 	/**
 	 * Constructor is protected
@@ -193,6 +197,13 @@ public class VirtualLabs {
 			e.printStackTrace();
 
 		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - Constructor] "
+				+ "Starting the pass terminator ... ");
+		passTerminator = new UnneededPasswordTerminator();
+		passTerminator.start();
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - Constructor] "
+				+ "The pass terminator has started");
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - Constructor] Ready to get out!");
 
@@ -283,6 +294,42 @@ public class VirtualLabs {
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - addInitialTasks4NewVMs] Ready to get out!");
 
 		return response;
+		
+	}
+	
+	/**
+	 * 
+	 * @param addInitialTasks4NewVMsRequest
+	 * @return
+	 */
+	public AddInitialTasks4NewVMsWithEncryptedPasswordResponse addInitialTasks4NewVMsWithEncryptedPassword(
+			AddInitialTasks4NewVMsWithEncryptedPasswordRequest addInitialTasks4NewVMsWithEncryptedPasswordRequest) {
+		
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - addInitialTasks4NewVMsWithEncryptedPassword] Inside!");
+
+		AddInitialTasks4NewVMsWithEncryptedPasswordResponse resp = new AddInitialTasks4NewVMsWithEncryptedPasswordResponse();
+
+		EncryptedCredential encryptedCredential  = addInitialTasks4NewVMsWithEncryptedPasswordRequest.getEncryptedCredential();
+		String username = encryptedCredential.getUserName();
+		String password = Crypt.decrypt(encryptedCredential.getEncryptedPassword());
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserWithEncryptedPasswordProfile] "
+				+ "userName: " + encryptedCredential.getUserName() 
+				+ " encryptedPassword: " + encryptedCredential.getEncryptedPassword()
+				+ " password: " + password);
+		setUserCachedPassword(username, password);
+		
+		AddInitialTasks4NewVMsRequest wrappedReq = new AddInitialTasks4NewVMsRequest();
+		wrappedReq.setDevaInsId(addInitialTasks4NewVMsWithEncryptedPasswordRequest.getDevaInsId());
+		AddInitialTasks4NewVMsResponse wrappedResp = addInitialTasks4NewVMs(wrappedReq);
+		
+		resp.setSuccess(wrappedResp.getSuccess());
+		resp.setReason(wrappedResp.getReason());
+
+		passTerminator.notifyThread();
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - addInitialTasks4NewVMsWithEncryptedPassword] Ready to get out!");
+
+		return resp;
 		
 	}
 	
@@ -859,7 +906,7 @@ public class VirtualLabs {
 										"Creatint user for " + endUserName + " on " + vmName);
 								// endUserName = "user-" + vmShortName + "-" + user.getUserName();
 							} else {
-								DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - addInitialTasks4NewVMs] " +
+								DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - getDevaInsInfo] " +
 										"The short name for vm could not be found. vmName: " + vmName);
 							}
 						}
@@ -1358,6 +1405,10 @@ public class VirtualLabs {
 					virtualLabsDB.setVMInsSyncUserTask(vmInsSyncUserTask);
 				} 
 				
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - getUserCredentials] "
+						+ "userCred.getUserName(): " + userCred.getUserName() + " "
+						+ "userCred.getPassword(): " + userCred.getPassword());
+				
 				response.addUserCredential(userCred);
 				response.setSuccess(true);
 				response.setReason("Successful!");
@@ -1371,6 +1422,8 @@ public class VirtualLabs {
 			e.printStackTrace();
 		
 		}
+		
+		passTerminator.notifyThread();
 		
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - getUserCredentials] Ready to get out!");
 
@@ -2535,7 +2588,7 @@ public class VirtualLabs {
 					+ "userName: " + cred.getUserName() 
 					+ " encryptedPassword: " + cred.getEncryptedPassword()
 					+ " password: " + Crypt.decrypt(cred.getEncryptedPassword()));
-			virtualLabsDB.setUserCachedPassword(
+			setUserCachedPassword(
 					cred.getUserName(), 
 					Crypt.decrypt(cred.getEncryptedPassword()));
 		}
@@ -2549,9 +2602,23 @@ public class VirtualLabs {
 		for (Appointment app : apps)
 			resp.addAppointment(app);
 		
+		passTerminator.notifyThread();
+
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithEncryptedPassword] Ready to get out!");
 
 		return resp;
+	}
+
+	private void setUserCachedPassword(String username, String password) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - setUserCachedPassword] Ready to get out!");
+		
+		virtualLabsDB.setUserCachedPassword(username, password);		
+		virtualLabsDB.eliminatePlaintextPassword(username);
+		passTerminator.notifyThread();
+		
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - setUserCachedPassword] Ready to get out!");
+	
 	}
 
 	/**
@@ -6882,14 +6949,12 @@ public class VirtualLabs {
 		CreateUserProfileWithEncryptedPasswordResponse resp = new CreateUserProfileWithEncryptedPasswordResponse();
 
 		String encryptedPassword = createUserProfileWithEncryptedPasswordRequest.getEncryptedPassword();
+		String username = createUserProfileWithEncryptedPasswordRequest.getUserName();
 		String password = Crypt.decrypt(encryptedPassword);
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - createUserWithEncryptedPasswordProfile] "
 				+ "userName: " + createUserProfileWithEncryptedPasswordRequest.getUserName() 
 				+ " encryptedPassword: " + encryptedPassword
 				+ " password: " + password);
-		virtualLabsDB.setUserCachedPassword(
-				createUserProfileWithEncryptedPasswordRequest.getUserName(), 
-				password);
 		
 		CreateUserProfileRequest wrappedReq = new CreateUserProfileRequest();
 		wrappedReq.setRequestingUser(createUserProfileWithEncryptedPasswordRequest.getRequestingUser());
@@ -6903,10 +6968,15 @@ public class VirtualLabs {
 		wrappedReq.setContactInfo(createUserProfileWithEncryptedPasswordRequest.getContactInfo());
 		CreateUserProfileResponse wrappedResp = createUserProfile(wrappedReq);
 		
-		virtualLabsDB.eliminatePlaintextPassword(createUserProfileWithEncryptedPasswordRequest.getUserName());
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - createUserProfileWithEncryptedPassword] "
+				+ "wrappedResp.getSuccess(): " + wrappedResp.getSuccess());
+		if (wrappedResp.getSuccess())
+			setUserCachedPassword(username, password);
 		
 		resp.setSuccess(wrappedResp.getSuccess());
 		resp.setReason(wrappedResp.getReason());
+
+		passTerminator.notifyThread();
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - createUserProfileWithEncryptedPassword] Ready to get out!");
 
@@ -7217,14 +7287,13 @@ public class VirtualLabs {
 		EditUserProfileWithEncryptedPasswordResponse resp = new EditUserProfileWithEncryptedPasswordResponse();
 
 		String encryptedPassword = editUserProfileWithEncryptedPasswordRequest.getEncryptedPassword();
+		String username = editUserProfileWithEncryptedPasswordRequest.getUserName();
 		String password = Crypt.decrypt(encryptedPassword);
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserWithEncryptedPasswordProfile] "
 				+ "userName: " + editUserProfileWithEncryptedPasswordRequest.getUserName() 
 				+ " encryptedPassword: " + encryptedPassword
 				+ " password: " + password);
-		virtualLabsDB.setUserCachedPassword(
-				editUserProfileWithEncryptedPasswordRequest.getUserName(), 
-				password);
+		setUserCachedPassword(username, password);
 		
 		EditUserProfileRequest wrappedReq = new EditUserProfileRequest();
 		wrappedReq.setRequestingUser(editUserProfileWithEncryptedPasswordRequest.getRequestingUser());
@@ -7238,10 +7307,12 @@ public class VirtualLabs {
 		wrappedReq.setContactInfo(editUserProfileWithEncryptedPasswordRequest.getContactInfo());
 		EditUserProfileResponse wrappedResp = editUserProfile(wrappedReq);
 		
-		virtualLabsDB.eliminatePlaintextPassword(editUserProfileWithEncryptedPasswordRequest.getUserName());
-		
+		setUserCachedPassword(username, password);
+
 		resp.setSuccess(wrappedResp.getSuccess());
 		resp.setReason(wrappedResp.getReason());
+
+		passTerminator.notifyThread();
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserProfileWithEncryptedPassword] Ready to get out!");
 

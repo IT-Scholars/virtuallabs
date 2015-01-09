@@ -207,6 +207,28 @@
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="AddInitialTasks4NewVMsWithEncryptedPasswordRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="devaInsId"
+					type="xsd:string" />
+				<xsd:element maxOccurs="1" minOccurs="1"
+					name="encryptedCredential" type="tns:EncryptedCredential" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="AddInitialTasks4NewVMsWithEncryptedPasswordResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success"
+					type="xsd:boolean" />
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason"
+					type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
 	<xsd:element name="RefreshVMRequest">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -1582,6 +1604,14 @@
 	  <wsdl:part name="parameters" element="tns:AddInitialTasks4NewVMsResponse" />
 	</wsdl:message>
 	
+	<wsdl:message name="AddInitialTasks4NewVMsWithEncryptedPasswordRequestMsg">
+	  <wsdl:part name="parameters" element="tns:AddInitialTasks4NewVMsWithEncryptedPasswordRequest" />
+	</wsdl:message>
+	
+	<wsdl:message name="AddInitialTasks4NewVMsWithEncryptedPasswordResponseMsg">
+	  <wsdl:part name="parameters" element="tns:AddInitialTasks4NewVMsWithEncryptedPasswordResponse" />
+	</wsdl:message>
+	
 	<wsdl:message name="RefreshVMRequestMsg">
 	  <wsdl:part name="parameters" element="tns:RefreshVMRequest" />
 	</wsdl:message>
@@ -2149,6 +2179,13 @@
 			</wsdl:output>
 		</wsdl:operation>
 
+		<wsdl:operation name="addInitialTasks4NewVMsWithEncryptedPassword">
+			<wsdl:input name="AddInitialTasks4NewVMsWithEncryptedPasswordRequest" message="tns:AddInitialTasks4NewVMsWithEncryptedPasswordRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="AddInitialTasks4NewVMsWithEncryptedPasswordResponse" message="tns:AddInitialTasks4NewVMsWithEncryptedPasswordResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
 		<wsdl:operation name="refreshVM">
 			<wsdl:input name="RefreshVMRequest" message="tns:RefreshVMRequestMsg">
 			</wsdl:input>
@@ -2606,6 +2643,16 @@
 				<soap:body use="literal" />
 			</wsdl:input>
 			<wsdl:output name="AddInitialTasks4NewVMsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="addInitialTasks4NewVMsWithEncryptedPassword">
+			<soap:operation soapAction="addInitialTasks4NewVMsWithEncryptedPassword" />
+			<wsdl:input name="AddInitialTasks4NewVMsWithEncryptedPasswordRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="AddInitialTasks4NewVMsWithEncryptedPasswordResponse">
 				<soap:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>
