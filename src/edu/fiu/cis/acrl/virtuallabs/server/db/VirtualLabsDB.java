@@ -3263,5 +3263,59 @@ public class VirtualLabsDB {
 		return anyActiveVMInsSyncUserTask;
 	}
 
+	public boolean isNoPlainTextPasswordInEffect4ThisUser(String userName) {
+		
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isNoPlainTextPasswordInEffect4ThisUser] Inside!");
+		
+		boolean retVal = false;
+
+		try {
+
+			// Try to find the user by username
+			PreparedStatement ps = conn.prepareStatement(
+				"SELECT * FROM user_profile WHERE UPPER(username) = UPPER(?)");
+			ps.setString(1, userName);
+
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isNoPlainTextPasswordInEffect4ThisUser] ps:" + ps);
+			
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+
+				String password = rs.getString("password");
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isNoPlainTextPasswordInEffect4ThisUser] "
+						+ "password: " + password);
+
+				int length = password.length();
+				if (length > 0) {
+					DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isNoPlainTextPasswordInEffect4ThisUser] "
+							+ "password length is " + password + ", which is greater than zero!");
+					retVal = false;
+				} else {
+					DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isNoPlainTextPasswordInEffect4ThisUser] "
+							+ "password length is " + password + ", which is NOT greater than zero!");
+					retVal = true;
+				}
+			}
+
+			rs.close();
+			ps.close();
+
+		}
+		catch(Exception e) {
+
+			e.printStackTrace();
+
+		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isNoPlainTextPasswordInEffect4ThisUser] "
+				+ "retVal: " + retVal);
+		
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isNoPlainTextPasswordInEffect4ThisUser] Ready to get out!");
+		
+		return retVal;
+
+	}
+
 }
 
