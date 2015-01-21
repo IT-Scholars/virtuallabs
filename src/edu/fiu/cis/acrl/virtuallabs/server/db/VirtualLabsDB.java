@@ -8,7 +8,9 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 
 import edu.fiu.cis.acrl.vescheduler.server.Host;
+import edu.fiu.cis.acrl.vescheduler.server.VESchedulerSettings;
 import edu.fiu.cis.acrl.vescheduler.server.VMInstance;
+import edu.fiu.cis.acrl.vescheduler.server.db.VESchedulerDB;
 import edu.fiu.cis.acrl.virtuallabs.server.*;
 import edu.fiu.cis.acrl.virtuallabs.server.tools.crypt.Crypt;
 import edu.fiu.cis.acrl.virtuallabs.server.tools.debug.DebugTools;
@@ -25,9 +27,44 @@ public class VirtualLabsDB {
 	// Debug level for this class
 	private static int DEBUG_LEVEL = 2;
 	
+	private VirtualLabsSettings settings;
 	private Connection conn;
 
-	public VirtualLabsDB() {}
+	/**
+	 * Default Constructor.
+	 */
+	public VirtualLabsDB() {
+		
+		settings= VirtualLabsSettings.instance();
+		connect(
+				settings.getDbUser(), 
+				settings.getDbPassword(), 
+				settings.getDbHost(), 
+				settings.getDbName());
+		
+	}
+
+	/**
+	 * A handle to the unique Singleton instance.
+	 */
+	static private VirtualLabsDB _instance = null;
+	
+	/**
+	 * @return The unique instance of this class.
+	 */
+	static public VirtualLabsDB instance() {
+		
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - instance] Inside!");
+		
+		if(null == _instance) {
+			_instance = new VirtualLabsDB();
+	    }
+	    
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - instance] Ready to get out!");
+		
+		return _instance;
+	   
+	}
 
 	public boolean connect(String user, String password, String host, String database) {
 
@@ -1812,7 +1849,7 @@ public class VirtualLabsDB {
 				conn.prepareStatement(
 						"SELECT * FROM vm_ins_task " +
 						"	WHERE mac_address=? and active='t' " +
-						"	ORDER BY execution_time DESC");
+						"	ORDER BY execution_time");
 			
 			ps.setString(1, macAddress);
 			

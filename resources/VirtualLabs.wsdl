@@ -182,6 +182,25 @@
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="RefreshVMWithEncryptedPasswordRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="devaInsId" type="xsd:string"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="vmName" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="encryptedPassword" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RefreshVMWithEncryptedPasswordResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success" type="xsd:boolean"/>
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
 	<xsd:element name="RunVMCmdRequest">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -1420,12 +1439,16 @@
     <wsdl:part name="parameters" element="tns:CancelMentorAppointmentResponse">
     </wsdl:part>
   </wsdl:message>
-  <wsdl:message name="AddInitialTasks4NewVMsRequestMsg">
-    <wsdl:part name="parameters" element="tns:AddInitialTasks4NewVMsRequest">
+  <wsdl:message name="RefreshVMWithEncryptedPasswordResponseMsg">
+    <wsdl:part name="parameters" element="tns:RefreshVMWithEncryptedPasswordResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="CreateUserProfileRequestMsg">
     <wsdl:part name="parameters" element="tns:CreateUserProfileRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AddInitialTasks4NewVMsRequestMsg">
+    <wsdl:part name="parameters" element="tns:AddInitialTasks4NewVMsRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="EnrollUserInCourseResponseMsg">
@@ -1438,6 +1461,10 @@
   </wsdl:message>
   <wsdl:message name="DuplicateCourseFault">
     <wsdl:part name="parameters" element="tns:DuplicateCourseError">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RefreshVMWithEncryptedPasswordRequestMsg">
+    <wsdl:part name="parameters" element="tns:RefreshVMWithEncryptedPasswordRequest">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="CancelUserAppointmentRequestMsg">
@@ -1751,6 +1778,12 @@
       <wsdl:input name="RefreshVMRequest" message="tns:RefreshVMRequestMsg">
     </wsdl:input>
       <wsdl:output name="RefreshVMResponse" message="tns:RefreshVMResponseMsg">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refreshVMWithEncryptedPassword">
+      <wsdl:input name="RefreshVMWithEncryptedPasswordRequest" message="tns:RefreshVMWithEncryptedPasswordRequestMsg">
+    </wsdl:input>
+      <wsdl:output name="RefreshVMWithEncryptedPasswordResponse" message="tns:RefreshVMWithEncryptedPasswordResponseMsg">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="runVMCmd">
@@ -2142,6 +2175,15 @@
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="RefreshVMResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refreshVMWithEncryptedPassword">
+      <soap:operation soapAction="refreshVMWithEncryptedPassword"/>
+      <wsdl:input name="RefreshVMWithEncryptedPasswordRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RefreshVMWithEncryptedPasswordResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>

@@ -166,17 +166,21 @@ public class VirtualLabs {
 
 		veSchDB = VESchedulerDB.instance();
 		
-		this.virtualLabsDB = new VirtualLabsDB();
-
+		virtualLabsDB = VirtualLabsDB.instance();
+		
 		settings = VirtualLabsSettings.instance();
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs] Settings!" + settings);
+
+		/*
+		this.virtualLabsDB = new VirtualLabsDB();
 
 		virtualLabsDB.connect(
 				settings.getDbUser(), 
 				settings.getDbPassword(), 
 				settings.getDbHost(), 
 				settings.getDbName());
+		*/
 
 		try {
 
@@ -370,6 +374,47 @@ public class VirtualLabs {
 
 		return response;
 		
+	}
+	
+	/**
+	 * 
+	 * @param refreshVMRequest
+	 * @return
+	 */
+	public RefreshVMWithEncryptedPasswordResponse refreshVMWithEncryptedPassword(
+			RefreshVMWithEncryptedPasswordRequest refreshVMWithEncryptedPasswordRequest) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - refreshVMWithEncryptedPassword] Inside!");
+
+		RefreshVMWithEncryptedPasswordResponse resp = new RefreshVMWithEncryptedPasswordResponse();
+
+		String veInsId = refreshVMWithEncryptedPasswordRequest.getDevaInsId();
+		User user = virtualLabsDB.getUserByVeInsId(veInsId);
+		String username = user.getUserName();
+		String encryptedPassword = refreshVMWithEncryptedPasswordRequest.getEncryptedPassword();
+		String password = Crypt.decrypt(encryptedPassword);
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - refreshVMWithEncryptedPassword] "
+				+ "userName: " + username 
+				+ " encryptedPassword: " + encryptedPassword
+				+ " password: " + password);
+		setUserCachedPassword(username, password);
+		
+		RefreshVMRequest wrappedReq = new RefreshVMRequest();
+		wrappedReq.setDevaInsId(refreshVMWithEncryptedPasswordRequest.getDevaInsId());
+		wrappedReq.setVmName(refreshVMWithEncryptedPasswordRequest.getVmName());
+		RefreshVMResponse wrappedResp = refreshVM(wrappedReq);
+		
+		setUserCachedPassword(username, password);
+
+		resp.setSuccess(wrappedResp.getSuccess());
+		resp.setReason(wrappedResp.getReason());
+
+		passTerminator.notifyThread();
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - refreshVMWithEncryptedPassword] Ready to get out!");
+
+		return resp;
+
 	}
 	
 	public void addCourse(
@@ -7289,7 +7334,7 @@ public class VirtualLabs {
 		String encryptedPassword = editUserProfileWithEncryptedPasswordRequest.getEncryptedPassword();
 		String username = editUserProfileWithEncryptedPasswordRequest.getUserName();
 		String password = Crypt.decrypt(encryptedPassword);
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserWithEncryptedPasswordProfile] "
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserProfileWithEncryptedPassword] "
 				+ "userName: " + editUserProfileWithEncryptedPasswordRequest.getUserName() 
 				+ " encryptedPassword: " + encryptedPassword
 				+ " password: " + password);

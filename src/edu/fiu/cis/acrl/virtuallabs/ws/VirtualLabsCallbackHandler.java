@@ -412,22 +412,6 @@
             }
                 
            /**
-            * auto generated Axis2 call back method for getDevaInsInfo method
-            * override this method for handling normal response from getDevaInsInfo operation
-            */
-           public void receiveResultgetDevaInsInfo(
-                    edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse result
-                        ) {
-           }
-
-          /**
-           * auto generated Axis2 Error handler
-           * override this method for handling error response from getDevaInsInfo operation
-           */
-            public void receiveErrorgetDevaInsInfo(java.lang.Exception e) {
-            }
-                
-           /**
             * auto generated Axis2 call back method for delUserProfile method
             * override this method for handling normal response from delUserProfile operation
             */
@@ -444,18 +428,19 @@
             }
                 
            /**
-            * auto generated Axis2 call back method for deleteCourse method
-            * override this method for handling normal response from deleteCourse operation
+            * auto generated Axis2 call back method for refreshVMWithEncryptedPassword method
+            * override this method for handling normal response from refreshVMWithEncryptedPassword operation
             */
-           public void receiveResultdeleteCourse(
-                    ) {
+           public void receiveResultrefreshVMWithEncryptedPassword(
+                    edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse result
+                        ) {
            }
 
           /**
            * auto generated Axis2 Error handler
-           * override this method for handling error response from deleteCourse operation
+           * override this method for handling error response from refreshVMWithEncryptedPassword operation
            */
-            public void receiveErrordeleteCourse(java.lang.Exception e) {
+            public void receiveErrorrefreshVMWithEncryptedPassword(java.lang.Exception e) {
             }
                 
            /**
@@ -472,6 +457,37 @@
            * override this method for handling error response from scheduleCourseAppointment operation
            */
             public void receiveErrorscheduleCourseAppointment(java.lang.Exception e) {
+            }
+                
+           /**
+            * auto generated Axis2 call back method for getDevaInsInfo method
+            * override this method for handling normal response from getDevaInsInfo operation
+            */
+           public void receiveResultgetDevaInsInfo(
+                    edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse result
+                        ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from getDevaInsInfo operation
+           */
+            public void receiveErrorgetDevaInsInfo(java.lang.Exception e) {
+            }
+                
+           /**
+            * auto generated Axis2 call back method for deleteCourse method
+            * override this method for handling normal response from deleteCourse operation
+            */
+           public void receiveResultdeleteCourse(
+                    ) {
+           }
+
+          /**
+           * auto generated Axis2 Error handler
+           * override this method for handling error response from deleteCourse operation
+           */
+            public void receiveErrordeleteCourse(java.lang.Exception e) {
             }
                 
            /**

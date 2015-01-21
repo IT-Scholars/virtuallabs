@@ -5,22 +5,21 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import edu.fiu.cis.acrl.vescheduler.server.VEInstance;
-import edu.fiu.cis.acrl.vescheduler.server.VESchedulerSettings;
 import edu.fiu.cis.acrl.vescheduler.server.VMInstance;
 import edu.fiu.cis.acrl.vescheduler.server.db.VESchedulerDB;
-import edu.fiu.cis.acrl.vescheduler.server.tools.debug.DebugTools;
+import edu.fiu.cis.acrl.virtuallabs.server.tools.debug.DebugTools;
 import edu.fiu.cis.acrl.virtuallabs.server.db.VirtualLabsDB;
 
 public class UnneededPasswordTerminator extends Thread {
 
 	// Debug level for this class
-	private static int DEBUG_LEVEL = -1;
+	private static int DEBUG_LEVEL = 2;
 
 	private VirtualLabsDB virtualLabsDB;
-	private VirtualLabsSettings vLabsSettings;
+	// private VirtualLabsSettings vLabsSettings;
 	
 	private VESchedulerDB veSchDB;
-	private VESchedulerSettings veSchSettings;
+	// private VESchedulerSettings veSchSettings;
 	
     private boolean running;
     private boolean waiting;
@@ -68,8 +67,11 @@ public class UnneededPasswordTerminator extends Thread {
 		
 		DebugTools.println(DEBUG_LEVEL, "[UnneededPasswordTerminator - executeTasks] Inside! ");
 		
+		virtualLabsDB = VirtualLabsDB.instance();
+		
 		veSchDB = VESchedulerDB.instance();
 		
+		/*
 		virtualLabsDB = new VirtualLabsDB();
 
 		vLabsSettings = VirtualLabsSettings.instance();
@@ -85,7 +87,8 @@ public class UnneededPasswordTerminator extends Thread {
 
 		DebugTools.println(DEBUG_LEVEL, "[UnneededPasswordTerminator - executeTasks] "
 				+ "virtualLabsDB is connected!");
-
+		*/
+		
 		boolean running = true;
 		int countTheNeededOnes = 0;
 		int countTheFreshOnes  = 0;

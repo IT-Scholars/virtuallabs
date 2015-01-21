@@ -251,6 +251,30 @@
 		</xsd:complexType>
 	</xsd:element>
 
+	<xsd:element name="RefreshVMWithEncryptedPasswordRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="devaInsId"
+					type="xsd:string" />
+				<xsd:element maxOccurs="1" minOccurs="1" name="vmName"
+					type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="encryptedPassword"
+				type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RefreshVMWithEncryptedPasswordResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1" minOccurs="1" name="success"
+					type="xsd:boolean" />
+				<xsd:element maxOccurs="1" minOccurs="1" name="reason"
+					type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
 	<xsd:element name="RunVMCmdRequest">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -1620,6 +1644,14 @@
 	  <wsdl:part name="parameters" element="tns:RefreshVMResponse" />
 	</wsdl:message>
 	
+	<wsdl:message name="RefreshVMWithEncryptedPasswordRequestMsg">
+	  <wsdl:part name="parameters" element="tns:RefreshVMWithEncryptedPasswordRequest" />
+	</wsdl:message>
+	
+	<wsdl:message name="RefreshVMWithEncryptedPasswordResponseMsg">
+	  <wsdl:part name="parameters" element="tns:RefreshVMWithEncryptedPasswordResponse" />
+	</wsdl:message>
+	
 	<wsdl:message name="RunVMCmdRequestMsg">
 	  <wsdl:part name="parameters" element="tns:RunVMCmdRequest" />
 	</wsdl:message>
@@ -2193,6 +2225,13 @@
 			</wsdl:output>
 		</wsdl:operation>
 
+		<wsdl:operation name="refreshVMWithEncryptedPassword">
+			<wsdl:input name="RefreshVMWithEncryptedPasswordRequest" message="tns:RefreshVMWithEncryptedPasswordRequestMsg">
+			</wsdl:input>
+			<wsdl:output name="RefreshVMWithEncryptedPasswordResponse" message="tns:RefreshVMWithEncryptedPasswordResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+
 		<wsdl:operation name="runVMCmd">
 			<wsdl:input name="RunVMCmdRequest" message="tns:RunVMCmdRequestMsg">
 			</wsdl:input>
@@ -2663,6 +2702,16 @@
 				<soap:body use="literal" />
 			</wsdl:input>
 			<wsdl:output name="RefreshVMResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="refreshVMWithEncryptedPassword">
+			<soap:operation soapAction="refreshVMWithEncryptedPassword" />
+			<wsdl:input name="RefreshVMWithEncryptedPasswordRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="RefreshVMWithEncryptedPasswordResponse">
 				<soap:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>

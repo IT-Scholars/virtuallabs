@@ -44,7 +44,7 @@
         //creating the operations
         org.apache.axis2.description.AxisOperation __operation;
 
-        _operations = new org.apache.axis2.description.AxisOperation[59];
+        _operations = new org.apache.axis2.description.AxisOperation[60];
         
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
@@ -325,7 +325,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getDevaInsInfo"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "delUserProfile"));
 	    _service.addOperation(__operation);
 	    
 
@@ -337,7 +337,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "delUserProfile"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "refreshVMWithEncryptedPassword"));
 	    _service.addOperation(__operation);
 	    
 
@@ -349,7 +349,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "deleteCourse"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "scheduleCourseAppointment"));
 	    _service.addOperation(__operation);
 	    
 
@@ -361,7 +361,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "scheduleCourseAppointment"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getDevaInsInfo"));
 	    _service.addOperation(__operation);
 	    
 
@@ -373,7 +373,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getHostList"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "deleteCourse"));
 	    _service.addOperation(__operation);
 	    
 
@@ -385,7 +385,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getAvailableTimeZoneIds"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getHostList"));
 	    _service.addOperation(__operation);
 	    
 
@@ -397,7 +397,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelUserAppointment"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getAvailableTimeZoneIds"));
 	    _service.addOperation(__operation);
 	    
 
@@ -409,7 +409,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelHostAppointment"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelUserAppointment"));
 	    _service.addOperation(__operation);
 	    
 
@@ -421,7 +421,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "addInitialTasks4NewVMs"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelHostAppointment"));
 	    _service.addOperation(__operation);
 	    
 
@@ -433,7 +433,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "enrollUserInCourse"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "addInitialTasks4NewVMs"));
 	    _service.addOperation(__operation);
 	    
 
@@ -445,7 +445,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getUserCurAppId"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "enrollUserInCourse"));
 	    _service.addOperation(__operation);
 	    
 
@@ -457,7 +457,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getHostAppointments"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getUserCurAppId"));
 	    _service.addOperation(__operation);
 	    
 
@@ -469,7 +469,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getCheckinInterval"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getHostAppointments"));
 	    _service.addOperation(__operation);
 	    
 
@@ -481,7 +481,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "addCourse"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getCheckinInterval"));
 	    _service.addOperation(__operation);
 	    
 
@@ -493,7 +493,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelMentorAppointment"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "addCourse"));
 	    _service.addOperation(__operation);
 	    
 
@@ -505,7 +505,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getConfiguration"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelMentorAppointment"));
 	    _service.addOperation(__operation);
 	    
 
@@ -517,7 +517,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getAvailableActions"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getConfiguration"));
 	    _service.addOperation(__operation);
 	    
 
@@ -529,7 +529,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getUserCurrentTime"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getAvailableActions"));
 	    _service.addOperation(__operation);
 	    
 
@@ -541,7 +541,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelAllUserAppointments"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getUserCurrentTime"));
 	    _service.addOperation(__operation);
 	    
 
@@ -553,7 +553,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "suspendUserVLab"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelAllUserAppointments"));
 	    _service.addOperation(__operation);
 	    
 
@@ -565,7 +565,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getEndDate4CurrentDevaIns"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "suspendUserVLab"));
 	    _service.addOperation(__operation);
 	    
 
@@ -577,7 +577,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getResourceTypes"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getEndDate4CurrentDevaIns"));
 	    _service.addOperation(__operation);
 	    
 
@@ -589,7 +589,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "scheduleUserAppointmentsWithEncryptedPassword"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getResourceTypes"));
 	    _service.addOperation(__operation);
 	    
 
@@ -601,7 +601,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "refreshVM"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "scheduleUserAppointmentsWithEncryptedPassword"));
 	    _service.addOperation(__operation);
 	    
 
@@ -613,7 +613,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "createUserProfile"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "refreshVM"));
 	    _service.addOperation(__operation);
 	    
 
@@ -625,7 +625,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "isResourceAvailable"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "createUserProfile"));
 	    _service.addOperation(__operation);
 	    
 
@@ -637,7 +637,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "addHost"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "isResourceAvailable"));
 	    _service.addOperation(__operation);
 	    
 
@@ -649,7 +649,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getMentorAppointments"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "addHost"));
 	    _service.addOperation(__operation);
 	    
 
@@ -661,7 +661,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getUserAppointments"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getMentorAppointments"));
 	    _service.addOperation(__operation);
 	    
 
@@ -673,7 +673,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "reserveResource"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getUserAppointments"));
 	    _service.addOperation(__operation);
 	    
 
@@ -685,7 +685,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getVMInsInfo"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "reserveResource"));
 	    _service.addOperation(__operation);
 	    
 
@@ -697,7 +697,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "editUserProfileWithEncryptedPassword"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getVMInsInfo"));
 	    _service.addOperation(__operation);
 	    
 
@@ -709,7 +709,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "editUserProfile"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "editUserProfileWithEncryptedPassword"));
 	    _service.addOperation(__operation);
 	    
 
@@ -721,7 +721,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "checkin"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "editUserProfile"));
 	    _service.addOperation(__operation);
 	    
 
@@ -733,7 +733,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelAllMentorAppointments"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "checkin"));
 	    _service.addOperation(__operation);
 	    
 
@@ -745,13 +745,25 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getUserResourceTypes"));
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "cancelAllMentorAppointments"));
 	    _service.addOperation(__operation);
 	    
 
 	    
 	    
             _operations[58]=__operation;
+            
+        
+                   __operation = new org.apache.axis2.description.OutInAxisOperation();
+                
+
+            __operation.setName(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws", "getUserResourceTypes"));
+	    _service.addOperation(__operation);
+	    
+
+	    
+	    
+            _operations[59]=__operation;
             
         
         }
@@ -850,7 +862,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#setConfiguration
-                     * @param setConfigurationRequest712
+                     * @param setConfigurationRequest724
                     
                      */
 
@@ -858,7 +870,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationResponse setConfiguration(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationRequest setConfigurationRequest712)
+                            edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationRequest setConfigurationRequest724)
                         
 
                     throws java.rmi.RemoteException
@@ -885,7 +897,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    setConfigurationRequest712,
+                                                    setConfigurationRequest724,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "setConfiguration")));
                                                 
@@ -969,12 +981,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startsetConfiguration
-                    * @param setConfigurationRequest712
+                    * @param setConfigurationRequest724
                 
                 */
                 public  void startsetConfiguration(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationRequest setConfigurationRequest712,
+                 edu.fiu.cis.acrl.virtuallabs.ws.SetConfigurationRequest setConfigurationRequest724,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -999,7 +1011,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    setConfigurationRequest712,
+                                                    setConfigurationRequest724,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "setConfiguration")));
                                                 
@@ -1115,7 +1127,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getHost
-                     * @param getHostRequest714
+                     * @param getHostRequest726
                     
                      */
 
@@ -1123,7 +1135,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetHostResponse getHost(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetHostRequest getHostRequest714)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetHostRequest getHostRequest726)
                         
 
                     throws java.rmi.RemoteException
@@ -1150,7 +1162,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getHostRequest714,
+                                                    getHostRequest726,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getHost")));
                                                 
@@ -1234,12 +1246,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetHost
-                    * @param getHostRequest714
+                    * @param getHostRequest726
                 
                 */
                 public  void startgetHost(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetHostRequest getHostRequest714,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetHostRequest getHostRequest726,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -1264,7 +1276,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getHostRequest714,
+                                                    getHostRequest726,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getHost")));
                                                 
@@ -1380,7 +1392,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#modifyUserAppointment
-                     * @param modifyUserAppointmentRequest716
+                     * @param modifyUserAppointmentRequest728
                     
                      */
 
@@ -1388,7 +1400,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ModifyUserAppointmentResponse modifyUserAppointment(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ModifyUserAppointmentRequest modifyUserAppointmentRequest716)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ModifyUserAppointmentRequest modifyUserAppointmentRequest728)
                         
 
                     throws java.rmi.RemoteException
@@ -1415,7 +1427,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    modifyUserAppointmentRequest716,
+                                                    modifyUserAppointmentRequest728,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "modifyUserAppointment")));
                                                 
@@ -1499,12 +1511,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startmodifyUserAppointment
-                    * @param modifyUserAppointmentRequest716
+                    * @param modifyUserAppointmentRequest728
                 
                 */
                 public  void startmodifyUserAppointment(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ModifyUserAppointmentRequest modifyUserAppointmentRequest716,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ModifyUserAppointmentRequest modifyUserAppointmentRequest728,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -1529,7 +1541,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    modifyUserAppointmentRequest716,
+                                                    modifyUserAppointmentRequest728,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "modifyUserAppointment")));
                                                 
@@ -1645,7 +1657,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getUserProfileByUsername
-                     * @param getUserProfileByUsernameRequest718
+                     * @param getUserProfileByUsernameRequest730
                     
                      */
 
@@ -1653,7 +1665,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByUsernameResponse getUserProfileByUsername(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByUsernameRequest getUserProfileByUsernameRequest718)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByUsernameRequest getUserProfileByUsernameRequest730)
                         
 
                     throws java.rmi.RemoteException
@@ -1680,7 +1692,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserProfileByUsernameRequest718,
+                                                    getUserProfileByUsernameRequest730,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserProfileByUsername")));
                                                 
@@ -1764,12 +1776,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetUserProfileByUsername
-                    * @param getUserProfileByUsernameRequest718
+                    * @param getUserProfileByUsernameRequest730
                 
                 */
                 public  void startgetUserProfileByUsername(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByUsernameRequest getUserProfileByUsernameRequest718,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByUsernameRequest getUserProfileByUsernameRequest730,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -1794,7 +1806,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserProfileByUsernameRequest718,
+                                                    getUserProfileByUsernameRequest730,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserProfileByUsername")));
                                                 
@@ -1910,7 +1922,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getUserDefaultTimeZoneId
-                     * @param getUserDefaultTimeZoneIdRequest720
+                     * @param getUserDefaultTimeZoneIdRequest732
                     
                      */
 
@@ -1918,7 +1930,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetUserDefaultTimeZoneIdResponse getUserDefaultTimeZoneId(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserDefaultTimeZoneIdRequest getUserDefaultTimeZoneIdRequest720)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserDefaultTimeZoneIdRequest getUserDefaultTimeZoneIdRequest732)
                         
 
                     throws java.rmi.RemoteException
@@ -1945,7 +1957,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserDefaultTimeZoneIdRequest720,
+                                                    getUserDefaultTimeZoneIdRequest732,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserDefaultTimeZoneId")));
                                                 
@@ -2029,12 +2041,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetUserDefaultTimeZoneId
-                    * @param getUserDefaultTimeZoneIdRequest720
+                    * @param getUserDefaultTimeZoneIdRequest732
                 
                 */
                 public  void startgetUserDefaultTimeZoneId(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserDefaultTimeZoneIdRequest getUserDefaultTimeZoneIdRequest720,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserDefaultTimeZoneIdRequest getUserDefaultTimeZoneIdRequest732,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -2059,7 +2071,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserDefaultTimeZoneIdRequest720,
+                                                    getUserDefaultTimeZoneIdRequest732,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserDefaultTimeZoneId")));
                                                 
@@ -2175,7 +2187,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#setUserDefaultTimeZoneId
-                     * @param setUserDefaultTimeZoneIdRequest722
+                     * @param setUserDefaultTimeZoneIdRequest734
                     
                      */
 
@@ -2183,7 +2195,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.SetUserDefaultTimeZoneIdResponse setUserDefaultTimeZoneId(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.SetUserDefaultTimeZoneIdRequest setUserDefaultTimeZoneIdRequest722)
+                            edu.fiu.cis.acrl.virtuallabs.ws.SetUserDefaultTimeZoneIdRequest setUserDefaultTimeZoneIdRequest734)
                         
 
                     throws java.rmi.RemoteException
@@ -2210,7 +2222,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    setUserDefaultTimeZoneIdRequest722,
+                                                    setUserDefaultTimeZoneIdRequest734,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "setUserDefaultTimeZoneId")));
                                                 
@@ -2294,12 +2306,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startsetUserDefaultTimeZoneId
-                    * @param setUserDefaultTimeZoneIdRequest722
+                    * @param setUserDefaultTimeZoneIdRequest734
                 
                 */
                 public  void startsetUserDefaultTimeZoneId(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.SetUserDefaultTimeZoneIdRequest setUserDefaultTimeZoneIdRequest722,
+                 edu.fiu.cis.acrl.virtuallabs.ws.SetUserDefaultTimeZoneIdRequest setUserDefaultTimeZoneIdRequest734,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -2324,7 +2336,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    setUserDefaultTimeZoneIdRequest722,
+                                                    setUserDefaultTimeZoneIdRequest734,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "setUserDefaultTimeZoneId")));
                                                 
@@ -2440,7 +2452,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#modifyMentorAppointment
-                     * @param modifyMentorAppointmentRequest724
+                     * @param modifyMentorAppointmentRequest736
                     
                      */
 
@@ -2448,7 +2460,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ModifyMentorAppointmentResponse modifyMentorAppointment(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ModifyMentorAppointmentRequest modifyMentorAppointmentRequest724)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ModifyMentorAppointmentRequest modifyMentorAppointmentRequest736)
                         
 
                     throws java.rmi.RemoteException
@@ -2475,7 +2487,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    modifyMentorAppointmentRequest724,
+                                                    modifyMentorAppointmentRequest736,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "modifyMentorAppointment")));
                                                 
@@ -2559,12 +2571,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startmodifyMentorAppointment
-                    * @param modifyMentorAppointmentRequest724
+                    * @param modifyMentorAppointmentRequest736
                 
                 */
                 public  void startmodifyMentorAppointment(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ModifyMentorAppointmentRequest modifyMentorAppointmentRequest724,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ModifyMentorAppointmentRequest modifyMentorAppointmentRequest736,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -2589,7 +2601,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    modifyMentorAppointmentRequest724,
+                                                    modifyMentorAppointmentRequest736,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "modifyMentorAppointment")));
                                                 
@@ -2705,7 +2717,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#createUserProfileWithEncryptedPassword
-                     * @param createUserProfileWithEncryptedPasswordRequest726
+                     * @param createUserProfileWithEncryptedPasswordRequest738
                     
                      */
 
@@ -2713,7 +2725,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileWithEncryptedPasswordResponse createUserProfileWithEncryptedPassword(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileWithEncryptedPasswordRequest createUserProfileWithEncryptedPasswordRequest726)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileWithEncryptedPasswordRequest createUserProfileWithEncryptedPasswordRequest738)
                         
 
                     throws java.rmi.RemoteException
@@ -2740,7 +2752,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    createUserProfileWithEncryptedPasswordRequest726,
+                                                    createUserProfileWithEncryptedPasswordRequest738,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "createUserProfileWithEncryptedPassword")));
                                                 
@@ -2824,12 +2836,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcreateUserProfileWithEncryptedPassword
-                    * @param createUserProfileWithEncryptedPasswordRequest726
+                    * @param createUserProfileWithEncryptedPasswordRequest738
                 
                 */
                 public  void startcreateUserProfileWithEncryptedPassword(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileWithEncryptedPasswordRequest createUserProfileWithEncryptedPasswordRequest726,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileWithEncryptedPasswordRequest createUserProfileWithEncryptedPasswordRequest738,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -2854,7 +2866,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    createUserProfileWithEncryptedPasswordRequest726,
+                                                    createUserProfileWithEncryptedPasswordRequest738,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "createUserProfileWithEncryptedPassword")));
                                                 
@@ -2970,7 +2982,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#runVMCmd
-                     * @param runVMCmdRequest728
+                     * @param runVMCmdRequest740
                     
                      */
 
@@ -2978,7 +2990,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.RunVMCmdResponse runVMCmd(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.RunVMCmdRequest runVMCmdRequest728)
+                            edu.fiu.cis.acrl.virtuallabs.ws.RunVMCmdRequest runVMCmdRequest740)
                         
 
                     throws java.rmi.RemoteException
@@ -3005,7 +3017,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    runVMCmdRequest728,
+                                                    runVMCmdRequest740,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "runVMCmd")));
                                                 
@@ -3089,12 +3101,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startrunVMCmd
-                    * @param runVMCmdRequest728
+                    * @param runVMCmdRequest740
                 
                 */
                 public  void startrunVMCmd(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.RunVMCmdRequest runVMCmdRequest728,
+                 edu.fiu.cis.acrl.virtuallabs.ws.RunVMCmdRequest runVMCmdRequest740,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -3119,7 +3131,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    runVMCmdRequest728,
+                                                    runVMCmdRequest740,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "runVMCmd")));
                                                 
@@ -3235,7 +3247,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#extendUserAppointment
-                     * @param extendUserAppointmentRequest730
+                     * @param extendUserAppointmentRequest742
                     
                      */
 
@@ -3243,7 +3255,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentResponse extendUserAppointment(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentRequest extendUserAppointmentRequest730)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentRequest extendUserAppointmentRequest742)
                         
 
                     throws java.rmi.RemoteException
@@ -3270,7 +3282,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    extendUserAppointmentRequest730,
+                                                    extendUserAppointmentRequest742,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "extendUserAppointment")));
                                                 
@@ -3354,12 +3366,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startextendUserAppointment
-                    * @param extendUserAppointmentRequest730
+                    * @param extendUserAppointmentRequest742
                 
                 */
                 public  void startextendUserAppointment(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentRequest extendUserAppointmentRequest730,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ExtendUserAppointmentRequest extendUserAppointmentRequest742,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -3384,7 +3396,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    extendUserAppointmentRequest730,
+                                                    extendUserAppointmentRequest742,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "extendUserAppointment")));
                                                 
@@ -3500,7 +3512,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#addInitialTasks4NewVMsWithEncryptedPassword
-                     * @param addInitialTasks4NewVMsWithEncryptedPasswordRequest732
+                     * @param addInitialTasks4NewVMsWithEncryptedPasswordRequest744
                     
                      */
 
@@ -3508,7 +3520,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsWithEncryptedPasswordResponse addInitialTasks4NewVMsWithEncryptedPassword(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsWithEncryptedPasswordRequest addInitialTasks4NewVMsWithEncryptedPasswordRequest732)
+                            edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsWithEncryptedPasswordRequest addInitialTasks4NewVMsWithEncryptedPasswordRequest744)
                         
 
                     throws java.rmi.RemoteException
@@ -3535,7 +3547,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    addInitialTasks4NewVMsWithEncryptedPasswordRequest732,
+                                                    addInitialTasks4NewVMsWithEncryptedPasswordRequest744,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "addInitialTasks4NewVMsWithEncryptedPassword")));
                                                 
@@ -3619,12 +3631,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startaddInitialTasks4NewVMsWithEncryptedPassword
-                    * @param addInitialTasks4NewVMsWithEncryptedPasswordRequest732
+                    * @param addInitialTasks4NewVMsWithEncryptedPasswordRequest744
                 
                 */
                 public  void startaddInitialTasks4NewVMsWithEncryptedPassword(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsWithEncryptedPasswordRequest addInitialTasks4NewVMsWithEncryptedPasswordRequest732,
+                 edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsWithEncryptedPasswordRequest addInitialTasks4NewVMsWithEncryptedPasswordRequest744,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -3649,7 +3661,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    addInitialTasks4NewVMsWithEncryptedPasswordRequest732,
+                                                    addInitialTasks4NewVMsWithEncryptedPasswordRequest744,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "addInitialTasks4NewVMsWithEncryptedPassword")));
                                                 
@@ -3765,7 +3777,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#modifyHostAppointment
-                     * @param modifyHostAppointmentRequest734
+                     * @param modifyHostAppointmentRequest746
                     
                      */
 
@@ -3773,7 +3785,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ModifyHostAppointmentResponse modifyHostAppointment(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ModifyHostAppointmentRequest modifyHostAppointmentRequest734)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ModifyHostAppointmentRequest modifyHostAppointmentRequest746)
                         
 
                     throws java.rmi.RemoteException
@@ -3800,7 +3812,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    modifyHostAppointmentRequest734,
+                                                    modifyHostAppointmentRequest746,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "modifyHostAppointment")));
                                                 
@@ -3884,12 +3896,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startmodifyHostAppointment
-                    * @param modifyHostAppointmentRequest734
+                    * @param modifyHostAppointmentRequest746
                 
                 */
                 public  void startmodifyHostAppointment(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ModifyHostAppointmentRequest modifyHostAppointmentRequest734,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ModifyHostAppointmentRequest modifyHostAppointmentRequest746,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -3914,7 +3926,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    modifyHostAppointmentRequest734,
+                                                    modifyHostAppointmentRequest746,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "modifyHostAppointment")));
                                                 
@@ -4030,7 +4042,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#isRDPReady
-                     * @param isRDPReadyRequest736
+                     * @param isRDPReadyRequest748
                     
                      */
 
@@ -4038,7 +4050,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.IsRDPReadyResponse isRDPReady(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.IsRDPReadyRequest isRDPReadyRequest736)
+                            edu.fiu.cis.acrl.virtuallabs.ws.IsRDPReadyRequest isRDPReadyRequest748)
                         
 
                     throws java.rmi.RemoteException
@@ -4065,7 +4077,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    isRDPReadyRequest736,
+                                                    isRDPReadyRequest748,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "isRDPReady")));
                                                 
@@ -4149,12 +4161,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startisRDPReady
-                    * @param isRDPReadyRequest736
+                    * @param isRDPReadyRequest748
                 
                 */
                 public  void startisRDPReady(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.IsRDPReadyRequest isRDPReadyRequest736,
+                 edu.fiu.cis.acrl.virtuallabs.ws.IsRDPReadyRequest isRDPReadyRequest748,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -4179,7 +4191,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    isRDPReadyRequest736,
+                                                    isRDPReadyRequest748,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "isRDPReady")));
                                                 
@@ -4295,7 +4307,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#modifyCourse
-                     * @param modifyCourseRequest738
+                     * @param modifyCourseRequest750
                     
                      * @throws edu.fiu.cis.acrl.virtuallabs.ws.DuplicateCourseFault : 
                      * @throws edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault : 
@@ -4306,7 +4318,7 @@
 
                             public  void modifyCourse(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ModifyCourseRequest modifyCourseRequest738)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ModifyCourseRequest modifyCourseRequest750)
                         
 
                     throws java.rmi.RemoteException
@@ -4336,7 +4348,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    modifyCourseRequest738,
+                                                    modifyCourseRequest750,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "modifyCourse")));
                                                 
@@ -4421,12 +4433,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startmodifyCourse
-                    * @param modifyCourseRequest738
+                    * @param modifyCourseRequest750
                 
                 */
                 public  void startmodifyCourse(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ModifyCourseRequest modifyCourseRequest738,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ModifyCourseRequest modifyCourseRequest750,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -4451,7 +4463,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    modifyCourseRequest738,
+                                                    modifyCourseRequest750,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "modifyCourse")));
                                                 
@@ -4484,7 +4496,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#setHost
-                     * @param setHostRequest740
+                     * @param setHostRequest752
                     
                      */
 
@@ -4492,7 +4504,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.SetHostResponse setHost(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.SetHostRequest setHostRequest740)
+                            edu.fiu.cis.acrl.virtuallabs.ws.SetHostRequest setHostRequest752)
                         
 
                     throws java.rmi.RemoteException
@@ -4519,7 +4531,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    setHostRequest740,
+                                                    setHostRequest752,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "setHost")));
                                                 
@@ -4603,12 +4615,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startsetHost
-                    * @param setHostRequest740
+                    * @param setHostRequest752
                 
                 */
                 public  void startsetHost(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.SetHostRequest setHostRequest740,
+                 edu.fiu.cis.acrl.virtuallabs.ws.SetHostRequest setHostRequest752,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -4633,7 +4645,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    setHostRequest740,
+                                                    setHostRequest752,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "setHost")));
                                                 
@@ -4749,7 +4761,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#scheduleMentorAppointments
-                     * @param scheduleMentorAppointmentsRequest742
+                     * @param scheduleMentorAppointmentsRequest754
                     
                      */
 
@@ -4757,7 +4769,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ScheduleMentorAppointmentsResponse scheduleMentorAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleMentorAppointmentsRequest scheduleMentorAppointmentsRequest742)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleMentorAppointmentsRequest scheduleMentorAppointmentsRequest754)
                         
 
                     throws java.rmi.RemoteException
@@ -4784,7 +4796,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleMentorAppointmentsRequest742,
+                                                    scheduleMentorAppointmentsRequest754,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleMentorAppointments")));
                                                 
@@ -4868,12 +4880,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startscheduleMentorAppointments
-                    * @param scheduleMentorAppointmentsRequest742
+                    * @param scheduleMentorAppointmentsRequest754
                 
                 */
                 public  void startscheduleMentorAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleMentorAppointmentsRequest scheduleMentorAppointmentsRequest742,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleMentorAppointmentsRequest scheduleMentorAppointmentsRequest754,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -4898,7 +4910,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleMentorAppointmentsRequest742,
+                                                    scheduleMentorAppointmentsRequest754,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleMentorAppointments")));
                                                 
@@ -5014,7 +5026,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#cancelAllHostAppointments
-                     * @param cancelAllHostAppointmentsRequest744
+                     * @param cancelAllHostAppointmentsRequest756
                     
                      */
 
@@ -5022,7 +5034,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CancelAllHostAppointmentsResponse cancelAllHostAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CancelAllHostAppointmentsRequest cancelAllHostAppointmentsRequest744)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CancelAllHostAppointmentsRequest cancelAllHostAppointmentsRequest756)
                         
 
                     throws java.rmi.RemoteException
@@ -5049,7 +5061,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelAllHostAppointmentsRequest744,
+                                                    cancelAllHostAppointmentsRequest756,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelAllHostAppointments")));
                                                 
@@ -5133,12 +5145,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcancelAllHostAppointments
-                    * @param cancelAllHostAppointmentsRequest744
+                    * @param cancelAllHostAppointmentsRequest756
                 
                 */
                 public  void startcancelAllHostAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CancelAllHostAppointmentsRequest cancelAllHostAppointmentsRequest744,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CancelAllHostAppointmentsRequest cancelAllHostAppointmentsRequest756,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -5163,7 +5175,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelAllHostAppointmentsRequest744,
+                                                    cancelAllHostAppointmentsRequest756,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelAllHostAppointments")));
                                                 
@@ -5279,7 +5291,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#destroyDevaIns
-                     * @param destroyDevaInsRequest746
+                     * @param destroyDevaInsRequest758
                     
                      */
 
@@ -5287,7 +5299,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.DestroyDevaInsResponse destroyDevaIns(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.DestroyDevaInsRequest destroyDevaInsRequest746)
+                            edu.fiu.cis.acrl.virtuallabs.ws.DestroyDevaInsRequest destroyDevaInsRequest758)
                         
 
                     throws java.rmi.RemoteException
@@ -5314,7 +5326,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    destroyDevaInsRequest746,
+                                                    destroyDevaInsRequest758,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "destroyDevaIns")));
                                                 
@@ -5398,12 +5410,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startdestroyDevaIns
-                    * @param destroyDevaInsRequest746
+                    * @param destroyDevaInsRequest758
                 
                 */
                 public  void startdestroyDevaIns(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.DestroyDevaInsRequest destroyDevaInsRequest746,
+                 edu.fiu.cis.acrl.virtuallabs.ws.DestroyDevaInsRequest destroyDevaInsRequest758,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -5428,7 +5440,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    destroyDevaInsRequest746,
+                                                    destroyDevaInsRequest758,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "destroyDevaIns")));
                                                 
@@ -5544,7 +5556,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getUserProfileByEmail
-                     * @param getUserProfileByEmailRequest748
+                     * @param getUserProfileByEmailRequest760
                     
                      */
 
@@ -5552,7 +5564,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByEmailResponse getUserProfileByEmail(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByEmailRequest getUserProfileByEmailRequest748)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByEmailRequest getUserProfileByEmailRequest760)
                         
 
                     throws java.rmi.RemoteException
@@ -5579,7 +5591,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserProfileByEmailRequest748,
+                                                    getUserProfileByEmailRequest760,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserProfileByEmail")));
                                                 
@@ -5663,12 +5675,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetUserProfileByEmail
-                    * @param getUserProfileByEmailRequest748
+                    * @param getUserProfileByEmailRequest760
                 
                 */
                 public  void startgetUserProfileByEmail(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByEmailRequest getUserProfileByEmailRequest748,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserProfileByEmailRequest getUserProfileByEmailRequest760,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -5693,7 +5705,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserProfileByEmailRequest748,
+                                                    getUserProfileByEmailRequest760,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserProfileByEmail")));
                                                 
@@ -5809,7 +5821,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#delHost
-                     * @param delHostRequest750
+                     * @param delHostRequest762
                     
                      */
 
@@ -5817,7 +5829,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.DelHostResponse delHost(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.DelHostRequest delHostRequest750)
+                            edu.fiu.cis.acrl.virtuallabs.ws.DelHostRequest delHostRequest762)
                         
 
                     throws java.rmi.RemoteException
@@ -5844,7 +5856,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    delHostRequest750,
+                                                    delHostRequest762,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "delHost")));
                                                 
@@ -5928,12 +5940,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startdelHost
-                    * @param delHostRequest750
+                    * @param delHostRequest762
                 
                 */
                 public  void startdelHost(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.DelHostRequest delHostRequest750,
+                 edu.fiu.cis.acrl.virtuallabs.ws.DelHostRequest delHostRequest762,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -5958,7 +5970,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    delHostRequest750,
+                                                    delHostRequest762,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "delHost")));
                                                 
@@ -6074,7 +6086,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#scheduleUserAppointments
-                     * @param scheduleUserAppointmentsRequest752
+                     * @param scheduleUserAppointmentsRequest764
                     
                      */
 
@@ -6082,7 +6094,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsResponse scheduleUserAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsRequest scheduleUserAppointmentsRequest752)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsRequest scheduleUserAppointmentsRequest764)
                         
 
                     throws java.rmi.RemoteException
@@ -6109,7 +6121,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleUserAppointmentsRequest752,
+                                                    scheduleUserAppointmentsRequest764,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleUserAppointments")));
                                                 
@@ -6193,12 +6205,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startscheduleUserAppointments
-                    * @param scheduleUserAppointmentsRequest752
+                    * @param scheduleUserAppointmentsRequest764
                 
                 */
                 public  void startscheduleUserAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsRequest scheduleUserAppointmentsRequest752,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsRequest scheduleUserAppointmentsRequest764,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -6223,7 +6235,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleUserAppointmentsRequest752,
+                                                    scheduleUserAppointmentsRequest764,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleUserAppointments")));
                                                 
@@ -6339,7 +6351,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getUserCredentials
-                     * @param getUserCredentialsRequest754
+                     * @param getUserCredentialsRequest766
                     
                      */
 
@@ -6347,7 +6359,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetUserCredentialsResponse getUserCredentials(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserCredentialsRequest getUserCredentialsRequest754)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserCredentialsRequest getUserCredentialsRequest766)
                         
 
                     throws java.rmi.RemoteException
@@ -6374,7 +6386,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserCredentialsRequest754,
+                                                    getUserCredentialsRequest766,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserCredentials")));
                                                 
@@ -6458,12 +6470,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetUserCredentials
-                    * @param getUserCredentialsRequest754
+                    * @param getUserCredentialsRequest766
                 
                 */
                 public  void startgetUserCredentials(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserCredentialsRequest getUserCredentialsRequest754,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserCredentialsRequest getUserCredentialsRequest766,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -6488,7 +6500,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserCredentialsRequest754,
+                                                    getUserCredentialsRequest766,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserCredentials")));
                                                 
@@ -6604,7 +6616,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#scheduleHostAppointments
-                     * @param scheduleHostAppointmentsRequest756
+                     * @param scheduleHostAppointmentsRequest768
                     
                      */
 
@@ -6612,7 +6624,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ScheduleHostAppointmentsResponse scheduleHostAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleHostAppointmentsRequest scheduleHostAppointmentsRequest756)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleHostAppointmentsRequest scheduleHostAppointmentsRequest768)
                         
 
                     throws java.rmi.RemoteException
@@ -6639,7 +6651,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleHostAppointmentsRequest756,
+                                                    scheduleHostAppointmentsRequest768,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleHostAppointments")));
                                                 
@@ -6723,12 +6735,12 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startscheduleHostAppointments
-                    * @param scheduleHostAppointmentsRequest756
+                    * @param scheduleHostAppointmentsRequest768
                 
                 */
                 public  void startscheduleHostAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleHostAppointmentsRequest scheduleHostAppointmentsRequest756,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleHostAppointmentsRequest scheduleHostAppointmentsRequest768,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
@@ -6753,7 +6765,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleHostAppointmentsRequest756,
+                                                    scheduleHostAppointmentsRequest768,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleHostAppointments")));
                                                 
@@ -6868,16 +6880,16 @@
                     /**
                      * Auto generated method signature
                      * 
-                     * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getDevaInsInfo
-                     * @param getDevaInsInfoRequest758
+                     * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#delUserProfile
+                     * @param delUserProfileRequest770
                     
                      */
 
                     
 
-                            public  edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse getDevaInsInfo(
+                            public  edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileResponse delUserProfile(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest getDevaInsInfoRequest758)
+                            edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileRequest delUserProfileRequest770)
                         
 
                     throws java.rmi.RemoteException
@@ -6886,271 +6898,6 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[23].getName());
-              _operationClient.getOptions().setAction("getDevaInsInfo");
-              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
-
-              
-              
-                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
-              
-
-              // create a message context
-              _messageContext = new org.apache.axis2.context.MessageContext();
-
-              
-
-              // create SOAP envelope with that payload
-              org.apache.axiom.soap.SOAPEnvelope env = null;
-                    
-                                                    
-                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getDevaInsInfoRequest758,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
-                                                    "getDevaInsInfo")));
-                                                
-        //adding SOAP soap_headers
-         _serviceClient.addHeadersToEnvelope(env);
-        // set the message context with that soap envelope
-        _messageContext.setEnvelope(env);
-
-        // add the message contxt to the operation client
-        _operationClient.addMessageContext(_messageContext);
-
-        //execute the operation client
-        _operationClient.execute(true);
-
-         
-               org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(
-                                           org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
-                org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
-                
-                
-                                java.lang.Object object = fromOM(
-                                             _returnEnv.getBody().getFirstElement() ,
-                                             edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.class,
-                                              getEnvelopeNamespaces(_returnEnv));
-
-                               
-                                        return (edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse)object;
-                                   
-         }catch(org.apache.axis2.AxisFault f){
-
-            org.apache.axiom.om.OMElement faultElt = f.getDetail();
-            if (faultElt!=null){
-                if (faultExceptionNameMap.containsKey(faultElt.getQName())){
-                    //make the fault by reflection
-                    try{
-                        java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(faultElt.getQName());
-                        java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
-                        java.lang.Exception ex=
-                                (java.lang.Exception) exceptionClass.newInstance();
-                        //message class
-                        java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(faultElt.getQName());
-                        java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-                        java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
-                        java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-                                   new java.lang.Class[]{messageClass});
-                        m.invoke(ex,new java.lang.Object[]{messageObject});
-                        
-
-                        throw new java.rmi.RemoteException(ex.getMessage(), ex);
-                    }catch(java.lang.ClassCastException e){
-                       // we cannot intantiate the class - throw the original Axis fault
-                        throw f;
-                    } catch (java.lang.ClassNotFoundException e) {
-                        // we cannot intantiate the class - throw the original Axis fault
-                        throw f;
-                    }catch (java.lang.NoSuchMethodException e) {
-                        // we cannot intantiate the class - throw the original Axis fault
-                        throw f;
-                    } catch (java.lang.reflect.InvocationTargetException e) {
-                        // we cannot intantiate the class - throw the original Axis fault
-                        throw f;
-                    }  catch (java.lang.IllegalAccessException e) {
-                        // we cannot intantiate the class - throw the original Axis fault
-                        throw f;
-                    }   catch (java.lang.InstantiationException e) {
-                        // we cannot intantiate the class - throw the original Axis fault
-                        throw f;
-                    }
-                }else{
-                    throw f;
-                }
-            }else{
-                throw f;
-            }
-            } finally {
-                _messageContext.getTransportOut().getSender().cleanup(_messageContext);
-            }
-        }
-            
-                /**
-                * Auto generated method signature for Asynchronous Invocations
-                * 
-                * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetDevaInsInfo
-                    * @param getDevaInsInfoRequest758
-                
-                */
-                public  void startgetDevaInsInfo(
-
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest getDevaInsInfoRequest758,
-
-                  final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
-
-                throws java.rmi.RemoteException{
-
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[23].getName());
-             _operationClient.getOptions().setAction("getDevaInsInfo");
-             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
-
-              
-              
-                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
-              
-
-
-              // create SOAP envelope with that payload
-              org.apache.axiom.soap.SOAPEnvelope env=null;
-              final org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
-
-                    
-                                    //Style is Doc.
-                                    
-                                                    
-                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getDevaInsInfoRequest758,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
-                                                    "getDevaInsInfo")));
-                                                
-        // adding SOAP soap_headers
-         _serviceClient.addHeadersToEnvelope(env);
-        // create message context with that soap envelope
-        _messageContext.setEnvelope(env);
-
-        // add the message context to the operation client
-        _operationClient.addMessageContext(_messageContext);
-
-
-                    
-                        _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
-                            public void onMessage(org.apache.axis2.context.MessageContext resultContext) {
-                            try {
-                                org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
-                                
-                                        java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
-                                                                         edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.class,
-                                                                         getEnvelopeNamespaces(resultEnv));
-                                        callback.receiveResultgetDevaInsInfo(
-                                        (edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse)object);
-                                        
-                            } catch (org.apache.axis2.AxisFault e) {
-                                callback.receiveErrorgetDevaInsInfo(e);
-                            }
-                            }
-
-                            public void onError(java.lang.Exception error) {
-								if (error instanceof org.apache.axis2.AxisFault) {
-									org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
-									org.apache.axiom.om.OMElement faultElt = f.getDetail();
-									if (faultElt!=null){
-										if (faultExceptionNameMap.containsKey(faultElt.getQName())){
-											//make the fault by reflection
-											try{
-													java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(faultElt.getQName());
-													java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
-													java.lang.Exception ex=
-														(java.lang.Exception) exceptionClass.newInstance();
-													//message class
-													java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(faultElt.getQName());
-														java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-													java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
-													java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
-															new java.lang.Class[]{messageClass});
-													m.invoke(ex,new java.lang.Object[]{messageObject});
-													
-					
-										            callback.receiveErrorgetDevaInsInfo(new java.rmi.RemoteException(ex.getMessage(), ex));
-                                            } catch(java.lang.ClassCastException e){
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetDevaInsInfo(f);
-                                            } catch (java.lang.ClassNotFoundException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetDevaInsInfo(f);
-                                            } catch (java.lang.NoSuchMethodException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetDevaInsInfo(f);
-                                            } catch (java.lang.reflect.InvocationTargetException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetDevaInsInfo(f);
-                                            } catch (java.lang.IllegalAccessException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetDevaInsInfo(f);
-                                            } catch (java.lang.InstantiationException e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetDevaInsInfo(f);
-                                            } catch (org.apache.axis2.AxisFault e) {
-                                                // we cannot intantiate the class - throw the original Axis fault
-                                                callback.receiveErrorgetDevaInsInfo(f);
-                                            }
-									    } else {
-										    callback.receiveErrorgetDevaInsInfo(f);
-									    }
-									} else {
-									    callback.receiveErrorgetDevaInsInfo(f);
-									}
-								} else {
-								    callback.receiveErrorgetDevaInsInfo(error);
-								}
-                            }
-
-                            public void onFault(org.apache.axis2.context.MessageContext faultContext) {
-                                org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
-                                onError(fault);
-                            }
-
-                            public void onComplete() {
-                                try {
-                                    _messageContext.getTransportOut().getSender().cleanup(_messageContext);
-                                } catch (org.apache.axis2.AxisFault axisFault) {
-                                    callback.receiveErrorgetDevaInsInfo(axisFault);
-                                }
-                            }
-                });
-                        
-
-          org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[23].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
-           _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[23].setMessageReceiver(
-                    _callbackReceiver);
-        }
-
-           //execute the operation client
-           _operationClient.execute(false);
-
-                    }
-                
-                    /**
-                     * Auto generated method signature
-                     * 
-                     * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#delUserProfile
-                     * @param delUserProfileRequest760
-                    
-                     */
-
-                    
-
-                            public  edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileResponse delUserProfile(
-
-                            edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileRequest delUserProfileRequest760)
-                        
-
-                    throws java.rmi.RemoteException
-                    
-                    {
-              org.apache.axis2.context.MessageContext _messageContext = null;
-              try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[24].getName());
               _operationClient.getOptions().setAction("delUserProfile");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -7169,7 +6916,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    delUserProfileRequest760,
+                                                    delUserProfileRequest770,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "delUserProfile")));
                                                 
@@ -7253,18 +7000,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startdelUserProfile
-                    * @param delUserProfileRequest760
+                    * @param delUserProfileRequest770
                 
                 */
                 public  void startdelUserProfile(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileRequest delUserProfileRequest760,
+                 edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileRequest delUserProfileRequest770,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[24].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[23].getName());
              _operationClient.getOptions().setAction("delUserProfile");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -7283,7 +7030,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    delUserProfileRequest760,
+                                                    delUserProfileRequest770,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "delUserProfile")));
                                                 
@@ -7384,9 +7131,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[24].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[23].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[24].setMessageReceiver(
+          _operations[23].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -7398,27 +7145,25 @@
                     /**
                      * Auto generated method signature
                      * 
-                     * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#deleteCourse
-                     * @param deleteCourseRequest762
+                     * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#refreshVMWithEncryptedPassword
+                     * @param refreshVMWithEncryptedPasswordRequest772
                     
-                     * @throws edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault : 
                      */
 
                     
 
-                            public  void deleteCourse(
+                            public  edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse refreshVMWithEncryptedPassword(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest deleteCourseRequest762)
+                            edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordRequest refreshVMWithEncryptedPasswordRequest772)
                         
 
                     throws java.rmi.RemoteException
                     
-                    
-                        ,edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault{
+                    {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[25].getName());
-              _operationClient.getOptions().setAction("deleteCourse");
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[24].getName());
+              _operationClient.getOptions().setAction("refreshVMWithEncryptedPassword");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -7436,9 +7181,9 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    deleteCourseRequest762,
+                                                    refreshVMWithEncryptedPasswordRequest772,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
-                                                    "deleteCourse")));
+                                                    "refreshVMWithEncryptedPassword")));
                                                 
         //adding SOAP soap_headers
          _serviceClient.addHeadersToEnvelope(env);
@@ -7452,8 +7197,19 @@
         _operationClient.execute(true);
 
          
-                return;
-            
+               org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(
+                                           org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
+                org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
+                
+                
+                                java.lang.Object object = fromOM(
+                                             _returnEnv.getBody().getFirstElement() ,
+                                             edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse.class,
+                                              getEnvelopeNamespaces(_returnEnv));
+
+                               
+                                        return (edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse)object;
+                                   
          }catch(org.apache.axis2.AxisFault f){
 
             org.apache.axiom.om.OMElement faultElt = f.getDetail();
@@ -7472,10 +7228,6 @@
                         java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
                                    new java.lang.Class[]{messageClass});
                         m.invoke(ex,new java.lang.Object[]{messageObject});
-                        
-                        if (ex instanceof edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault){
-                          throw (edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault)ex;
-                        }
                         
 
                         throw new java.rmi.RemoteException(ex.getMessage(), ex);
@@ -7512,20 +7264,20 @@
                 /**
                 * Auto generated method signature for Asynchronous Invocations
                 * 
-                * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startdeleteCourse
-                    * @param deleteCourseRequest762
+                * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startrefreshVMWithEncryptedPassword
+                    * @param refreshVMWithEncryptedPasswordRequest772
                 
                 */
-                public  void startdeleteCourse(
+                public  void startrefreshVMWithEncryptedPassword(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest deleteCourseRequest762,
+                 edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordRequest refreshVMWithEncryptedPasswordRequest772,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[25].getName());
-             _operationClient.getOptions().setAction("deleteCourse");
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[24].getName());
+             _operationClient.getOptions().setAction("refreshVMWithEncryptedPassword");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -7543,9 +7295,9 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    deleteCourseRequest762,
+                                                    refreshVMWithEncryptedPasswordRequest772,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
-                                                    "deleteCourse")));
+                                                    "refreshVMWithEncryptedPassword")));
                                                 
         // adding SOAP soap_headers
          _serviceClient.addHeadersToEnvelope(env);
@@ -7557,13 +7309,96 @@
 
 
                     
-                            // Nothing to pass as the callback!!!
+                        _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
+                            public void onMessage(org.apache.axis2.context.MessageContext resultContext) {
+                            try {
+                                org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
+                                
+                                        java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
+                                                                         edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse.class,
+                                                                         getEnvelopeNamespaces(resultEnv));
+                                        callback.receiveResultrefreshVMWithEncryptedPassword(
+                                        (edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse)object);
+                                        
+                            } catch (org.apache.axis2.AxisFault e) {
+                                callback.receiveErrorrefreshVMWithEncryptedPassword(e);
+                            }
+                            }
+
+                            public void onError(java.lang.Exception error) {
+								if (error instanceof org.apache.axis2.AxisFault) {
+									org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
+									org.apache.axiom.om.OMElement faultElt = f.getDetail();
+									if (faultElt!=null){
+										if (faultExceptionNameMap.containsKey(faultElt.getQName())){
+											//make the fault by reflection
+											try{
+													java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(faultElt.getQName());
+													java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
+													java.lang.Exception ex=
+														(java.lang.Exception) exceptionClass.newInstance();
+													//message class
+													java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(faultElt.getQName());
+														java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
+													java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
+													java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
+															new java.lang.Class[]{messageClass});
+													m.invoke(ex,new java.lang.Object[]{messageObject});
+													
+					
+										            callback.receiveErrorrefreshVMWithEncryptedPassword(new java.rmi.RemoteException(ex.getMessage(), ex));
+                                            } catch(java.lang.ClassCastException e){
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+                                            } catch (java.lang.ClassNotFoundException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+                                            } catch (java.lang.NoSuchMethodException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+                                            } catch (java.lang.reflect.InvocationTargetException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+                                            } catch (java.lang.IllegalAccessException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+                                            } catch (java.lang.InstantiationException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+                                            } catch (org.apache.axis2.AxisFault e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+                                            }
+									    } else {
+										    callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+									    }
+									} else {
+									    callback.receiveErrorrefreshVMWithEncryptedPassword(f);
+									}
+								} else {
+								    callback.receiveErrorrefreshVMWithEncryptedPassword(error);
+								}
+                            }
+
+                            public void onFault(org.apache.axis2.context.MessageContext faultContext) {
+                                org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
+                                onError(fault);
+                            }
+
+                            public void onComplete() {
+                                try {
+                                    _messageContext.getTransportOut().getSender().cleanup(_messageContext);
+                                } catch (org.apache.axis2.AxisFault axisFault) {
+                                    callback.receiveErrorrefreshVMWithEncryptedPassword(axisFault);
+                                }
+                            }
+                });
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[25].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[24].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[25].setMessageReceiver(
+          _operations[24].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -7576,7 +7411,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#scheduleCourseAppointment
-                     * @param scheduleCourseAppointmentRequest764
+                     * @param scheduleCourseAppointmentRequest774
                     
                      */
 
@@ -7584,7 +7419,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentResponse scheduleCourseAppointment(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentRequest scheduleCourseAppointmentRequest764)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentRequest scheduleCourseAppointmentRequest774)
                         
 
                     throws java.rmi.RemoteException
@@ -7592,7 +7427,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[26].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[25].getName());
               _operationClient.getOptions().setAction("scheduleCourseAppointment");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -7611,7 +7446,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleCourseAppointmentRequest764,
+                                                    scheduleCourseAppointmentRequest774,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleCourseAppointment")));
                                                 
@@ -7695,18 +7530,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startscheduleCourseAppointment
-                    * @param scheduleCourseAppointmentRequest764
+                    * @param scheduleCourseAppointmentRequest774
                 
                 */
                 public  void startscheduleCourseAppointment(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentRequest scheduleCourseAppointmentRequest764,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentRequest scheduleCourseAppointmentRequest774,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[26].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[25].getName());
              _operationClient.getOptions().setAction("scheduleCourseAppointment");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -7725,7 +7560,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleCourseAppointmentRequest764,
+                                                    scheduleCourseAppointmentRequest774,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleCourseAppointment")));
                                                 
@@ -7826,6 +7661,271 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
+        if ( _operations[25].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+           _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
+          _operations[25].setMessageReceiver(
+                    _callbackReceiver);
+        }
+
+           //execute the operation client
+           _operationClient.execute(false);
+
+                    }
+                
+                    /**
+                     * Auto generated method signature
+                     * 
+                     * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getDevaInsInfo
+                     * @param getDevaInsInfoRequest776
+                    
+                     */
+
+                    
+
+                            public  edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse getDevaInsInfo(
+
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest getDevaInsInfoRequest776)
+                        
+
+                    throws java.rmi.RemoteException
+                    
+                    {
+              org.apache.axis2.context.MessageContext _messageContext = null;
+              try{
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[26].getName());
+              _operationClient.getOptions().setAction("getDevaInsInfo");
+              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+
+              
+              
+                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
+              
+
+              // create a message context
+              _messageContext = new org.apache.axis2.context.MessageContext();
+
+              
+
+              // create SOAP envelope with that payload
+              org.apache.axiom.soap.SOAPEnvelope env = null;
+                    
+                                                    
+                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
+                                                    getDevaInsInfoRequest776,
+                                                    optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
+                                                    "getDevaInsInfo")));
+                                                
+        //adding SOAP soap_headers
+         _serviceClient.addHeadersToEnvelope(env);
+        // set the message context with that soap envelope
+        _messageContext.setEnvelope(env);
+
+        // add the message contxt to the operation client
+        _operationClient.addMessageContext(_messageContext);
+
+        //execute the operation client
+        _operationClient.execute(true);
+
+         
+               org.apache.axis2.context.MessageContext _returnMessageContext = _operationClient.getMessageContext(
+                                           org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE);
+                org.apache.axiom.soap.SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
+                
+                
+                                java.lang.Object object = fromOM(
+                                             _returnEnv.getBody().getFirstElement() ,
+                                             edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.class,
+                                              getEnvelopeNamespaces(_returnEnv));
+
+                               
+                                        return (edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse)object;
+                                   
+         }catch(org.apache.axis2.AxisFault f){
+
+            org.apache.axiom.om.OMElement faultElt = f.getDetail();
+            if (faultElt!=null){
+                if (faultExceptionNameMap.containsKey(faultElt.getQName())){
+                    //make the fault by reflection
+                    try{
+                        java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(faultElt.getQName());
+                        java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
+                        java.lang.Exception ex=
+                                (java.lang.Exception) exceptionClass.newInstance();
+                        //message class
+                        java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(faultElt.getQName());
+                        java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
+                        java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
+                        java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
+                                   new java.lang.Class[]{messageClass});
+                        m.invoke(ex,new java.lang.Object[]{messageObject});
+                        
+
+                        throw new java.rmi.RemoteException(ex.getMessage(), ex);
+                    }catch(java.lang.ClassCastException e){
+                       // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    } catch (java.lang.ClassNotFoundException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }catch (java.lang.NoSuchMethodException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    } catch (java.lang.reflect.InvocationTargetException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }  catch (java.lang.IllegalAccessException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }   catch (java.lang.InstantiationException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }
+                }else{
+                    throw f;
+                }
+            }else{
+                throw f;
+            }
+            } finally {
+                _messageContext.getTransportOut().getSender().cleanup(_messageContext);
+            }
+        }
+            
+                /**
+                * Auto generated method signature for Asynchronous Invocations
+                * 
+                * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetDevaInsInfo
+                    * @param getDevaInsInfoRequest776
+                
+                */
+                public  void startgetDevaInsInfo(
+
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest getDevaInsInfoRequest776,
+
+                  final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
+
+                throws java.rmi.RemoteException{
+
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[26].getName());
+             _operationClient.getOptions().setAction("getDevaInsInfo");
+             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+
+              
+              
+                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
+              
+
+
+              // create SOAP envelope with that payload
+              org.apache.axiom.soap.SOAPEnvelope env=null;
+              final org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
+
+                    
+                                    //Style is Doc.
+                                    
+                                                    
+                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
+                                                    getDevaInsInfoRequest776,
+                                                    optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
+                                                    "getDevaInsInfo")));
+                                                
+        // adding SOAP soap_headers
+         _serviceClient.addHeadersToEnvelope(env);
+        // create message context with that soap envelope
+        _messageContext.setEnvelope(env);
+
+        // add the message context to the operation client
+        _operationClient.addMessageContext(_messageContext);
+
+
+                    
+                        _operationClient.setCallback(new org.apache.axis2.client.async.AxisCallback() {
+                            public void onMessage(org.apache.axis2.context.MessageContext resultContext) {
+                            try {
+                                org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
+                                
+                                        java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
+                                                                         edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.class,
+                                                                         getEnvelopeNamespaces(resultEnv));
+                                        callback.receiveResultgetDevaInsInfo(
+                                        (edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse)object);
+                                        
+                            } catch (org.apache.axis2.AxisFault e) {
+                                callback.receiveErrorgetDevaInsInfo(e);
+                            }
+                            }
+
+                            public void onError(java.lang.Exception error) {
+								if (error instanceof org.apache.axis2.AxisFault) {
+									org.apache.axis2.AxisFault f = (org.apache.axis2.AxisFault) error;
+									org.apache.axiom.om.OMElement faultElt = f.getDetail();
+									if (faultElt!=null){
+										if (faultExceptionNameMap.containsKey(faultElt.getQName())){
+											//make the fault by reflection
+											try{
+													java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(faultElt.getQName());
+													java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
+													java.lang.Exception ex=
+														(java.lang.Exception) exceptionClass.newInstance();
+													//message class
+													java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(faultElt.getQName());
+														java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
+													java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
+													java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
+															new java.lang.Class[]{messageClass});
+													m.invoke(ex,new java.lang.Object[]{messageObject});
+													
+					
+										            callback.receiveErrorgetDevaInsInfo(new java.rmi.RemoteException(ex.getMessage(), ex));
+                                            } catch(java.lang.ClassCastException e){
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorgetDevaInsInfo(f);
+                                            } catch (java.lang.ClassNotFoundException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorgetDevaInsInfo(f);
+                                            } catch (java.lang.NoSuchMethodException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorgetDevaInsInfo(f);
+                                            } catch (java.lang.reflect.InvocationTargetException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorgetDevaInsInfo(f);
+                                            } catch (java.lang.IllegalAccessException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorgetDevaInsInfo(f);
+                                            } catch (java.lang.InstantiationException e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorgetDevaInsInfo(f);
+                                            } catch (org.apache.axis2.AxisFault e) {
+                                                // we cannot intantiate the class - throw the original Axis fault
+                                                callback.receiveErrorgetDevaInsInfo(f);
+                                            }
+									    } else {
+										    callback.receiveErrorgetDevaInsInfo(f);
+									    }
+									} else {
+									    callback.receiveErrorgetDevaInsInfo(f);
+									}
+								} else {
+								    callback.receiveErrorgetDevaInsInfo(error);
+								}
+                            }
+
+                            public void onFault(org.apache.axis2.context.MessageContext faultContext) {
+                                org.apache.axis2.AxisFault fault = org.apache.axis2.util.Utils.getInboundFaultFromMessageContext(faultContext);
+                                onError(fault);
+                            }
+
+                            public void onComplete() {
+                                try {
+                                    _messageContext.getTransportOut().getSender().cleanup(_messageContext);
+                                } catch (org.apache.axis2.AxisFault axisFault) {
+                                    callback.receiveErrorgetDevaInsInfo(axisFault);
+                                }
+                            }
+                });
+                        
+
+          org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
         if ( _operations[26].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
           _operations[26].setMessageReceiver(
@@ -7840,8 +7940,185 @@
                     /**
                      * Auto generated method signature
                      * 
+                     * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#deleteCourse
+                     * @param deleteCourseRequest778
+                    
+                     * @throws edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault : 
+                     */
+
+                    
+
+                            public  void deleteCourse(
+
+                            edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest deleteCourseRequest778)
+                        
+
+                    throws java.rmi.RemoteException
+                    
+                    
+                        ,edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault{
+              org.apache.axis2.context.MessageContext _messageContext = null;
+              try{
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[27].getName());
+              _operationClient.getOptions().setAction("deleteCourse");
+              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+
+              
+              
+                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
+              
+
+              // create a message context
+              _messageContext = new org.apache.axis2.context.MessageContext();
+
+              
+
+              // create SOAP envelope with that payload
+              org.apache.axiom.soap.SOAPEnvelope env = null;
+                    
+                                                    
+                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
+                                                    deleteCourseRequest778,
+                                                    optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
+                                                    "deleteCourse")));
+                                                
+        //adding SOAP soap_headers
+         _serviceClient.addHeadersToEnvelope(env);
+        // set the message context with that soap envelope
+        _messageContext.setEnvelope(env);
+
+        // add the message contxt to the operation client
+        _operationClient.addMessageContext(_messageContext);
+
+        //execute the operation client
+        _operationClient.execute(true);
+
+         
+                return;
+            
+         }catch(org.apache.axis2.AxisFault f){
+
+            org.apache.axiom.om.OMElement faultElt = f.getDetail();
+            if (faultElt!=null){
+                if (faultExceptionNameMap.containsKey(faultElt.getQName())){
+                    //make the fault by reflection
+                    try{
+                        java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(faultElt.getQName());
+                        java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
+                        java.lang.Exception ex=
+                                (java.lang.Exception) exceptionClass.newInstance();
+                        //message class
+                        java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(faultElt.getQName());
+                        java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
+                        java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
+                        java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
+                                   new java.lang.Class[]{messageClass});
+                        m.invoke(ex,new java.lang.Object[]{messageObject});
+                        
+                        if (ex instanceof edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault){
+                          throw (edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundFault)ex;
+                        }
+                        
+
+                        throw new java.rmi.RemoteException(ex.getMessage(), ex);
+                    }catch(java.lang.ClassCastException e){
+                       // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    } catch (java.lang.ClassNotFoundException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }catch (java.lang.NoSuchMethodException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    } catch (java.lang.reflect.InvocationTargetException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }  catch (java.lang.IllegalAccessException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }   catch (java.lang.InstantiationException e) {
+                        // we cannot intantiate the class - throw the original Axis fault
+                        throw f;
+                    }
+                }else{
+                    throw f;
+                }
+            }else{
+                throw f;
+            }
+            } finally {
+                _messageContext.getTransportOut().getSender().cleanup(_messageContext);
+            }
+        }
+            
+                /**
+                * Auto generated method signature for Asynchronous Invocations
+                * 
+                * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startdeleteCourse
+                    * @param deleteCourseRequest778
+                
+                */
+                public  void startdeleteCourse(
+
+                 edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest deleteCourseRequest778,
+
+                  final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
+
+                throws java.rmi.RemoteException{
+
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[27].getName());
+             _operationClient.getOptions().setAction("deleteCourse");
+             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
+
+              
+              
+                  addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
+              
+
+
+              // create SOAP envelope with that payload
+              org.apache.axiom.soap.SOAPEnvelope env=null;
+              final org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
+
+                    
+                                    //Style is Doc.
+                                    
+                                                    
+                                                    env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
+                                                    deleteCourseRequest778,
+                                                    optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
+                                                    "deleteCourse")));
+                                                
+        // adding SOAP soap_headers
+         _serviceClient.addHeadersToEnvelope(env);
+        // create message context with that soap envelope
+        _messageContext.setEnvelope(env);
+
+        // add the message context to the operation client
+        _operationClient.addMessageContext(_messageContext);
+
+
+                    
+                            // Nothing to pass as the callback!!!
+                        
+
+          org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
+        if ( _operations[27].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+           _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
+          _operations[27].setMessageReceiver(
+                    _callbackReceiver);
+        }
+
+           //execute the operation client
+           _operationClient.execute(false);
+
+                    }
+                
+                    /**
+                     * Auto generated method signature
+                     * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getHostList
-                     * @param getHostListRequest766
+                     * @param getHostListRequest780
                     
                      */
 
@@ -7849,7 +8126,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetHostListResponse getHostList(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetHostListRequest getHostListRequest766)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetHostListRequest getHostListRequest780)
                         
 
                     throws java.rmi.RemoteException
@@ -7857,7 +8134,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[27].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[28].getName());
               _operationClient.getOptions().setAction("getHostList");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -7876,7 +8153,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getHostListRequest766,
+                                                    getHostListRequest780,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getHostList")));
                                                 
@@ -7960,18 +8237,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetHostList
-                    * @param getHostListRequest766
+                    * @param getHostListRequest780
                 
                 */
                 public  void startgetHostList(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetHostListRequest getHostListRequest766,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetHostListRequest getHostListRequest780,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[27].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[28].getName());
              _operationClient.getOptions().setAction("getHostList");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -7990,7 +8267,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getHostListRequest766,
+                                                    getHostListRequest780,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getHostList")));
                                                 
@@ -8091,9 +8368,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[27].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[28].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[27].setMessageReceiver(
+          _operations[28].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -8120,7 +8397,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[28].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[29].getName());
               _operationClient.getOptions().setAction("getAvailableTimeZoneIds");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -8231,7 +8508,7 @@
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[28].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[29].getName());
              _operationClient.getOptions().setAction("getAvailableTimeZoneIds");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -8348,9 +8625,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[28].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[29].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[28].setMessageReceiver(
+          _operations[29].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -8363,7 +8640,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#cancelUserAppointment
-                     * @param cancelUserAppointmentRequest770
+                     * @param cancelUserAppointmentRequest784
                     
                      */
 
@@ -8371,7 +8648,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CancelUserAppointmentResponse cancelUserAppointment(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CancelUserAppointmentRequest cancelUserAppointmentRequest770)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CancelUserAppointmentRequest cancelUserAppointmentRequest784)
                         
 
                     throws java.rmi.RemoteException
@@ -8379,7 +8656,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[29].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[30].getName());
               _operationClient.getOptions().setAction("cancelUserAppointment");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -8398,7 +8675,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelUserAppointmentRequest770,
+                                                    cancelUserAppointmentRequest784,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelUserAppointment")));
                                                 
@@ -8482,18 +8759,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcancelUserAppointment
-                    * @param cancelUserAppointmentRequest770
+                    * @param cancelUserAppointmentRequest784
                 
                 */
                 public  void startcancelUserAppointment(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CancelUserAppointmentRequest cancelUserAppointmentRequest770,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CancelUserAppointmentRequest cancelUserAppointmentRequest784,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[29].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[30].getName());
              _operationClient.getOptions().setAction("cancelUserAppointment");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -8512,7 +8789,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelUserAppointmentRequest770,
+                                                    cancelUserAppointmentRequest784,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelUserAppointment")));
                                                 
@@ -8613,9 +8890,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[29].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[30].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[29].setMessageReceiver(
+          _operations[30].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -8628,7 +8905,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#cancelHostAppointment
-                     * @param cancelHostAppointmentRequest772
+                     * @param cancelHostAppointmentRequest786
                     
                      */
 
@@ -8636,7 +8913,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CancelHostAppointmentResponse cancelHostAppointment(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CancelHostAppointmentRequest cancelHostAppointmentRequest772)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CancelHostAppointmentRequest cancelHostAppointmentRequest786)
                         
 
                     throws java.rmi.RemoteException
@@ -8644,7 +8921,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[30].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[31].getName());
               _operationClient.getOptions().setAction("cancelHostAppointment");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -8663,7 +8940,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelHostAppointmentRequest772,
+                                                    cancelHostAppointmentRequest786,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelHostAppointment")));
                                                 
@@ -8747,18 +9024,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcancelHostAppointment
-                    * @param cancelHostAppointmentRequest772
+                    * @param cancelHostAppointmentRequest786
                 
                 */
                 public  void startcancelHostAppointment(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CancelHostAppointmentRequest cancelHostAppointmentRequest772,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CancelHostAppointmentRequest cancelHostAppointmentRequest786,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[30].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[31].getName());
              _operationClient.getOptions().setAction("cancelHostAppointment");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -8777,7 +9054,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelHostAppointmentRequest772,
+                                                    cancelHostAppointmentRequest786,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelHostAppointment")));
                                                 
@@ -8878,9 +9155,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[30].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[31].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[30].setMessageReceiver(
+          _operations[31].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -8893,7 +9170,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#addInitialTasks4NewVMs
-                     * @param addInitialTasks4NewVMsRequest774
+                     * @param addInitialTasks4NewVMsRequest788
                     
                      */
 
@@ -8901,7 +9178,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsResponse addInitialTasks4NewVMs(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsRequest addInitialTasks4NewVMsRequest774)
+                            edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsRequest addInitialTasks4NewVMsRequest788)
                         
 
                     throws java.rmi.RemoteException
@@ -8909,7 +9186,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[31].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[32].getName());
               _operationClient.getOptions().setAction("addInitialTasks4NewVMs");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -8928,7 +9205,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    addInitialTasks4NewVMsRequest774,
+                                                    addInitialTasks4NewVMsRequest788,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "addInitialTasks4NewVMs")));
                                                 
@@ -9012,18 +9289,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startaddInitialTasks4NewVMs
-                    * @param addInitialTasks4NewVMsRequest774
+                    * @param addInitialTasks4NewVMsRequest788
                 
                 */
                 public  void startaddInitialTasks4NewVMs(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsRequest addInitialTasks4NewVMsRequest774,
+                 edu.fiu.cis.acrl.virtuallabs.ws.AddInitialTasks4NewVMsRequest addInitialTasks4NewVMsRequest788,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[31].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[32].getName());
              _operationClient.getOptions().setAction("addInitialTasks4NewVMs");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -9042,7 +9319,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    addInitialTasks4NewVMsRequest774,
+                                                    addInitialTasks4NewVMsRequest788,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "addInitialTasks4NewVMs")));
                                                 
@@ -9143,9 +9420,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[31].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[32].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[31].setMessageReceiver(
+          _operations[32].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -9158,7 +9435,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#enrollUserInCourse
-                     * @param enrollUserInCourseRequest776
+                     * @param enrollUserInCourseRequest790
                     
                      */
 
@@ -9166,7 +9443,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.EnrollUserInCourseResponse enrollUserInCourse(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.EnrollUserInCourseRequest enrollUserInCourseRequest776)
+                            edu.fiu.cis.acrl.virtuallabs.ws.EnrollUserInCourseRequest enrollUserInCourseRequest790)
                         
 
                     throws java.rmi.RemoteException
@@ -9174,7 +9451,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[32].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[33].getName());
               _operationClient.getOptions().setAction("enrollUserInCourse");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -9193,7 +9470,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    enrollUserInCourseRequest776,
+                                                    enrollUserInCourseRequest790,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "enrollUserInCourse")));
                                                 
@@ -9277,18 +9554,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startenrollUserInCourse
-                    * @param enrollUserInCourseRequest776
+                    * @param enrollUserInCourseRequest790
                 
                 */
                 public  void startenrollUserInCourse(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.EnrollUserInCourseRequest enrollUserInCourseRequest776,
+                 edu.fiu.cis.acrl.virtuallabs.ws.EnrollUserInCourseRequest enrollUserInCourseRequest790,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[32].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[33].getName());
              _operationClient.getOptions().setAction("enrollUserInCourse");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -9307,7 +9584,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    enrollUserInCourseRequest776,
+                                                    enrollUserInCourseRequest790,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "enrollUserInCourse")));
                                                 
@@ -9408,9 +9685,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[32].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[33].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[32].setMessageReceiver(
+          _operations[33].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -9423,7 +9700,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getUserCurAppId
-                     * @param getUserCurAppIdRequest778
+                     * @param getUserCurAppIdRequest792
                     
                      */
 
@@ -9431,7 +9708,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurAppIdResponse getUserCurAppId(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurAppIdRequest getUserCurAppIdRequest778)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurAppIdRequest getUserCurAppIdRequest792)
                         
 
                     throws java.rmi.RemoteException
@@ -9439,7 +9716,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[33].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[34].getName());
               _operationClient.getOptions().setAction("getUserCurAppId");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -9458,7 +9735,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserCurAppIdRequest778,
+                                                    getUserCurAppIdRequest792,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserCurAppId")));
                                                 
@@ -9542,18 +9819,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetUserCurAppId
-                    * @param getUserCurAppIdRequest778
+                    * @param getUserCurAppIdRequest792
                 
                 */
                 public  void startgetUserCurAppId(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurAppIdRequest getUserCurAppIdRequest778,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurAppIdRequest getUserCurAppIdRequest792,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[33].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[34].getName());
              _operationClient.getOptions().setAction("getUserCurAppId");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -9572,7 +9849,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserCurAppIdRequest778,
+                                                    getUserCurAppIdRequest792,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserCurAppId")));
                                                 
@@ -9673,9 +9950,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[33].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[34].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[33].setMessageReceiver(
+          _operations[34].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -9688,7 +9965,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getHostAppointments
-                     * @param getHostAppointmentsRequest780
+                     * @param getHostAppointmentsRequest794
                     
                      */
 
@@ -9696,7 +9973,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetHostAppointmentsResponse getHostAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetHostAppointmentsRequest getHostAppointmentsRequest780)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetHostAppointmentsRequest getHostAppointmentsRequest794)
                         
 
                     throws java.rmi.RemoteException
@@ -9704,7 +9981,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[34].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[35].getName());
               _operationClient.getOptions().setAction("getHostAppointments");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -9723,7 +10000,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getHostAppointmentsRequest780,
+                                                    getHostAppointmentsRequest794,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getHostAppointments")));
                                                 
@@ -9807,18 +10084,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetHostAppointments
-                    * @param getHostAppointmentsRequest780
+                    * @param getHostAppointmentsRequest794
                 
                 */
                 public  void startgetHostAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetHostAppointmentsRequest getHostAppointmentsRequest780,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetHostAppointmentsRequest getHostAppointmentsRequest794,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[34].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[35].getName());
              _operationClient.getOptions().setAction("getHostAppointments");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -9837,7 +10114,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getHostAppointmentsRequest780,
+                                                    getHostAppointmentsRequest794,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getHostAppointments")));
                                                 
@@ -9938,9 +10215,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[34].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[35].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[34].setMessageReceiver(
+          _operations[35].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -9953,7 +10230,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getCheckinInterval
-                     * @param getCheckinIntervalRequest782
+                     * @param getCheckinIntervalRequest796
                     
                      */
 
@@ -9961,7 +10238,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetCheckinIntervalResponse getCheckinInterval(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetCheckinIntervalRequest getCheckinIntervalRequest782)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetCheckinIntervalRequest getCheckinIntervalRequest796)
                         
 
                     throws java.rmi.RemoteException
@@ -9969,7 +10246,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[35].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[36].getName());
               _operationClient.getOptions().setAction("getCheckinInterval");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -9988,7 +10265,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getCheckinIntervalRequest782,
+                                                    getCheckinIntervalRequest796,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getCheckinInterval")));
                                                 
@@ -10072,18 +10349,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetCheckinInterval
-                    * @param getCheckinIntervalRequest782
+                    * @param getCheckinIntervalRequest796
                 
                 */
                 public  void startgetCheckinInterval(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetCheckinIntervalRequest getCheckinIntervalRequest782,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetCheckinIntervalRequest getCheckinIntervalRequest796,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[35].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[36].getName());
              _operationClient.getOptions().setAction("getCheckinInterval");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -10102,7 +10379,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getCheckinIntervalRequest782,
+                                                    getCheckinIntervalRequest796,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getCheckinInterval")));
                                                 
@@ -10203,9 +10480,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[35].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[36].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[35].setMessageReceiver(
+          _operations[36].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -10218,7 +10495,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#addCourse
-                     * @param addCourseRequest784
+                     * @param addCourseRequest798
                     
                      * @throws edu.fiu.cis.acrl.virtuallabs.ws.DuplicateCourseFault : 
                      * @throws edu.fiu.cis.acrl.virtuallabs.ws.InvalidDataFault : 
@@ -10228,7 +10505,7 @@
 
                             public  void addCourse(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.AddCourseRequest addCourseRequest784)
+                            edu.fiu.cis.acrl.virtuallabs.ws.AddCourseRequest addCourseRequest798)
                         
 
                     throws java.rmi.RemoteException
@@ -10238,7 +10515,7 @@
                         ,edu.fiu.cis.acrl.virtuallabs.ws.InvalidDataFault{
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[36].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[37].getName());
               _operationClient.getOptions().setAction("addCourse");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -10257,7 +10534,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    addCourseRequest784,
+                                                    addCourseRequest798,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "addCourse")));
                                                 
@@ -10338,18 +10615,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startaddCourse
-                    * @param addCourseRequest784
+                    * @param addCourseRequest798
                 
                 */
                 public  void startaddCourse(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.AddCourseRequest addCourseRequest784,
+                 edu.fiu.cis.acrl.virtuallabs.ws.AddCourseRequest addCourseRequest798,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[36].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[37].getName());
              _operationClient.getOptions().setAction("addCourse");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -10368,7 +10645,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    addCourseRequest784,
+                                                    addCourseRequest798,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "addCourse")));
                                                 
@@ -10386,9 +10663,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[36].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[37].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[36].setMessageReceiver(
+          _operations[37].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -10401,7 +10678,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#cancelMentorAppointment
-                     * @param cancelMentorAppointmentRequest786
+                     * @param cancelMentorAppointmentRequest800
                     
                      */
 
@@ -10409,7 +10686,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CancelMentorAppointmentResponse cancelMentorAppointment(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CancelMentorAppointmentRequest cancelMentorAppointmentRequest786)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CancelMentorAppointmentRequest cancelMentorAppointmentRequest800)
                         
 
                     throws java.rmi.RemoteException
@@ -10417,7 +10694,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[37].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[38].getName());
               _operationClient.getOptions().setAction("cancelMentorAppointment");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -10436,7 +10713,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelMentorAppointmentRequest786,
+                                                    cancelMentorAppointmentRequest800,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelMentorAppointment")));
                                                 
@@ -10520,18 +10797,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcancelMentorAppointment
-                    * @param cancelMentorAppointmentRequest786
+                    * @param cancelMentorAppointmentRequest800
                 
                 */
                 public  void startcancelMentorAppointment(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CancelMentorAppointmentRequest cancelMentorAppointmentRequest786,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CancelMentorAppointmentRequest cancelMentorAppointmentRequest800,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[37].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[38].getName());
              _operationClient.getOptions().setAction("cancelMentorAppointment");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -10550,7 +10827,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelMentorAppointmentRequest786,
+                                                    cancelMentorAppointmentRequest800,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelMentorAppointment")));
                                                 
@@ -10651,9 +10928,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[37].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[38].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[37].setMessageReceiver(
+          _operations[38].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -10666,7 +10943,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getConfiguration
-                     * @param getConfigurationRequest788
+                     * @param getConfigurationRequest802
                     
                      */
 
@@ -10674,7 +10951,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetConfigurationResponse getConfiguration(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetConfigurationRequest getConfigurationRequest788)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetConfigurationRequest getConfigurationRequest802)
                         
 
                     throws java.rmi.RemoteException
@@ -10682,7 +10959,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[38].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[39].getName());
               _operationClient.getOptions().setAction("getConfiguration");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -10701,7 +10978,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getConfigurationRequest788,
+                                                    getConfigurationRequest802,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getConfiguration")));
                                                 
@@ -10785,18 +11062,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetConfiguration
-                    * @param getConfigurationRequest788
+                    * @param getConfigurationRequest802
                 
                 */
                 public  void startgetConfiguration(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetConfigurationRequest getConfigurationRequest788,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetConfigurationRequest getConfigurationRequest802,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[38].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[39].getName());
              _operationClient.getOptions().setAction("getConfiguration");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -10815,7 +11092,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getConfigurationRequest788,
+                                                    getConfigurationRequest802,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getConfiguration")));
                                                 
@@ -10916,9 +11193,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[38].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[39].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[38].setMessageReceiver(
+          _operations[39].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -10931,7 +11208,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getAvailableActions
-                     * @param getAvailableActionsRequest790
+                     * @param getAvailableActionsRequest804
                     
                      */
 
@@ -10939,7 +11216,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsResponse getAvailableActions(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsRequest getAvailableActionsRequest790)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsRequest getAvailableActionsRequest804)
                         
 
                     throws java.rmi.RemoteException
@@ -10947,7 +11224,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[39].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[40].getName());
               _operationClient.getOptions().setAction("getAvailableActions");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -10966,7 +11243,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getAvailableActionsRequest790,
+                                                    getAvailableActionsRequest804,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getAvailableActions")));
                                                 
@@ -11050,18 +11327,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetAvailableActions
-                    * @param getAvailableActionsRequest790
+                    * @param getAvailableActionsRequest804
                 
                 */
                 public  void startgetAvailableActions(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsRequest getAvailableActionsRequest790,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetAvailableActionsRequest getAvailableActionsRequest804,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[39].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[40].getName());
              _operationClient.getOptions().setAction("getAvailableActions");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -11080,7 +11357,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getAvailableActionsRequest790,
+                                                    getAvailableActionsRequest804,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getAvailableActions")));
                                                 
@@ -11181,9 +11458,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[39].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[40].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[39].setMessageReceiver(
+          _operations[40].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -11196,7 +11473,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getUserCurrentTime
-                     * @param getUserCurrentTimeRequest792
+                     * @param getUserCurrentTimeRequest806
                     
                      */
 
@@ -11204,7 +11481,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeResponse getUserCurrentTime(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeRequest getUserCurrentTimeRequest792)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeRequest getUserCurrentTimeRequest806)
                         
 
                     throws java.rmi.RemoteException
@@ -11212,7 +11489,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[40].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[41].getName());
               _operationClient.getOptions().setAction("getUserCurrentTime");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -11231,7 +11508,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserCurrentTimeRequest792,
+                                                    getUserCurrentTimeRequest806,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserCurrentTime")));
                                                 
@@ -11315,18 +11592,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetUserCurrentTime
-                    * @param getUserCurrentTimeRequest792
+                    * @param getUserCurrentTimeRequest806
                 
                 */
                 public  void startgetUserCurrentTime(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeRequest getUserCurrentTimeRequest792,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserCurrentTimeRequest getUserCurrentTimeRequest806,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[40].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[41].getName());
              _operationClient.getOptions().setAction("getUserCurrentTime");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -11345,7 +11622,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserCurrentTimeRequest792,
+                                                    getUserCurrentTimeRequest806,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserCurrentTime")));
                                                 
@@ -11446,9 +11723,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[40].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[41].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[40].setMessageReceiver(
+          _operations[41].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -11461,7 +11738,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#cancelAllUserAppointments
-                     * @param cancelAllUserAppointmentsRequest794
+                     * @param cancelAllUserAppointmentsRequest808
                     
                      */
 
@@ -11469,7 +11746,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsResponse cancelAllUserAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsRequest cancelAllUserAppointmentsRequest794)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsRequest cancelAllUserAppointmentsRequest808)
                         
 
                     throws java.rmi.RemoteException
@@ -11477,7 +11754,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[41].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[42].getName());
               _operationClient.getOptions().setAction("cancelAllUserAppointments");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -11496,7 +11773,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelAllUserAppointmentsRequest794,
+                                                    cancelAllUserAppointmentsRequest808,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelAllUserAppointments")));
                                                 
@@ -11580,18 +11857,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcancelAllUserAppointments
-                    * @param cancelAllUserAppointmentsRequest794
+                    * @param cancelAllUserAppointmentsRequest808
                 
                 */
                 public  void startcancelAllUserAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsRequest cancelAllUserAppointmentsRequest794,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CancelAllUserAppointmentsRequest cancelAllUserAppointmentsRequest808,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[41].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[42].getName());
              _operationClient.getOptions().setAction("cancelAllUserAppointments");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -11610,7 +11887,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelAllUserAppointmentsRequest794,
+                                                    cancelAllUserAppointmentsRequest808,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelAllUserAppointments")));
                                                 
@@ -11711,9 +11988,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[41].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[42].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[41].setMessageReceiver(
+          _operations[42].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -11726,7 +12003,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#suspendUserVLab
-                     * @param suspendUserVLabRequest796
+                     * @param suspendUserVLabRequest810
                     
                      */
 
@@ -11734,7 +12011,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabResponse suspendUserVLab(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabRequest suspendUserVLabRequest796)
+                            edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabRequest suspendUserVLabRequest810)
                         
 
                     throws java.rmi.RemoteException
@@ -11742,7 +12019,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[42].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[43].getName());
               _operationClient.getOptions().setAction("suspendUserVLab");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -11761,7 +12038,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    suspendUserVLabRequest796,
+                                                    suspendUserVLabRequest810,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "suspendUserVLab")));
                                                 
@@ -11845,18 +12122,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startsuspendUserVLab
-                    * @param suspendUserVLabRequest796
+                    * @param suspendUserVLabRequest810
                 
                 */
                 public  void startsuspendUserVLab(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabRequest suspendUserVLabRequest796,
+                 edu.fiu.cis.acrl.virtuallabs.ws.SuspendUserVLabRequest suspendUserVLabRequest810,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[42].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[43].getName());
              _operationClient.getOptions().setAction("suspendUserVLab");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -11875,7 +12152,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    suspendUserVLabRequest796,
+                                                    suspendUserVLabRequest810,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "suspendUserVLab")));
                                                 
@@ -11976,9 +12253,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[42].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[43].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[42].setMessageReceiver(
+          _operations[43].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -11991,7 +12268,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getEndDate4CurrentDevaIns
-                     * @param getEndDate4CurrentDevaInsRequest798
+                     * @param getEndDate4CurrentDevaInsRequest812
                     
                      */
 
@@ -11999,7 +12276,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsResponse getEndDate4CurrentDevaIns(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsRequest getEndDate4CurrentDevaInsRequest798)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsRequest getEndDate4CurrentDevaInsRequest812)
                         
 
                     throws java.rmi.RemoteException
@@ -12007,7 +12284,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[43].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[44].getName());
               _operationClient.getOptions().setAction("getEndDate4CurrentDevaIns");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -12026,7 +12303,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getEndDate4CurrentDevaInsRequest798,
+                                                    getEndDate4CurrentDevaInsRequest812,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getEndDate4CurrentDevaIns")));
                                                 
@@ -12110,18 +12387,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetEndDate4CurrentDevaIns
-                    * @param getEndDate4CurrentDevaInsRequest798
+                    * @param getEndDate4CurrentDevaInsRequest812
                 
                 */
                 public  void startgetEndDate4CurrentDevaIns(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsRequest getEndDate4CurrentDevaInsRequest798,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetEndDate4CurrentDevaInsRequest getEndDate4CurrentDevaInsRequest812,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[43].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[44].getName());
              _operationClient.getOptions().setAction("getEndDate4CurrentDevaIns");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -12140,7 +12417,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getEndDate4CurrentDevaInsRequest798,
+                                                    getEndDate4CurrentDevaInsRequest812,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getEndDate4CurrentDevaIns")));
                                                 
@@ -12241,9 +12518,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[43].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[44].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[43].setMessageReceiver(
+          _operations[44].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -12256,7 +12533,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getResourceTypes
-                     * @param getResourceTypesRequest800
+                     * @param getResourceTypesRequest814
                     
                      */
 
@@ -12264,7 +12541,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesResponse getResourceTypes(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesRequest getResourceTypesRequest800)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesRequest getResourceTypesRequest814)
                         
 
                     throws java.rmi.RemoteException
@@ -12272,7 +12549,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[44].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[45].getName());
               _operationClient.getOptions().setAction("getResourceTypes");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -12291,7 +12568,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getResourceTypesRequest800,
+                                                    getResourceTypesRequest814,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getResourceTypes")));
                                                 
@@ -12375,18 +12652,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetResourceTypes
-                    * @param getResourceTypesRequest800
+                    * @param getResourceTypesRequest814
                 
                 */
                 public  void startgetResourceTypes(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesRequest getResourceTypesRequest800,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetResourceTypesRequest getResourceTypesRequest814,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[44].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[45].getName());
              _operationClient.getOptions().setAction("getResourceTypes");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -12405,7 +12682,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getResourceTypesRequest800,
+                                                    getResourceTypesRequest814,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getResourceTypes")));
                                                 
@@ -12506,9 +12783,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[44].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[45].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[44].setMessageReceiver(
+          _operations[45].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -12521,7 +12798,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#scheduleUserAppointmentsWithEncryptedPassword
-                     * @param scheduleUserAppointmentsWithEncryptedPasswordRequest802
+                     * @param scheduleUserAppointmentsWithEncryptedPasswordRequest816
                     
                      */
 
@@ -12529,7 +12806,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithEncryptedPasswordResponse scheduleUserAppointmentsWithEncryptedPassword(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithEncryptedPasswordRequest scheduleUserAppointmentsWithEncryptedPasswordRequest802)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithEncryptedPasswordRequest scheduleUserAppointmentsWithEncryptedPasswordRequest816)
                         
 
                     throws java.rmi.RemoteException
@@ -12537,7 +12814,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[45].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[46].getName());
               _operationClient.getOptions().setAction("scheduleUserAppointmentsWithEncryptedPassword");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -12556,7 +12833,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleUserAppointmentsWithEncryptedPasswordRequest802,
+                                                    scheduleUserAppointmentsWithEncryptedPasswordRequest816,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleUserAppointmentsWithEncryptedPassword")));
                                                 
@@ -12640,18 +12917,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startscheduleUserAppointmentsWithEncryptedPassword
-                    * @param scheduleUserAppointmentsWithEncryptedPasswordRequest802
+                    * @param scheduleUserAppointmentsWithEncryptedPasswordRequest816
                 
                 */
                 public  void startscheduleUserAppointmentsWithEncryptedPassword(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithEncryptedPasswordRequest scheduleUserAppointmentsWithEncryptedPasswordRequest802,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ScheduleUserAppointmentsWithEncryptedPasswordRequest scheduleUserAppointmentsWithEncryptedPasswordRequest816,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[45].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[46].getName());
              _operationClient.getOptions().setAction("scheduleUserAppointmentsWithEncryptedPassword");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -12670,7 +12947,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    scheduleUserAppointmentsWithEncryptedPasswordRequest802,
+                                                    scheduleUserAppointmentsWithEncryptedPasswordRequest816,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "scheduleUserAppointmentsWithEncryptedPassword")));
                                                 
@@ -12771,9 +13048,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[45].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[46].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[45].setMessageReceiver(
+          _operations[46].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -12786,7 +13063,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#refreshVM
-                     * @param refreshVMRequest804
+                     * @param refreshVMRequest818
                     
                      */
 
@@ -12794,7 +13071,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMResponse refreshVM(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMRequest refreshVMRequest804)
+                            edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMRequest refreshVMRequest818)
                         
 
                     throws java.rmi.RemoteException
@@ -12802,7 +13079,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[46].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[47].getName());
               _operationClient.getOptions().setAction("refreshVM");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -12821,7 +13098,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    refreshVMRequest804,
+                                                    refreshVMRequest818,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "refreshVM")));
                                                 
@@ -12905,18 +13182,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startrefreshVM
-                    * @param refreshVMRequest804
+                    * @param refreshVMRequest818
                 
                 */
                 public  void startrefreshVM(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMRequest refreshVMRequest804,
+                 edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMRequest refreshVMRequest818,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[46].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[47].getName());
              _operationClient.getOptions().setAction("refreshVM");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -12935,7 +13212,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    refreshVMRequest804,
+                                                    refreshVMRequest818,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "refreshVM")));
                                                 
@@ -13036,9 +13313,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[46].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[47].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[46].setMessageReceiver(
+          _operations[47].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -13051,7 +13328,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#createUserProfile
-                     * @param createUserProfileRequest806
+                     * @param createUserProfileRequest820
                     
                      */
 
@@ -13059,7 +13336,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileResponse createUserProfile(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileRequest createUserProfileRequest806)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileRequest createUserProfileRequest820)
                         
 
                     throws java.rmi.RemoteException
@@ -13067,7 +13344,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[47].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[48].getName());
               _operationClient.getOptions().setAction("createUserProfile");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -13086,7 +13363,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    createUserProfileRequest806,
+                                                    createUserProfileRequest820,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "createUserProfile")));
                                                 
@@ -13170,18 +13447,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcreateUserProfile
-                    * @param createUserProfileRequest806
+                    * @param createUserProfileRequest820
                 
                 */
                 public  void startcreateUserProfile(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileRequest createUserProfileRequest806,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CreateUserProfileRequest createUserProfileRequest820,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[47].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[48].getName());
              _operationClient.getOptions().setAction("createUserProfile");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -13200,7 +13477,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    createUserProfileRequest806,
+                                                    createUserProfileRequest820,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "createUserProfile")));
                                                 
@@ -13301,9 +13578,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[47].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[48].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[47].setMessageReceiver(
+          _operations[48].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -13316,7 +13593,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#isResourceAvailable
-                     * @param isResourceAvailableRequest808
+                     * @param isResourceAvailableRequest822
                     
                      */
 
@@ -13324,7 +13601,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableResponse isResourceAvailable(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableRequest isResourceAvailableRequest808)
+                            edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableRequest isResourceAvailableRequest822)
                         
 
                     throws java.rmi.RemoteException
@@ -13332,7 +13609,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[48].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[49].getName());
               _operationClient.getOptions().setAction("isResourceAvailable");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -13351,7 +13628,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    isResourceAvailableRequest808,
+                                                    isResourceAvailableRequest822,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "isResourceAvailable")));
                                                 
@@ -13435,18 +13712,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startisResourceAvailable
-                    * @param isResourceAvailableRequest808
+                    * @param isResourceAvailableRequest822
                 
                 */
                 public  void startisResourceAvailable(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableRequest isResourceAvailableRequest808,
+                 edu.fiu.cis.acrl.virtuallabs.ws.IsResourceAvailableRequest isResourceAvailableRequest822,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[48].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[49].getName());
              _operationClient.getOptions().setAction("isResourceAvailable");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -13465,7 +13742,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    isResourceAvailableRequest808,
+                                                    isResourceAvailableRequest822,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "isResourceAvailable")));
                                                 
@@ -13566,9 +13843,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[48].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[49].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[48].setMessageReceiver(
+          _operations[49].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -13581,7 +13858,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#addHost
-                     * @param addHostRequest810
+                     * @param addHostRequest824
                     
                      */
 
@@ -13589,7 +13866,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.AddHostResponse addHost(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.AddHostRequest addHostRequest810)
+                            edu.fiu.cis.acrl.virtuallabs.ws.AddHostRequest addHostRequest824)
                         
 
                     throws java.rmi.RemoteException
@@ -13597,7 +13874,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[49].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[50].getName());
               _operationClient.getOptions().setAction("addHost");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -13616,7 +13893,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    addHostRequest810,
+                                                    addHostRequest824,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "addHost")));
                                                 
@@ -13700,18 +13977,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startaddHost
-                    * @param addHostRequest810
+                    * @param addHostRequest824
                 
                 */
                 public  void startaddHost(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.AddHostRequest addHostRequest810,
+                 edu.fiu.cis.acrl.virtuallabs.ws.AddHostRequest addHostRequest824,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[49].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[50].getName());
              _operationClient.getOptions().setAction("addHost");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -13730,7 +14007,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    addHostRequest810,
+                                                    addHostRequest824,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "addHost")));
                                                 
@@ -13831,9 +14108,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[49].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[50].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[49].setMessageReceiver(
+          _operations[50].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -13846,7 +14123,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getMentorAppointments
-                     * @param getMentorAppointmentsRequest812
+                     * @param getMentorAppointmentsRequest826
                     
                      */
 
@@ -13854,7 +14131,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsResponse getMentorAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsRequest getMentorAppointmentsRequest812)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsRequest getMentorAppointmentsRequest826)
                         
 
                     throws java.rmi.RemoteException
@@ -13862,7 +14139,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[50].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[51].getName());
               _operationClient.getOptions().setAction("getMentorAppointments");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -13881,7 +14158,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getMentorAppointmentsRequest812,
+                                                    getMentorAppointmentsRequest826,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getMentorAppointments")));
                                                 
@@ -13965,18 +14242,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetMentorAppointments
-                    * @param getMentorAppointmentsRequest812
+                    * @param getMentorAppointmentsRequest826
                 
                 */
                 public  void startgetMentorAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsRequest getMentorAppointmentsRequest812,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetMentorAppointmentsRequest getMentorAppointmentsRequest826,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[50].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[51].getName());
              _operationClient.getOptions().setAction("getMentorAppointments");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -13995,7 +14272,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getMentorAppointmentsRequest812,
+                                                    getMentorAppointmentsRequest826,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getMentorAppointments")));
                                                 
@@ -14096,9 +14373,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[50].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[51].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[50].setMessageReceiver(
+          _operations[51].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -14111,7 +14388,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getUserAppointments
-                     * @param getUserAppointmentsRequest814
+                     * @param getUserAppointmentsRequest828
                     
                      */
 
@@ -14119,7 +14396,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsResponse getUserAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsRequest getUserAppointmentsRequest814)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsRequest getUserAppointmentsRequest828)
                         
 
                     throws java.rmi.RemoteException
@@ -14127,7 +14404,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[51].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[52].getName());
               _operationClient.getOptions().setAction("getUserAppointments");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -14146,7 +14423,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserAppointmentsRequest814,
+                                                    getUserAppointmentsRequest828,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserAppointments")));
                                                 
@@ -14230,18 +14507,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetUserAppointments
-                    * @param getUserAppointmentsRequest814
+                    * @param getUserAppointmentsRequest828
                 
                 */
                 public  void startgetUserAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsRequest getUserAppointmentsRequest814,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserAppointmentsRequest getUserAppointmentsRequest828,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[51].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[52].getName());
              _operationClient.getOptions().setAction("getUserAppointments");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -14260,7 +14537,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserAppointmentsRequest814,
+                                                    getUserAppointmentsRequest828,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserAppointments")));
                                                 
@@ -14361,9 +14638,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[51].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[52].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[51].setMessageReceiver(
+          _operations[52].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -14376,7 +14653,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#reserveResource
-                     * @param reserveResourceRequest816
+                     * @param reserveResourceRequest830
                     
                      */
 
@@ -14384,7 +14661,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceResponse reserveResource(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceRequest reserveResourceRequest816)
+                            edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceRequest reserveResourceRequest830)
                         
 
                     throws java.rmi.RemoteException
@@ -14392,7 +14669,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[52].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[53].getName());
               _operationClient.getOptions().setAction("reserveResource");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -14411,7 +14688,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    reserveResourceRequest816,
+                                                    reserveResourceRequest830,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "reserveResource")));
                                                 
@@ -14495,18 +14772,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startreserveResource
-                    * @param reserveResourceRequest816
+                    * @param reserveResourceRequest830
                 
                 */
                 public  void startreserveResource(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceRequest reserveResourceRequest816,
+                 edu.fiu.cis.acrl.virtuallabs.ws.ReserveResourceRequest reserveResourceRequest830,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[52].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[53].getName());
              _operationClient.getOptions().setAction("reserveResource");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -14525,7 +14802,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    reserveResourceRequest816,
+                                                    reserveResourceRequest830,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "reserveResource")));
                                                 
@@ -14626,9 +14903,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[52].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[53].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[52].setMessageReceiver(
+          _operations[53].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -14641,7 +14918,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getVMInsInfo
-                     * @param getVMInsInfoRequest818
+                     * @param getVMInsInfoRequest832
                     
                      */
 
@@ -14649,7 +14926,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoResponse getVMInsInfo(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoRequest getVMInsInfoRequest818)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoRequest getVMInsInfoRequest832)
                         
 
                     throws java.rmi.RemoteException
@@ -14657,7 +14934,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[53].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[54].getName());
               _operationClient.getOptions().setAction("getVMInsInfo");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -14676,7 +14953,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getVMInsInfoRequest818,
+                                                    getVMInsInfoRequest832,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getVMInsInfo")));
                                                 
@@ -14760,18 +15037,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetVMInsInfo
-                    * @param getVMInsInfoRequest818
+                    * @param getVMInsInfoRequest832
                 
                 */
                 public  void startgetVMInsInfo(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoRequest getVMInsInfoRequest818,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetVMInsInfoRequest getVMInsInfoRequest832,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[53].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[54].getName());
              _operationClient.getOptions().setAction("getVMInsInfo");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -14790,7 +15067,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getVMInsInfoRequest818,
+                                                    getVMInsInfoRequest832,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getVMInsInfo")));
                                                 
@@ -14891,9 +15168,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[53].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[54].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[53].setMessageReceiver(
+          _operations[54].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -14906,7 +15183,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#editUserProfileWithEncryptedPassword
-                     * @param editUserProfileWithEncryptedPasswordRequest820
+                     * @param editUserProfileWithEncryptedPasswordRequest834
                     
                      */
 
@@ -14914,7 +15191,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileWithEncryptedPasswordResponse editUserProfileWithEncryptedPassword(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileWithEncryptedPasswordRequest editUserProfileWithEncryptedPasswordRequest820)
+                            edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileWithEncryptedPasswordRequest editUserProfileWithEncryptedPasswordRequest834)
                         
 
                     throws java.rmi.RemoteException
@@ -14922,7 +15199,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[54].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[55].getName());
               _operationClient.getOptions().setAction("editUserProfileWithEncryptedPassword");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -14941,7 +15218,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    editUserProfileWithEncryptedPasswordRequest820,
+                                                    editUserProfileWithEncryptedPasswordRequest834,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "editUserProfileWithEncryptedPassword")));
                                                 
@@ -15025,18 +15302,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#starteditUserProfileWithEncryptedPassword
-                    * @param editUserProfileWithEncryptedPasswordRequest820
+                    * @param editUserProfileWithEncryptedPasswordRequest834
                 
                 */
                 public  void starteditUserProfileWithEncryptedPassword(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileWithEncryptedPasswordRequest editUserProfileWithEncryptedPasswordRequest820,
+                 edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileWithEncryptedPasswordRequest editUserProfileWithEncryptedPasswordRequest834,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[54].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[55].getName());
              _operationClient.getOptions().setAction("editUserProfileWithEncryptedPassword");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -15055,7 +15332,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    editUserProfileWithEncryptedPasswordRequest820,
+                                                    editUserProfileWithEncryptedPasswordRequest834,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "editUserProfileWithEncryptedPassword")));
                                                 
@@ -15156,9 +15433,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[54].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[55].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[54].setMessageReceiver(
+          _operations[55].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -15171,7 +15448,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#editUserProfile
-                     * @param editUserProfileRequest822
+                     * @param editUserProfileRequest836
                     
                      */
 
@@ -15179,7 +15456,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileResponse editUserProfile(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileRequest editUserProfileRequest822)
+                            edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileRequest editUserProfileRequest836)
                         
 
                     throws java.rmi.RemoteException
@@ -15187,7 +15464,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[55].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[56].getName());
               _operationClient.getOptions().setAction("editUserProfile");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -15206,7 +15483,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    editUserProfileRequest822,
+                                                    editUserProfileRequest836,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "editUserProfile")));
                                                 
@@ -15290,18 +15567,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#starteditUserProfile
-                    * @param editUserProfileRequest822
+                    * @param editUserProfileRequest836
                 
                 */
                 public  void starteditUserProfile(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileRequest editUserProfileRequest822,
+                 edu.fiu.cis.acrl.virtuallabs.ws.EditUserProfileRequest editUserProfileRequest836,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[55].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[56].getName());
              _operationClient.getOptions().setAction("editUserProfile");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -15320,7 +15597,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    editUserProfileRequest822,
+                                                    editUserProfileRequest836,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "editUserProfile")));
                                                 
@@ -15421,9 +15698,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[55].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[56].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[55].setMessageReceiver(
+          _operations[56].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -15436,7 +15713,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#checkin
-                     * @param checkinRequest824
+                     * @param checkinRequest838
                     
                      */
 
@@ -15444,7 +15721,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CheckinResponse checkin(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CheckinRequest checkinRequest824)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CheckinRequest checkinRequest838)
                         
 
                     throws java.rmi.RemoteException
@@ -15452,7 +15729,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[56].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[57].getName());
               _operationClient.getOptions().setAction("checkin");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -15471,7 +15748,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    checkinRequest824,
+                                                    checkinRequest838,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "checkin")));
                                                 
@@ -15555,18 +15832,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcheckin
-                    * @param checkinRequest824
+                    * @param checkinRequest838
                 
                 */
                 public  void startcheckin(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CheckinRequest checkinRequest824,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CheckinRequest checkinRequest838,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[56].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[57].getName());
              _operationClient.getOptions().setAction("checkin");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -15585,7 +15862,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    checkinRequest824,
+                                                    checkinRequest838,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "checkin")));
                                                 
@@ -15686,9 +15963,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[56].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[57].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[56].setMessageReceiver(
+          _operations[57].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -15701,7 +15978,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#cancelAllMentorAppointments
-                     * @param cancelAllMentorAppointmentsRequest826
+                     * @param cancelAllMentorAppointmentsRequest840
                     
                      */
 
@@ -15709,7 +15986,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsResponse cancelAllMentorAppointments(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsRequest cancelAllMentorAppointmentsRequest826)
+                            edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsRequest cancelAllMentorAppointmentsRequest840)
                         
 
                     throws java.rmi.RemoteException
@@ -15717,7 +15994,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[57].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[58].getName());
               _operationClient.getOptions().setAction("cancelAllMentorAppointments");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -15736,7 +16013,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelAllMentorAppointmentsRequest826,
+                                                    cancelAllMentorAppointmentsRequest840,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelAllMentorAppointments")));
                                                 
@@ -15820,18 +16097,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startcancelAllMentorAppointments
-                    * @param cancelAllMentorAppointmentsRequest826
+                    * @param cancelAllMentorAppointmentsRequest840
                 
                 */
                 public  void startcancelAllMentorAppointments(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsRequest cancelAllMentorAppointmentsRequest826,
+                 edu.fiu.cis.acrl.virtuallabs.ws.CancelAllMentorAppointmentsRequest cancelAllMentorAppointmentsRequest840,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[57].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[58].getName());
              _operationClient.getOptions().setAction("cancelAllMentorAppointments");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -15850,7 +16127,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    cancelAllMentorAppointmentsRequest826,
+                                                    cancelAllMentorAppointmentsRequest840,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "cancelAllMentorAppointments")));
                                                 
@@ -15951,9 +16228,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[57].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[58].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[57].setMessageReceiver(
+          _operations[58].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -15966,7 +16243,7 @@
                      * Auto generated method signature
                      * 
                      * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#getUserResourceTypes
-                     * @param getUserResourceTypesRequest828
+                     * @param getUserResourceTypesRequest842
                     
                      */
 
@@ -15974,7 +16251,7 @@
 
                             public  edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesResponse getUserResourceTypes(
 
-                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesRequest getUserResourceTypesRequest828)
+                            edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesRequest getUserResourceTypesRequest842)
                         
 
                     throws java.rmi.RemoteException
@@ -15982,7 +16259,7 @@
                     {
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
-               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[58].getName());
+               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[59].getName());
               _operationClient.getOptions().setAction("getUserResourceTypes");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -16001,7 +16278,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserResourceTypesRequest828,
+                                                    getUserResourceTypesRequest842,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserResourceTypes")));
                                                 
@@ -16085,18 +16362,18 @@
                 * Auto generated method signature for Asynchronous Invocations
                 * 
                 * @see edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabs#startgetUserResourceTypes
-                    * @param getUserResourceTypesRequest828
+                    * @param getUserResourceTypesRequest842
                 
                 */
                 public  void startgetUserResourceTypes(
 
-                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesRequest getUserResourceTypesRequest828,
+                 edu.fiu.cis.acrl.virtuallabs.ws.GetUserResourceTypesRequest getUserResourceTypesRequest842,
 
                   final edu.fiu.cis.acrl.virtuallabs.ws.VirtualLabsCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
-              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[58].getName());
+              org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[59].getName());
              _operationClient.getOptions().setAction("getUserResourceTypes");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
@@ -16115,7 +16392,7 @@
                                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    getUserResourceTypesRequest828,
+                                                    getUserResourceTypesRequest842,
                                                     optimizeContent(new javax.xml.namespace.QName("http://acrl.cis.fiu.edu/virtuallabs/ws",
                                                     "getUserResourceTypes")));
                                                 
@@ -16216,9 +16493,9 @@
                         
 
           org.apache.axis2.util.CallbackReceiver _callbackReceiver = null;
-        if ( _operations[58].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
+        if ( _operations[59].getMessageReceiver()==null &&  _operationClient.getOptions().isUseSeparateListener()) {
            _callbackReceiver = new org.apache.axis2.util.CallbackReceiver();
-          _operations[58].setMessageReceiver(
+          _operations[59].setMessageReceiver(
                     _callbackReceiver);
         }
 
@@ -16931,34 +17208,6 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest param, boolean optimizeContent)
-            throws org.apache.axis2.AxisFault {
-
-            
-                        try{
-                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
-
-            }
-        
-            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse param, boolean optimizeContent)
-            throws org.apache.axis2.AxisFault {
-
-            
-                        try{
-                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
-
-            }
-        
             private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileRequest param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
@@ -16987,12 +17236,26 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordRequest param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest.MY_QNAME,
+                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordRequest.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -17021,6 +17284,48 @@
             
                         try{
                              return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -18381,27 +18686,6 @@
 
                              
                                     
-                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest param, boolean optimizeContent)
-                                        throws org.apache.axis2.AxisFault{
-
-                                             
-                                                    try{
-
-                                                            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                                                            emptyEnvelope.getBody().addChild(param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest.MY_QNAME,factory));
-                                                            return emptyEnvelope;
-                                                        } catch(org.apache.axis2.databinding.ADBException e){
-                                                            throw org.apache.axis2.AxisFault.makeFault(e);
-                                                        }
-                                                
-
-                                        }
-                                
-                             
-                             /* methods to provide back word compatibility */
-
-                             
-                                    
                                         private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileRequest param, boolean optimizeContent)
                                         throws org.apache.axis2.AxisFault{
 
@@ -18423,14 +18707,14 @@
 
                              
                                     
-                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest param, boolean optimizeContent)
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordRequest param, boolean optimizeContent)
                                         throws org.apache.axis2.AxisFault{
 
                                              
                                                     try{
 
                                                             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                                                            emptyEnvelope.getBody().addChild(param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest.MY_QNAME,factory));
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordRequest.MY_QNAME,factory));
                                                             return emptyEnvelope;
                                                         } catch(org.apache.axis2.databinding.ADBException e){
                                                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -18452,6 +18736,48 @@
 
                                                             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
                                                             emptyEnvelope.getBody().addChild(param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentRequest.MY_QNAME,factory));
+                                                            return emptyEnvelope;
+                                                        } catch(org.apache.axis2.databinding.ADBException e){
+                                                            throw org.apache.axis2.AxisFault.makeFault(e);
+                                                        }
+                                                
+
+                                        }
+                                
+                             
+                             /* methods to provide back word compatibility */
+
+                             
+                                    
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest param, boolean optimizeContent)
+                                        throws org.apache.axis2.AxisFault{
+
+                                             
+                                                    try{
+
+                                                            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest.MY_QNAME,factory));
+                                                            return emptyEnvelope;
+                                                        } catch(org.apache.axis2.databinding.ADBException e){
+                                                            throw org.apache.axis2.AxisFault.makeFault(e);
+                                                        }
+                                                
+
+                                        }
+                                
+                             
+                             /* methods to provide back word compatibility */
+
+                             
+                                    
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest param, boolean optimizeContent)
+                                        throws org.apache.axis2.AxisFault{
+
+                                             
+                                                    try{
+
+                                                            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest.MY_QNAME,factory));
                                                             return emptyEnvelope;
                                                         } catch(org.apache.axis2.databinding.ADBException e){
                                                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -19468,20 +19794,6 @@
 
                 }
            
-                if (edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest.class.equals(type)){
-                
-                           return edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
-
-                }
-           
-                if (edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.class.equals(type)){
-                
-                           return edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
-
-                }
-           
                 if (edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileRequest.class.equals(type)){
                 
                            return edu.fiu.cis.acrl.virtuallabs.ws.DelUserProfileRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
@@ -19496,16 +19808,16 @@
 
                 }
            
-                if (edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest.class.equals(type)){
+                if (edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordRequest.class.equals(type)){
                 
-                           return edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
            
-                if (edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundError.class.equals(type)){
+                if (edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse.class.equals(type)){
                 
-                           return edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundError.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return edu.fiu.cis.acrl.virtuallabs.ws.RefreshVMWithEncryptedPasswordResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
@@ -19520,6 +19832,34 @@
                 if (edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentResponse.class.equals(type)){
                 
                            return edu.fiu.cis.acrl.virtuallabs.ws.ScheduleCourseAppointmentResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest.class.equals(type)){
+                
+                           return edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.class.equals(type)){
+                
+                           return edu.fiu.cis.acrl.virtuallabs.ws.GetDevaInsInfoResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest.class.equals(type)){
+                
+                           return edu.fiu.cis.acrl.virtuallabs.ws.DeleteCourseRequest.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundError.class.equals(type)){
+                
+                           return edu.fiu.cis.acrl.virtuallabs.ws.CourseNotFoundError.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
