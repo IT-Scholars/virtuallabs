@@ -329,7 +329,7 @@ public class VirtualLabs {
 		resp.setSuccess(wrappedResp.getSuccess());
 		resp.setReason(wrappedResp.getReason());
 
-		passTerminator.notifyThread();
+		// passTerminator.notifyAll();
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - addInitialTasks4NewVMsWithEncryptedPassword] Ready to get out!");
 
@@ -409,7 +409,7 @@ public class VirtualLabs {
 		resp.setSuccess(wrappedResp.getSuccess());
 		resp.setReason(wrappedResp.getReason());
 
-		passTerminator.notifyThread();
+		// passTerminator.notifyAll();
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - refreshVMWithEncryptedPassword] Ready to get out!");
 
@@ -1468,7 +1468,7 @@ public class VirtualLabs {
 		
 		}
 		
-		passTerminator.notifyThread();
+		// passTerminator.notifyAll();
 		
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - getUserCredentials] Ready to get out!");
 
@@ -2647,7 +2647,7 @@ public class VirtualLabs {
 		for (Appointment app : apps)
 			resp.addAppointment(app);
 		
-		passTerminator.notifyThread();
+		// passTerminator.notifyAll();
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - scheduleUserAppointmentsWithEncryptedPassword] Ready to get out!");
 
@@ -2656,11 +2656,14 @@ public class VirtualLabs {
 
 	private void setUserCachedPassword(String username, String password) {
 
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - setUserCachedPassword] Ready to get out!");
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - setUserCachedPassword] Inside!");
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - setUserCachedPassword] "
+				+ "username: " + username + " "
+				+ "password: " + password);
 		
 		virtualLabsDB.setUserCachedPassword(username, password);		
 		virtualLabsDB.eliminatePlaintextPassword(username);
-		passTerminator.notifyThread();
+		// passTerminator.notifyAll();
 		
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - setUserCachedPassword] Ready to get out!");
 	
@@ -7021,7 +7024,7 @@ public class VirtualLabs {
 		resp.setSuccess(wrappedResp.getSuccess());
 		resp.setReason(wrappedResp.getReason());
 
-		passTerminator.notifyThread();
+		// passTerminator.notifyAll();
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - createUserProfileWithEncryptedPassword] Ready to get out!");
 
@@ -7357,7 +7360,7 @@ public class VirtualLabs {
 		resp.setSuccess(wrappedResp.getSuccess());
 		resp.setReason(wrappedResp.getReason());
 
-		passTerminator.notifyThread();
+		// passTerminator.notifyAll();
 
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - editUserProfileWithEncryptedPassword] Ready to get out!");
 

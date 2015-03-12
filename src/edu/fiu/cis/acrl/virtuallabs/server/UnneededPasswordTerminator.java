@@ -13,7 +13,7 @@ import edu.fiu.cis.acrl.virtuallabs.server.db.VirtualLabsDB;
 public class UnneededPasswordTerminator extends Thread {
 
 	// Debug level for this class
-	private static int DEBUG_LEVEL = 2;
+	private static int DEBUG_LEVEL = 1;
 
 	private VirtualLabsDB virtualLabsDB;
 	// private VirtualLabsSettings vLabsSettings;
@@ -24,22 +24,23 @@ public class UnneededPasswordTerminator extends Thread {
     private boolean running;
     private boolean waiting;
     
-	private long freshnessPeriod 	= 30000; // 30 seconds
+	private long freshnessPeriod = VirtualLabsSettings.instance().getCachedPasswordTimeout() * 1000; 
 
     public UnneededPasswordTerminator() {
 		this.running = false;
     	this.waiting = false;
     }
     
+    // This method is no longer being used as some thread were stuck!!! :(
 	public synchronized void notifyThread() {
 		
 		DebugTools.println(DEBUG_LEVEL, "[UnneededPasswordTerminator - notifyThread] Inside! " +
 				"waiting: " + waiting);
 		
 		if (waiting) {
-			notify();
-			DebugTools.println(DEBUG_LEVEL, "[UnneededPasswordTerminator - notifyThread] notified! ");
 			waiting = false;
+			notifyAll();
+			DebugTools.println(DEBUG_LEVEL, "[UnneededPasswordTerminator - notifyThread] notified! ");
 		}
 
 		DebugTools.println(DEBUG_LEVEL, "[UnneededPasswordTerminator - notifyThread] Ready to get out!");
@@ -101,7 +102,10 @@ public class UnneededPasswordTerminator extends Thread {
 						+ "the User Cached Password table! Waiting to be notified ... ");
 				waiting = true;
 				try {
-					this.wait();
+					// Just to make sure that no thread will be stuck! :(
+					this.notifyAll();
+					Thread.sleep(freshnessPeriod);
+					// this.wait();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -112,6 +116,7 @@ public class UnneededPasswordTerminator extends Thread {
 						+ countTheFreshOnes + " fresh records in the User Cached Password table! "
 						+ "Sleeping for " + freshnessPeriod/1000 + " seconds ...");
 				try {
+					this.notifyAll();
 					Thread.sleep(freshnessPeriod);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -152,6 +157,8 @@ public class UnneededPasswordTerminator extends Thread {
 				+ "userCashedPassword: " + userCashedPassword);
 
 		DebugTools.println(DEBUG_LEVEL, "[UnneededPasswordTerminator - isUserCachedPasswordStillFresh] "
+				+ "freshnessPeriod: " + freshnessPeriod);
+				DebugTools.println(DEBUG_LEVEL, "[UnneededPasswordTerminator - isUserCachedPasswordStillFresh] "
 				+ "Calendar.getInstance().getTime().getTime() > "
 				+ "userCashedPassword.getUpdateTs().getTime().getTime() + " + freshnessPeriod + ": "
 				+ Calendar.getInstance().getTime().getTime() + " <= " 
