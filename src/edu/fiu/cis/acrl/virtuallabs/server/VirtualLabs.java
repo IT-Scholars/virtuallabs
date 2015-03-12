@@ -779,6 +779,17 @@ public class VirtualLabs {
 		response.setSuccess(false);
 		response.setReason("Not Successful!");
 
+		// Cancelling user appointment for this veIns
+		String veIns = destroyDevaInsRequest.getDevaInsId();
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - destroyDevaIns] "
+				+ "Cancelling user appointment for " + veIns);
+		CancelUserAppointmentRequest cancelAppReq = new CancelUserAppointmentRequest();
+		cancelAppReq.setId(veIns);
+		cancelAppReq.setRequestingUser("admin");
+		CancelUserAppointmentResponse cancelAppRes = cancelUserAppointment(cancelAppReq);
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - destroyDevaIns] "
+				+ "Cancelling the user appointment was " + cancelAppRes.getSuccess());
+		
 		/*
 		vescheduler2
 		select * from ve_ins where id='be713787-8b1c-4fc1-8987-488675d9535d';
