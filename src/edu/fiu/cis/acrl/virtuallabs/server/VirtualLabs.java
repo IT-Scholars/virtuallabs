@@ -24,7 +24,6 @@ import edu.fiu.cis.acrl.quotasystem.ws.ScheduleAppointmentsResponse;
 import edu.fiu.cis.acrl.quotasystem.ws.UserNotFoundFault;
 import edu.fiu.cis.acrl.tools.timeperiod.TimePeriod;
 import edu.fiu.cis.acrl.tools.timeperiod.ScheduledEvent;
-
 import edu.fiu.cis.acrl.mentorscheduler.server.MentorScheduler;
 import edu.fiu.cis.acrl.mentorscheduler.ws.AddMentorRequest;
 import edu.fiu.cis.acrl.mentorscheduler.ws.AddMentorResponse;
@@ -123,6 +122,7 @@ import edu.fiu.cis.acrl.vescheduler.ws.ScheduleHostMaintenanceRequest;
 import edu.fiu.cis.acrl.vescheduler.ws.ScheduleHostMaintenanceResponse;
 import edu.fiu.cis.acrl.vescheduler.ws.ScheduleVERequest;
 import edu.fiu.cis.acrl.vescheduler.ws.ScheduleVEResponse;
+
 import java.util.concurrent.*;
 
 public class VirtualLabs { 
@@ -7155,6 +7155,32 @@ public class VirtualLabs {
 			}
 		}
 
+		// hotfix-DeleteUserMustDeleteVIns
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - delUserProfile] "
+				+ "Checking to see if " + user.getUserName() + " is enrolled in any course!");
+		Collection<String> userCourses = virtualLabsDB.getCourses(user.getUserName());
+		for (Iterator<String> iterator = userCourses.iterator(); iterator.hasNext();) {
+	        String userCourse = (String) iterator.next();
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - delUserProfile] "
+					+ "Unenrolling " + user.getUserName() + " from " + userCourse + "!");
+	        EnrollUserInCourseRequest userCourseUnenrollReq = new EnrollUserInCourseRequest();
+	        userCourseUnenrollReq.setUserName(user.getUserName());
+	        userCourseUnenrollReq.setCourseName(userCourse);
+	        userCourseUnenrollReq.setFlag(false);
+	        userCourseUnenrollReq.setRequestingUser("admin");
+	        EnrollUserInCourseResponse userCourseUnenrollResp = enrollUserInCourse(userCourseUnenrollReq);
+	        if (!userCourseUnenrollResp.getSuccess()) {
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - delUserProfile] "
+						+ "Unenrolling " + user.getUserName() + " from " + userCourse + " was not successful!");
+	        	resp.setSuccess(false);
+				resp.setReason(resp.getReason() + user.getUserName() + " could not be unenrolled from "
+						+ userCourse + "! ");
+	        } else {
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - delUserProfile] "
+						+ "Unenrolling " + user.getUserName() + " from " + userCourse + " was successful!");
+	        }
+		}
+		/*
 		String [] veInsIds = virtualLabsDB.getUserVEInsIds(delUserProfileRequest.getUserName());
 		for (int i=0; i<veInsIds.length; i++) {
 			
@@ -7188,10 +7214,12 @@ public class VirtualLabs {
 			
 			
 		}
-		
+
 		// TODO
 		// Delete the user from Kaseya too
 		// kaseyaWSClient.deleteAdmin(user.getUserName());
+		
+		*/
 		
 		if (virtualLabsDB.delUser(delUserProfileRequest.getUserName())) {
 			
