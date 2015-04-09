@@ -7046,37 +7046,42 @@ public class VirtualLabs {
 		
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd] Inside!");
 
-		String escapedPassword = escapeString(password);
-		String command = 
-			"htpasswd -b .htpasswd " + 
-			"'" + userName + "' " +
-			"'" + escapedPassword + "'";
+		if (password != null) {
+			String escapedPassword = escapeString(password);
+			String command = 
+					"htpasswd -b .htpasswd " + 
+							"'" + userName + "' " +
+							"'" + escapedPassword + "'";
+
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd ] " +
+					"command to be executed: " + command);
+
+			HtpasswdHost htpasswdHost = virtualLabsDB.getFirstActiveHtpasswdHost();
+			int wait = 0;
+			SSHCommand cmd = 
+					new SSHCommand(
+							command, 
+							htpasswdHost.getName(), 
+							htpasswdHost.getSshPort(), 
+							htpasswdHost.getUsername(), 
+							htpasswdHost.getPassword(),
+							wait);
+			int retCode = 0;
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd ] " +
+					"command that is going to be dispatched: " + command + " " +
+					"on host " + htpasswdHost.getName() + " " +
+					"and is in the waiting list for " + wait + " seconds!" +
+					" retCode is " + retCode);
+			retCode = cmd.run();
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd ] " +
+					"command that was executed: " + command + " " +
+					"on host " + htpasswdHost.getName() + " " +
+					" retCode is " + retCode);
+		} else {
+			DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd] "
+					+ "password is " + password);			
+		}
 		
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd ] " +
-				"command to be executed: " + command);
-
-		HtpasswdHost htpasswdHost = virtualLabsDB.getFirstActiveHtpasswdHost();
-		int wait = 0;
-		SSHCommand cmd = 
-			new SSHCommand(
-					command, 
-					htpasswdHost.getName(), 
-					htpasswdHost.getSshPort(), 
-					htpasswdHost.getUsername(), 
-					htpasswdHost.getPassword(),
-					wait);
-		int retCode = 0;
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd ] " +
-				"command that is going to be dispatched: " + command + " " +
-				"on host " + htpasswdHost.getName() + " " +
-				"and is in the waiting list for " + wait + " seconds!" +
-				" retCode is " + retCode);
-		retCode = cmd.run();
-		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd ] " +
-				"command that was executed: " + command + " " +
-				"on host " + htpasswdHost.getName() + " " +
-				" retCode is " + retCode);
-
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateHtpasswd] Ready to get out!");
 
 	}
@@ -7936,11 +7941,18 @@ public class VirtualLabs {
 
 			String tzStr = setUserDefaultTimeZoneIdRequest.getTimeZoneId();
 			tzStr = TimeZoneTools.getTimeZoneIdInJava(tzStr);
-			user.setTimeZone(tzStr);
+			if (tzStr.compareTo(user.getTimeZone()) != 0) {
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - getUserDefaultTimeZoneId] "
+						+ "time zone " + tzStr + " is different from the user's time zone " + user.getTimeZone());
 
-			virtualLabsDB.updateUser(user);
-			resp.setSuccess(true);
-			resp.setMessage(user + " has been updated");
+				user.setTimeZone(tzStr);
+				virtualLabsDB.updateUserTimeZone(user);
+				resp.setSuccess(true);
+				resp.setMessage(user + " has been updated");
+			} else {
+				DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - getUserDefaultTimeZoneId] "
+						+ "time zone " + tzStr + " is the same as user's time zone " + user.getTimeZone());				
+			}
 
 		}
 		else {

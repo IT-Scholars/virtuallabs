@@ -473,7 +473,9 @@ public class VirtualLabsDB {
 	 * Update a user profile
 	 */
 	public void updateUser(User user) {
-		System.out.println("[DB.updateUser()]");
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateUser] Inside!");
+
 		// Make sure the user does exist
 		if(userExists(user.getUserName())) 
 		{
@@ -630,6 +632,8 @@ public class VirtualLabsDB {
 			throw new Error("Record does not exist");
 
 		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateUser] Ready to get out!");
 
 	}
 
@@ -3314,6 +3318,38 @@ public class VirtualLabsDB {
 		DebugTools.println(DEBUG_LEVEL, "[VirtualLabsDB - isNoPlainTextPasswordInEffect4ThisUser] Ready to get out!");
 		
 		return retVal;
+
+	}
+
+	public void updateUserTimeZone(User user) {
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateUserTimeZone] Inside!");
+
+		// Make sure the user does exist
+		if(userExists(user.getUserName())) 
+		{
+
+			try {
+
+				String sqlStatement = "UPDATE user_profile SET time_zone_id = ? WHERE username = ?";
+				PreparedStatement ps = conn.prepareStatement(sqlStatement);
+				ps.setString(1, user.getTimeZone());
+				ps.setString(2, user.getUserName());
+				ps.executeUpdate();
+				ps.close();
+
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+				throw new Error("[VirtualLabs - updateUserTimeZone] "+e.getMessage());
+			}
+		} else {
+
+			throw new Error("[VirtualLabs - updateUserTimeZone] Record does not exist");
+
+		}
+
+		DebugTools.println(DEBUG_LEVEL, "[VirtualLabs - updateUserTimeZone] Ready to get out!");
 
 	}
 
